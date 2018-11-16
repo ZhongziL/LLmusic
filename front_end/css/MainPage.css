@@ -1,0 +1,122 @@
+body {
+	font-family: "微软雅黑";
+}
+
+.head-bar {
+	color: white;
+}
+
+.mui-title {
+	color: white;
+}
+
+.bar-nav {
+	height: 7%;
+	background-color: darkcyan;
+}
+
+.nav-link {
+	font-size: 125%;
+	margin-left: 5%;
+}
+
+.mine {
+	font-size: 140%;
+}
+
+.search-box {
+	background-color: darkcyan;
+	text-align: center;
+	padding-bottom: 6%;
+}
+
+.nav-search {
+	background-color: rgb(30, 100, 100);
+	color: white;
+	width: 96%;
+	border: hidden;
+	font-size: 100%;
+	margin-left: 2%;
+	padding: 1%;
+	border-radius: 2px;
+}
+
+.search-icon {
+	color: white;
+}
+
+.search-icon:active {
+	color: white;
+}
+
+.personal-card {
+	margin-top: -3%;
+}
+
+.personal-card-info {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.user-photo {
+	width: 5vh;
+	height: 5vh;
+	background-image: url('../resources/photo.jpg');
+	background-size: 100%;
+	border-radius: 50%;
+}
+
+.user-name {
+	color: black;
+	font-size: 125%;
+	margin-left:10%;
+	margin-bottom: 0;
+}
+
+.main-list-menu {
+	width: 100%;
+	overflow: hidden;
+}
+
+.main-list {
+	width: 33.3%;
+	float: left;
+	text-align: center;
+	margin: 0 auto;
+	font-size: 110%;
+}
+
+.main-list-icon {
+	width: 30%;
+}
+
+.song-number {
+	margin: 0;
+}
+
+.song-lists-select {
+	text-align: center;
+	font-size: 120%;
+}
+
+.song-lists-select a {
+	margin: 0 5%;
+}
+
+.song-lists-select a:active {
+	color: black;
+}
+
+.self-created {
+	color: black;
+}
+
+.collected {
+	color: gray;
+}
+
+.song-lists-operate {
+	width: 100%;
+	border: 2xp solid black;
+}
