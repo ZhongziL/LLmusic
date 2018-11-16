@@ -5,7 +5,7 @@
     <title>Document</title>
     <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
     <link rel="stylesheet" type="text/css" href="css/mui.css"/>
-    <link rel="stylesheet" type="text/css" href="css/MainPage.css"/>
+    <link rel="stylesheet" type="text/css" href="css/index.css"/>
 </head>
 <body>
     <!-- 主界面不动、菜单移动 -->
@@ -33,14 +33,9 @@
 			</div>
           </h1>
         </header>
-        <nav class="mui-bar mui-bar-tab">
-			<img class="mui-media-object mui-pull-left" src="../images/shuijiao.jpg">
-			<div class="mui-media-body">
-				歌曲名
-				<p class='mui-ellipsis'>歌手名</p>
-			</div>
-
-    	</nav>
+        <div class="mui-bar mui-bar-tab playing-song">
+			<div id=""></div>
+    	</div>
         <div class="mui-content mui-scroll-wrapper">
           <div class="mui-scroll">
             <!-- 主界面具体展示内容 -->
@@ -88,17 +83,19 @@
 								<a class="collected" href="CollectedSongLists.html">收藏歌单</a>
 							</div>
 							<div class="song-lists-operate">
-								<a class="mui-icon mui-icon-list pull-right" href="ManageSelfCreateSongLists.html"></a>
-		                       	<a class="mui-icon mui-icon-plusempty create-list" href="CreateNewSongList.html"></a>
+								<p class="song-lists-count">2个歌单</p>
+								<a href="ManageSongLists.html"><div class="song-lists-menu-icon manage-lists" /></div></a>
+								<a href="CreateSongLists.html"><div class="song-lists-menu-icon create-lists" /></div></a>
 							</div>
 						</div>
 						<div class="song-lists">
 							<ul class="mui-table-view">
 							    <li class="mui-table-view-cell mui-media">
-							        <a href="SongList.html">
-							            <img class="mui-media-object mui-pull-left" src="../images/shuijiao.jpg">
-							            <div class="mui-media-body">
-							                                歌单名字
+							        <a href="SongListItem.html">
+							            <div class="mui-media-body song-list-item">
+							                <img class="mui-media-object mui-pull-left song-list-cover" src="resources/photo.jpg">
+							                <h1>歌单名字</h1>
+							                <img class="mui-media-object mui-pull-right enter-icon" src="resources/enter-list.png">
 							                <p class='mui-ellipsis'>7首</p>
 							            </div>
 							        </a>

@@ -41,6 +41,10 @@ body {
 	border-radius: 2px;
 }
 
+.playing-song {
+	height: 10%;
+}
+
 .search-icon {
 	color: white;
 }
@@ -116,7 +120,54 @@ body {
 	color: gray;
 }
 
-.song-lists-operate {
-	width: 100%;
-	border: 2xp solid black;
+.song-lists-menu .song-lists-operate {
+	margin: 5% 2% 0% 2%;
+	overflow: hidden;
+}
+
+.song-lists-operate p {
+	width: 50%;
+	float: left;
+	margin-left: 2%;
+	font-size: 125%;
+	color: black;
+}
+
+.song-lists-menu-icon {
+	width: 10%;
+	height: 3.8vh;
+	float: right;
+	background-size: 85%;
+	background-repeat: no-repeat;
+}
+
+.create-lists {
+	background-image: url('../resources/add.png');
+}
+
+.manage-lists {
+	background-image: url('../resources/toc.png');
+}
+
+.song-list-item .song-list-cover {
+	float: left;
+}
+
+.song-list-item h1 {
+	width: 50%;
+	font-size: 100%;
+	margin: 1% 0;
+	float: left;
+}
+
+.song-list-item p {
+	width: 50%;
+	margin: 0;
+	float: left;
+}
+
+.song-list-item .enter-icon {
+	width: 20%;
+	float: right;
+	margin-right: -4%;
 }
