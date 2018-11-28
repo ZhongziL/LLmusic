@@ -1,0 +1,17 @@
+{
+  "name": "llmusic_back_end",
+  "version": "1.0.0",
+  "description": "Back_end of LLmusic",
+  "main": "LLserver.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "LLmusic"
+  ],
+  "author": "zhongziL",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
