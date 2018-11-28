@@ -1,0 +1,147 @@
+body {
+	font-family: "微软雅黑";
+	overflow: hidden;
+}
+
+.bar-nav {
+	background-color: darkcyan;
+}
+
+.bar-nav .search-input {
+	width: 80%;
+	position: absolute;
+	margin: 0.5% 10%;
+}
+
+.search-input input {
+	background-color: white;
+}
+
+.nav-back {
+	color: white;
+}
+
+.bar-nav a:active {
+	color: white;
+}
+
+.mui-title {
+	width: 100%;
+	color: white;
+	font-size: 125%;
+	margin-top: 3.5%;
+	padding-right: 5%;
+	text-align: center;
+}
+
+.playing-song {
+	height: 10%;
+	box-shadow: 0px 0 0px rgba(0, 0, 0, .5), 0px 0 0px rgba(0, 0, 0, .5);
+}
+
+.playing-song-cover {
+	width: calc(5vw + 5vh);
+	height: calc(5vw + 5vh);
+	margin: 3%;
+	border-radius: 50%;
+	background-image: url('../resources/photo.jpg');
+	background-size: 100%;
+	background-repeat: no-repeat;
+	float: left;
+}
+
+.playing-song h1 {
+	width: 40%;
+	margin-top: calc(1.8vw + 1.8vh);
+	font-size: calc(1.5vw + 1.5vh);
+	float: left;
+}
+
+.playing-song p {
+	width: 40%;
+	font-size: calc(1.25vw + 1.25vh);
+	float: left;
+	padding: 0;
+}
+
+.playing-button {
+	width: 5vh;
+	height: 5vh;
+	margin: 5% 2%;
+	border-radius: 50%;
+	background-size: 100%;
+	background-repeat: no-repeat;
+	float: right;
+}
+
+.playing {
+	background-image: url('../resources/play.png');
+}
+
+.music-queue {
+	background-image: url('../resources/mus-queue.png');
+	margin-right: 7%;
+}
+
+.search-submodule {
+	padding: 5%;
+}
+
+.search-subtitle {
+	width: 100%;
+	display: inline-block;
+}
+
+.search-subtitle p {
+	font-size: 100%;
+}
+
+.hot-search-item {
+	display: inline-block;
+	padding: 2%;
+	border-radius: 1em;
+	margin: 0 1% 2% 0;
+	border: 1px solid black;
+}
+
+.hot-search-item:nth-child(1) {
+	border-color: darkcyan;
+	color: darkcyan;
+}
+
+.search-history {
+	width: 100%;
+	padding-bottom: 0;
+	display: inline-block;
+}
+
+.search-history p {
+	float: left;
+}
+
+.clear-history {
+	border: none;
+	color: darkcyan;
+	float: right;
+	font-size: 100%;
+	padding: 0;
+}
+
+.mui-control-content {
+	min-height: 345px;
+}
+.mui-control-content .mui-loading {
+	margin-top: 50px;
+}
+
+.search-history-list {
+	margin-bottom: 5%;
+}
+
+.delete-icon {
+	float: right;
+}
+
+.mui-table-view-cell {
+	padding-left: 6%;
+}

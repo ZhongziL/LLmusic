@@ -2,8 +2,14 @@ body {
 	font-family: "微软雅黑";
 }
 
-.head-bar {
+.left-menu {
 	color: white;
+	opacity: 100%;
+}
+
+.left-menu:active {
+	color: white;
+	opacity: 100%;
 }
 
 .mui-title {
@@ -11,7 +17,6 @@ body {
 }
 
 .bar-nav {
-	height: 7%;
 	background-color: darkcyan;
 }
 
@@ -28,6 +33,7 @@ body {
 	background-color: darkcyan;
 	text-align: center;
 	padding-bottom: 6%;
+	margin-top: -1px;
 }
 
 .nav-search {
@@ -43,6 +49,50 @@ body {
 
 .playing-song {
 	height: 10%;
+}
+
+.playing-song-cover {
+	width: calc(5vw + 5vh);
+	height: calc(5vw + 5vh);
+	margin: 3%;
+	border-radius: 50%;
+	background-image: url('../resources/photo.jpg');
+	background-size: 100%;
+	background-repeat: no-repeat;
+	float: left;
+}
+
+.playing-song h1 {
+	width: 40%;
+	margin-top: calc(1.8vw + 1.8vh);
+	font-size: calc(1.5vw + 1.5vh);
+	float: left;
+}
+
+.playing-song p {
+	width: 40%;
+	font-size: calc(1.25vw + 1.25vh);
+	float: left;
+	padding: 0;
+}
+
+.playing-button {
+	width: 5vh;
+	height: 5vh;
+	margin: 5% 2%;
+	border-radius: 50%;
+	background-size: 100%;
+	background-repeat: no-repeat;
+	float: right;
+}
+
+.playing {
+	background-image: url(../resources/play.png);
+}
+
+.music-queue {
+	background-image: url(../resources/mus-queue.png);
+	margin-right: 7%;
 }
 
 .search-icon {
@@ -139,6 +189,10 @@ body {
 	float: right;
 	background-size: 85%;
 	background-repeat: no-repeat;
+}
+
+.song-lists {
+	overflow-y: scroll;
 }
 
 .create-lists {
