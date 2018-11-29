@@ -1,0 +1,64 @@
+body {
+	font-family: "微软雅黑";
+	background-color: darkcyan;
+	overflow: hidden;
+}
+
+.mui-bar-tab {
+	box-shadow: none;
+}
+
+.mui-icon {
+	color: white;
+}
+
+.mui-bar, .mui-content {
+	background-color: darkcyan;
+}
+
+.mui-bar-nav {
+	box-shadow: none;
+}
+
+.mui-bar-nav a {
+	color: white;
+}
+
+.mui-bar-nav h1 {
+	color: white;
+}
+
+.mui-tab-item .mui-badge {
+	background-color: darkcyan;
+}
+
+.mui-content .title {
+	color: white;
+	text-align: center;
+	font-size: 90%;
+	margin: 1%;
+}
+
+.mui-content img {
+	width: 70%;
+	margin: 5% 15%;
+	border-radius: 50%;
+}
+
+.mui-content .remic {
+	color: white;
+	text-align: center;
+}
+
+.inf-rotate {
+	-webkit-transform: rotate(360deg);
+    animation: rotation 60s linear infinite;
+    -moz-animation: rotation 60s linear infinite;
+    -webkit-animation: rotation 60s linear infinite;
+}
+
+@-webkit-keyframes rotation {
+    from {-webkit-transform: rotate(0deg);
+}to {
+    -webkit-transform: rotate(360deg);
+}}
