@@ -12,6 +12,13 @@
   "author": "zhongziL",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.16.4"
+    "body-parser": "^1.18.3",
+    "connect": "^3.6.6",
+    "connect-mongo": "^2.0.2",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.16.4",
+    "express-session": "^1.15.6",
+    "mongodb": "^3.1.10",
+    "mongoose": "^5.3.14"
   }
 }
