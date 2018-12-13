@@ -36,14 +36,24 @@
 				<div class="title">— 歌手名 —</div>
 				<img class="inf-rotate" src="../resources/photo.jpg" alt="" />
 				<div class="remic">假设这里有一句歌词<br />
-				但是我觉得这里显示的歌词行数需要是动态的<br />
-				以便适应不同的屏幕高度<br />
-				比如这个很长的屏幕<br />
-				就需要显示很多行歌词<br />
-				否则就会很空<br />
+					但是我觉得这里显示的歌词行数需要是动态的<br />
+					以便适应不同的屏幕高度<br />
+					比如这个很长的屏幕<br />
+					就需要显示很多行歌词<br />
+					否则就会很空<br />
 				</div>
-				<div class="progress">
-					<audio src="" ></audio>
+				
+				<div class="progress-bar">
+					<p id="start-time" class="time-stamp">00:00</p>
+					<div id="progress"><div id="sub-progress"></div></div>
+					<p id="end-time" class="time-stamp">00:00</p>
+				</div>
+				<div class="play-control">
+					<div class="playing-button play-mode"></div>
+					<div class="playing-button prev-song"></div>
+					<div class="playing-button playing"></div>
+				    <div class="playing-button next-song"></div>
+					<div class="playing-button music-queue"></div>
 				</div>
 			</div>
 		</div>
