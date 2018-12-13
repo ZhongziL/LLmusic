@@ -24,5 +24,13 @@ body {
 }
 
 .mui-content .mui-input-row input {
+	font-family: "微软雅黑";
 	border: none;
+	margin: 0;
+}
+
+.mui-content .limit-length {
+	color: darkcyan;
+	float: right;
+	margin-right: 5%;
 }
