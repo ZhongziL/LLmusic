@@ -132,17 +132,6 @@ body {
 	font-weight: bold;
 }
 
-.song-list-control .download {
-	float: right;
-	margin: 0;
-	margin-right: 5%;
-	width: 22px;
-	height: 22px;
-	background-image: url(../resources/download-darkcyan.svg);
-	background-repeat: no-repeat;
-	background-size: 100%;
-}
-
 .song-list-control .control-bars {
 	float: right;
 	margin: 0;
