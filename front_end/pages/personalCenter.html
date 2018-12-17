@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>Hello MUI</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<!--标准mui.css-->
+		<link rel="stylesheet" href="../css/mui.min.css">
+		<!--App自定义的css-->
+		<link rel="stylesheet" type="text/css" href="../css/app.css"/>
+		<link rel="stylesheet" href="../css/personalCenter.css">
+	</head>
+
+	<body>
+        <!-- 主页面标题 -->
+		<header class="mui-bar mui-bar-nav bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-arrowleft mui-pull-left nav-back" href="../index.html"></a>
+			<a class="mui-icon mui-icon-more mui-pull-right"></a>
+		</header>
+        <nav class="mui-bar mui-bar-tab playing-song">
+			<div class="playing-song-cover"></div>
+			<h1 class="song-name">歌曲名</h1>
+			<div class="playing-button music-queue"></div>
+			<div class="playing-button playing"></div>
+			<p class='mui-ellipsis singer-name'>歌手名</p>
+    	</nav>
+		<div class="mui-content">
+			<div class="mui-content-padded" style="margin: 0px;">
+				<div class="mui-card song-list-intro">
+					<div class="img-box"><img src="../resources/photo.jpg" /></div>
+					<div class="mui-media-body">
+						<h1>十一月</h1>
+					</div>
+				</div>
+				<div class="mui-card interact-lists">
+					<div class="mui-media-body">
+						<div class="focus interact-num">
+							<p>10</p>
+							<p>关注</p>
+						</div>
+						<div class="fans interact-num">
+							<p>250</p>
+							<p>粉丝</p>
+						</div>
+					</div>
+				</div>
+				<div class="mui-card like-title">
+					<div class="mui-card-content">
+						<div class="mui-card-content-inner">
+							<p>音乐口味：国语、流行
+							<a><span class="mui-icon mui-icon-arrowright"></span></a>
+							</p>
+						</div>
+					</div>
+					<div class="mui-table-view-cell">
+						<div class="mui-media-body">
+							<img class="mui-media-object mui-pull-left" src="../resources/photo.jpg">
+							<h1 class="my-like">我喜欢</h1>
+							<a><span class="mui-icon mui-icon-arrowright"></span></a>
+							<p class="my-like-num">3首单曲</p>
+						</div>
+					</div>
+				</div>
+				<div class="mui-card like-title">
+					<div class="mui-card-content">
+						<div class="mui-card-content-inner">
+							<p>歌单 3
+							<a><span class="mui-icon mui-icon-arrowright"></span></a>
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="mui-slider-item mui-control-content mui-active">
+					<div id="scroll1" class="mui-scroll-wrapper">
+						<div class="mui-scroll">
+							<ul class="mui-table-view search-history-list">
+								<li class="mui-table-view-cell">
+									<div class="mui-media-body">
+										<img class="mui-media-object mui-pull-left" src="../resources/photo.jpg">
+										<h1 class="song-name">歌单名1</h1>
+										<a id="icon-more"><span class="mui-icon mui-icon-more"></span></a>
+										<p class="mui-ellipsis">3首 0次播放</p>
+									</div>
+								</li>
+								<li class="mui-table-view-cell">
+									<div class="mui-media-body">
+											<img class="mui-media-object mui-pull-left" src="../resources/photo.jpg">
+										<h1 class="song-name">歌单名2</h1>
+										<a id="icon-more"><span class="mui-icon mui-icon-more"></span></a>
+										<p class="mui-ellipsis">4首 1次播放</p>
+									</div>
+								</li>
+								<li class="mui-table-view-cell">
+									<div class="mui-media-body">
+										<img class="mui-media-object mui-pull-left" src="../resources/photo.jpg">
+										<h1 class="song-name">歌单名3</h1>
+										<a id="icon-more"><span class="mui-icon mui-icon-more"></span></a>
+										<p class="mui-ellipsis">5首 2次播放</p>
+									</div>
+								</li>
+								<li class="mui-table-view-cell">
+									<div class="mui-media-body">
+										<img class="mui-media-object mui-pull-left" src="../resources/photo.jpg">
+										<h1 class="song-name">歌单名4/h1>
+										<a id="icon-more"><span class="mui-icon mui-icon-more"></span></a>
+										<p class="mui-ellipsis">6首 3次播放</p>
+									</div>
+								</li>
+								<li class="mui-table-view-cell">
+									<div class="mui-media-body">
+										<h1 class="song-num">5</h1>
+										<h1 class="song-name">歌曲名</h1>
+										<a id="icon-more"><span class="mui-icon mui-icon-more"></span></a>
+										<p class="mui-ellipsis">歌手名</p>
+									</div>
+								</li>
+								<li class="mui-table-view-cell">
+									<div class="mui-media-body">
+										<h1 class="song-num">6</h1>
+										<h1 class="song-name">歌曲名</h1>
+										<a id="icon-more"><span class="mui-icon mui-icon-more"></span></a>
+										<p class="mui-ellipsis">歌手名</p>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="../js/mui.min.js"></script>
+	<script>
+		mui.init({
+			swipeBack: false
+		});
+		(function($) {
+			$('.mui-scroll-wrapper').scroll({
+				indicators: true //是否显示滚动条
+			});
+			var sliderSegmentedControl = document.getElementById('sliderSegmentedControl');
+			$('.mui-input-group').on('change', 'input', function() {
+				if (this.checked) {
+					sliderSegmentedControl.className = 'mui-slider-indicator mui-segmented-control mui-segmented-control-inverted mui-segmented-control-' + this.value;
+					//force repaint
+					sliderProgressBar.setAttribute('style', sliderProgressBar.getAttribute('style'));
+				}
+			});
+		})(mui);
+	</script>
+</html>
