@@ -114,3 +114,46 @@ exports.getSong = function (req, res) {
 
     });
 };
+
+exports.addMusicList = function (req, res) {
+    if(req.session.user){
+		var list_name = req.body.name;
+		var description = req.body.description;
+
+		var musicList = new MusicList({list_name: list_name});
+        musicList.set('description', description);
+        musicList.save(function(err) {
+            if(err) {
+                console.log(err);
+                //req.session.error = 'error';
+                res.status(404);
+                res.end();
+            }
+        });
+
+        var username = req.body.username;
+
+        User.findOne({username: username}).exec(function (err, user) {
+            if(user) {
+                var lists = user.music_lists;
+                lists.push(musicList._id);
+                user.set('music_lists', lists);
+                user.save(function (err) {
+                   if(err) {
+                       res.status(404);
+                       res.end();
+                   }
+                });
+
+                res.status(200);
+                res.end();
+            } else {
+                res.status(404);
+                res.end();
+            }
+        });
+    } else {
+		res.status(404);
+		res.end();
+	}
+};
