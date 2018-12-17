@@ -78,3 +78,4 @@ module.exports = function(app) {
 	app.get('/get_comment', comment.get_comment);
 	app.post('/add_comment', comment.add_comment);
 }
+
