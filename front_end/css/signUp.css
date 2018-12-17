@@ -1,0 +1,65 @@
+body {
+	font-family: "微软雅黑";
+	overflow: hidden;
+	background-color: white;
+}
+
+label {
+	color: darkcyan;
+	font-weight: bold;
+}
+
+.mui-bar-nav {
+	box-shadow: none;
+	background-color: white;
+}
+
+.mui-bar-nav a {
+	color: darkcyan;
+}
+
+.mui-content {
+	background-color: white;
+}
+
+.app-title {
+	display: inline-block;
+	margin-left: 20%;
+	margin-top: calc(7.5vw + 7.5vh);
+}
+
+.app-title img {
+	width: 20%;
+	float: left;
+}
+
+.app-title h1 {
+	font-size: 250%;
+	font-weight: 100;
+	color: darkcyan;
+	width: 70%;
+	float: left;
+}
+
+.mui-input-group {
+	margin-top: calc(10vw + 10vh);
+}
+
+.mui-input-group .mui-btn-primary {
+	width: 95%;
+	background-color: darkcyan;
+	border: 1px solid darkcyan;
+}
+
+.mui-btn-primary:enabled:active,
+.mui-btn-primary.mui-active:enabled
+{
+    color: #fff;
+    border: 1px solid #fff;
+    background-color: darkcyan;
+}
+
+.mui-btn-outlined.mui-btn-primary
+{
+    color: darkcyan;
+}
