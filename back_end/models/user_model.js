@@ -4,7 +4,7 @@ var Schema = mongoose.Schema;
 var UserSchema = new Schema({
 	username: {type: String, unique: true},
 	password_hash: {type: String, required: true},
-	selftext: {type: String, default: ""},
+	self_description: {type: String, default: ""},
 	//telnumber: {type: String, default: ""},
 	email: {type: String, default: ""},
 	avatar_url: {type:String, default: ""},		//to add a picture url here

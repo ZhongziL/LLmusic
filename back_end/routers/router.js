@@ -2,12 +2,12 @@ var express = require('express');
 
 module.exports = function(app) {
 	var user = require('../controllers/user_controller.js');
-	var film = require('../controllers/film_controller.js');
+	// var film = require('../controllers/film_controller.js');
 	var comment = require('../controllers/comment_controller.js');
-	var sms = require('../controllers/ihuyi.js');
-	var send_message = new sms();
+	// var sms = require('../controllers/ihuyi.js');
+	// var send_message = new sms();
 
-	app.use('/static', express.static('./static'));
+	app.use('/static', express.static('./back_end/static'));
 	
 	app.get('/', function(req, res) {
 		console.log('request to route /');
@@ -57,7 +57,7 @@ module.exports = function(app) {
 
 	app.post('/register', user.register);
 
-	app.post('/check_tel', user.check_tel);
+	// app.post('/check_tel', user.check_tel);
 
 	app.get('/logout', user.logout);
 
@@ -77,5 +77,4 @@ module.exports = function(app) {
 
 	app.get('/get_comment', comment.get_comment);
 	app.post('/add_comment', comment.add_comment);
-}
-
+};
