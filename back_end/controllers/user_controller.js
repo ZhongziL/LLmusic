@@ -3,7 +3,7 @@ var crypto = require('crypto');
 var mongoose = require('mongoose');
 var User = mongoose.model('User');
 var multiparty = require('multiparty');
-var formidable = require('formidable');
+// var formidable = require('formidable');
 // var sms = require('./ihuyi.js');
 // var message = new sms();
 // var txt_front = "您的验证码是：";
@@ -16,42 +16,47 @@ function hashPW(password) {
 
 exports.login = function(req, res){
 	if(req.session.user) {
+		console.log(req);
+		console.log('already login');
 		res.status(404);
 		res.end();
 	} else {
-	var username = req.body.username;
-	var password = hashPW(req.body.password);
+		var username = req.body.username;
+		var password = hashPW(req.body.password);
 
-	var data = {
-		username: username
-	};
-	data = JSON.stringify(data);
+		console.log(req);
+		var data = {
+			username: username
+		};
+		data = JSON.stringify(data);
 
-	User.findOne({username: username})
-		.exec(function(err, user) {
-			if(user) {
-				if(user.password_hash === password) {
-					req.session.user = user;
-					req.session.msg = 'success';
-					console.log(username + " login");
-					res.status(200).json(data);
-					res.end();
+		User.findOne({username: username})
+			.exec(function(err, user) {
+				if(user) {
+					if(user.password_hash === password) {
+						req.session.user = user;
+						req.session.msg = 'success';
+						console.log(username + " login");
+						res.status(200).json(data);
+						res.end();
+					} else {
+						req.session.msg = 'password error';
+						console.log("password error");
+						res.status(404);
+						res.end();
+					}
 				} else {
-					req.session.msg = 'password error';
+					req.session.msg = 'no user';
 					res.status(404);
 					res.end();
 				}
-			} else {
-				req.session.msg = 'no user';
-				res.status(404);
-				res.end();
-			}
-		});
+			});
 	}
 };
 
 exports.logout = function(req, res) {
 	if(req.session.user){
+		console.log(req);
 		var username = req.session.user.username;
 		req.session.destroy(function(){
 			console.log(username + " logout");
@@ -59,6 +64,8 @@ exports.logout = function(req, res) {
 			res.end();
 		});
 	} else {
+		console.log(req);
+		console.log("no user");
 		res.status(404);
 		res.end();
 	}
@@ -71,9 +78,11 @@ exports.register = function(req, res){
 		res.end();
 	} else {
 		// var code = req.session.code;
+		// var username = req.body.username;
 		var username = req.body.username;
+
+		console.log(req);
 		var password = hashPW(req.body.password);
-		//console.log(username, password);
 		//console.log(req);
 		//console.log(code + " " + req.body.check_word);
 
@@ -93,9 +102,8 @@ exports.register = function(req, res){
 					res.end();
 					//return;
 				} else {
-					var new_user = new User({username: req.body.username});
-					user.set('password_hash', hashPW(req.body.password));
-					user.save(function(err) {
+					var new_user = new User({username: username, password_hash: password});
+					new_user.save(function(err) {
 						if(err) {
 							console.log(err);
 							//req.session.error = 'error';
