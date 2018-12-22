@@ -10,7 +10,7 @@
 	"icons": {
 		"72": "icon.png"
 	},
-	"launch_path": "index.html",/*应用的入口页面，默认为根目录下的index.html；支持网络地址，必须以http://或https://开头*/
+	"launch_path": "front_end/index.html",/*应用的入口页面，默认为根目录下的index.html；支持网络地址，必须以http://或https://开头*/
 	"developer": {
 		"name": "",/*开发者名称*/
 		"email": "",/*开发者邮箱地址*/
@@ -56,6 +56,7 @@
 				"frameworks": []
 			},
 			"google": {
+				"ImmersedStatusbar": true,
 				"packagename": "",/*Android应用包名，如io.dcloud.HelloH5*/
 				"keystore": "",/*Android应用打包使用的密钥库文件*/
 				"password": "",/*Android应用打包使用密钥库中证书的密码*/
@@ -124,6 +125,223 @@
 					"xxhdpi": ""
 				}
 			}
+		}
+	},
+	"dependencies": {
+		"pages": {
+			"index.html": {
+				"resources": [
+					"resources/toc.png",
+					"resources/heart.png",
+					"resources/music.png",
+					"resources/mus-queue.png",
+					"resources/play.png",
+					"resources/photo.jpg"
+				],
+				"refer": [
+					"pages/signUp.html",
+					"pages/signIn.html"
+				],
+				"priority": 0
+			},
+			"pages/signUp.html": {
+				"resources": [],
+				"refer": [
+					"index.html",
+					"pages/signIn.html"
+				],
+				"priority": 0
+			},
+			"pages/signIn.html": {
+				"resources": [],
+				"refer": [
+					"pages/signUp.html",
+					"index.html"
+				],
+				"priority": 0
+			},
+			"front_end/index.html": {
+				"resources": [],
+				"refer": [
+					"front_end/pages/search.html",
+					"front_end/pages/personalCenter.html",
+					"front_end/pages/songList.html",
+					"front_end/pages/player.html",
+					"front_end/pages/signUp.html",
+					"front_end/pages/signIn.html"
+				],
+				"priority": 0
+			},
+			"front_end/pages/search.html": {
+				"resources": [],
+				"refer": [
+					"front_end/index.html"
+				],
+				"priority": 0
+			},
+			"front_end/pages/personalCenter.html": {
+				"resources": [],
+				"refer": [
+					"front_end/index.html",
+					"front_end/pages/followingList.html",
+					"front_end/pages/followerList.html",
+					"front_end/pages/player.html"
+				],
+				"priority": 0
+			},
+			"front_end/pages/songList.html": {
+				"resources": [],
+				"refer": [
+					"front_end/index.html"
+				],
+				"priority": 0
+			},
+			"front_end/pages/followingList.html": {
+				"resources": [],
+				"refer": [
+					"front_end/pages/personalCenter.html"
+				],
+				"priority": 0
+			},
+			"front_end/pages/signUp.html": {
+				"resources": [],
+				"refer": [
+					"front_end/pages/signIn.html",
+					"front_end/index.html"
+				],
+				"priority": 0
+			},
+			"front_end/pages/signIn.html": {
+				"resources": [],
+				"refer": [
+					"front_end/pages/signUp.html",
+					"front_end/index.html"
+				],
+				"priority": 0
+			}
+		},
+		"idle": {
+			"resources": [
+				"front_end/resources/heart.svg",
+				"css/newIndex.css",
+				"resources/keyboard-arrow-right.png",
+				"resources/enterlist.png",
+				"front_end/resources/enter-list.PNG",
+				"css/manageSongList.css",
+				"pages/search.html",
+				"resources/prev-one.svg",
+				"front_end/resources/play-white.svg",
+				"front_end/css/index.css",
+				"package.json",
+				"js/mui.js",
+				"front_end/resources/toc.png",
+				"pages/player.html",
+				"README.md",
+				"front_end/resources/clock.png",
+				"front_end/pages/searchResult.html",
+				"front_end/resources/heart.png",
+				"fonts/mui.ttf",
+				"resources/add.png",
+				"resources/heart.svg",
+				"css/songList.css",
+				"front_end/resources/mus-queue-white.svg",
+				"back_end/models/music_list_model.js",
+				"front_end/css/mui.css",
+				"back_end/models/comment_model.js",
+				"front_end/new_index.html",
+				"pages/batchOperateSongs.html",
+				"front_end/resources/pause-white.svg",
+				"resources/pause.png",
+				"pages/manageSongList.html",
+				"front_end/resources/music.png",
+				"front_end/css/newIndex2.css",
+				"resources/next-one.svg",
+				"pages/tabtest.html",
+				"js/mui.min.js",
+				"resources/enter-list.PNG",
+				"resources/plus.png",
+				"front_end/css/batchOperateSongs.css",
+				"front_end/resources/enterlist.png",
+				"resources/download-darkcyan.svg",
+				"front_end/pages/batchOperateSongs.html",
+				"front_end/css/manageSongList.css",
+				"css/batchOperateSongs.css",
+				"LLserver.js",
+				"pages/searchResult.html",
+				"resources/menu.svg",
+				"front_end/resources/clock.svg",
+				"pages/createSongList.html",
+				"front_end/fonts/mui.ttf",
+				"front_end/css/search.css",
+				"resources/keyboard-arrow-right.svg",
+				"pages/followingList.html",
+				"css/mui.min.css",
+				"front_end/js/mui.js",
+				"front_end/resources/llmusic.svg",
+				"front_end/resources/repeat.svg",
+				"front_end/css/createSongList.css",
+				"front_end/js/mui.min.js",
+				"css/searchResult.css",
+				"pages/songList.html",
+				"front_end/resources/download.svg",
+				"front_end/resources/prev-one.svg",
+				"resources/mus-queue-white.svg",
+				"resources/music.svg",
+				"front_end/resources/menu.svg",
+				"front_end/pages/new_index_2.html",
+				"new_index.html",
+				"back_end/models/music_model.js",
+				"front_end/resources/plus.png",
+				"front_end/resources/mus-queue.png",
+				"front_end/css/signUp.css",
+				"css/followerList.css",
+				"front_end/resources/download-darkcyan.svg",
+				"resources/menu-darkcyan.svg",
+				"resources/download.svg",
+				"pages/personalCenter.html",
+				"css/mui.css",
+				"front_end/css/newIndex.css",
+				"pages/followerList.html",
+				"front_end/manifest.json",
+				"front_end/resources/photo.jpg",
+				"front_end/css/songList.css",
+				"back_end/models/readme.txt",
+				"css/player.css",
+				"resources/clock.png",
+				"front_end/css/followerList.css",
+				"css/signUp.css",
+				"front_end/css/player.css",
+				"resources/llmusic.svg",
+				"pages/new_index_2.html",
+				"front_end/resources/keyboard-arrow-right.png",
+				"front_end/resources/keyboard-arrow-right.svg",
+				"back_end/controllers/user_controller.js",
+				"css/search.css",
+				"front_end/pages/manageSongList.html",
+				"resources/repeat.svg",
+				"resources/pause-white.svg",
+				"front_end/resources/play.png",
+				"front_end/css/app.css",
+				"css/personalCenter.css",
+				"css/index.css",
+				"front_end/css/mui.min.css",
+				"css/createSongList.css",
+				"resources/clock.svg",
+				"back_end/models/user_model.js",
+				"front_end/pages/tabtest.html",
+				"front_end/resources/next-one.svg",
+				"back_end/routers/router.js",
+				"resources/play-white.svg",
+				"front_end/resources/menu-darkcyan.svg",
+				"front_end/css/searchResult.css",
+				"css/app.css",
+				"front_end/resources/add.png",
+				"front_end/css/personalCenter.css",
+				"front_end/resources/music.svg",
+				"front_end/resources/pause.png",
+				"front_end/pages/createSongList.html",
+				"css/newIndex2.css"
+			]
 		}
 	}
 }

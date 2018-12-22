@@ -1,172 +1,164 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8" />
-    <title>LL Music</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-    <link rel="stylesheet" type="text/css" href="css/mui.css"/>
-    <link rel="stylesheet" type="text/css" href="css/index.css"/>
-</head>
-<body>
-    <!-- 主界面不动、菜单移动 -->
-    <!-- 侧滑导航根容器 -->
-    <div class="mui-off-canvas-wrap mui-draggable mui-slide-in">
-      <!-- 菜单容器 -->
-      <aside class="mui-off-canvas-left" id="offCanvasSide">
-        <div class="mui-scroll-wrapper">
-          <div class="mui-scroll">
-            <!-- 菜单具体展示内容 -->
-          </div>
-        </div>
-      </aside>
-      <!-- 主页面容器 -->
-      <div class="mui-inner-wrap">
-  
-        <!-- 主页面标题 -->
-        <header class="mui-bar mui-bar-nav bar-nav">
-          <a class="mui-icon mui-action-menu mui-icon-bars mui-pull-left left-menu" href="#offCanvasSide"></a>
-          <h1 class="mui-title">
-			<div>
-				<a class="nav-link mine" href="personalCenter.html">我的</a>
-				<a class="nav-link music-museum" href="musicMuseum.html">音乐馆</a>
-				<a class="nav-link found" href="found.html">发现</a>
-			</div>
-          </h1>
-        </header>
-        <nav class="mui-bar mui-bar-tab playing-song">
-			<div class="playing-song-cover"></div>
-			<h1 class="song-name">歌曲名</h1>
-			<div class="playing-button music-queue"></div>
-			<div class="playing-button playing"></div>
-			<p class='mui-ellipsis singer-name'>歌手名</p>
-    	</nav>
-        <div class="mui-content">
-          <div class="mui-scroll">
-            <!-- 主界面具体展示内容 -->
- 			<a href="search.html">
- 				<div class="search-box">
-					<div class="nav-search">
-						<a class="mui-icon mui-icon-search search-icon" href="search.html"></a>
-						搜索
-            		</div>
-           		</div>
- 			</a>
-            <a href="personalcenter.html"><div class="mui-card personal-card">
-				<div class="mui-card-content">
-					<div class="mui-card-content-inner personal-card-info">
-						<div class="user-photo"></div>
-						<p class="user-name">十一月</p>
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>Personal Center</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<!--标准mui.css-->
+		<link rel="stylesheet" href="css/mui.min.css">
+		<!--App自定义的css-->
+		<link rel="stylesheet" href="css/personalCenter.css">
+		<link rel="stylesheet" href="css/index.css" />
+		<link rel="stylesheet" href="css/newIndex2.css" />
+		
+		<script src="js/mui.min.js"></script>
+		<script src="js/index.js"></script>
+	</head>
+
+	<body>
+		<div id="offCanvasWrapper" class="mui-off-canvas-wrap mui-draggable">
+			<!--侧滑菜单部分-->
+			<aside id="offCanvasSide" class="mui-off-canvas-left">
+				<div id="offCanvasSideScroll" class="mui-scroll-wrapper">
+					<div class="mui-scroll">
+						<!--<div class="title" style="margin-bottom: 25px;">侧滑列表</div>-->
+						<ul class="mui-table-view mui-table-view-chevron mui-table-view-inverted aside-list">
+							<li class="mui-table-view-cell sign-in"><a class="mui-navigate-right">登录</a></li>
+							<li class="mui-table-view-cell sign-up"><a class="mui-navigate-right">注册</a></li>
+						</ul>
 					</div>
 				</div>
-			</div></a>
-			<div class="mui-card main-list-card">
-				<div class="mui-card-content">
-					<div class="mui-card-content-inner main-list-menu">
-						<div class="main-list">
-                        	<div class="main-list-icon-container"><img class="main-list-icon" src="resources/music.png"/></div>
-							本地音乐
-							<p class="song-number">77</p>
+			</aside>
+			<!--主界面部分-->
+			<div class="mui-inner-wrap">
+		        <!-- 主页面标题 -->
+				<header class="mui-bar mui-bar-nav bar-nav">
+					<a href="#offCanvasSide" class="mui-icon mui-action-menu mui-icon-bars mui-pull-left"></a>
+			        <h1 class="mui-title">
+					<div><a class="nav-link mine" href="">我的</a>
+						 <a class="nav-link music-museum" href="musicMuseum.html">音乐馆</a>
+						 <a class="nav-link found" href="found.html">发现</a>
+					</div>
+			        </h1>
+				</header>
+		        <nav class="mui-bar mui-bar-tab playing-song">
+					<div class="playing-song-cover"></div>
+					<h1 class="song-name">歌曲名</h1>
+					<div class="playing-button music-queue"></div>
+					<div class="playing-button playing"></div>
+					<p class='mui-ellipsis singer-name'>歌手名</p>
+		    	</nav>
+				<div class="mui-content">
+					<div class="search-box">
+						<div class="nav-search">
+							<a class="mui-icon mui-icon-search search-icon" href="pages/search.html"></a>
+							搜索
+		            	</div>
+		           	</div>
+		       		<div class="mui-card personal-card mui-content-padded" style="margin: 10px; margin-top: -3%;" onclick="alert('?')">
+						<div class="mui-card-content" style="padding: 10px;">
+							<div class="mui-card-content-inner personal-card-info">
+								<div class="user-photo"></div>
+								<p class="user-name">十一月</p>
+							</div>
 						</div>
-						<div class="main-list">
-                        	<div class="main-list-icon-container"><img class="main-list-icon" src="resources/heart.png"/></div>
-							我喜欢
-							<p class="song-number">7</p>
+					</div>
+					<div class="mui-card main-list-card mui-content-padded" style="margin: 10px;">
+						<div class="mui-card-content" style="padding: 10px;">
+							<div class="mui-card-content-inner main-list-menu">
+								<div class="main-list">
+		                        	<div class="main-list-icon-container"><img class="main-list-icon" src="resources/music.png"/></div>
+									本地音乐
+									<p class="song-number">77</p>
+								</div>
+								<div class="main-list">
+		                        	<div class="main-list-icon-container"><img class="main-list-icon" src="resources/heart.png"/></div>
+									我喜欢
+									<p class="song-number">7</p>
+								</div>
+		                        <div class="main-list">
+		                        	<div class="main-list-icon-container"><img class="main-list-icon" src="resources/clock.png"/></div>
+		                        	最近播放
+		                        	<p class="song-number">200</p>
+		                        </div>
+							</div>
 						</div>
-                        <div class="main-list">
-                        	<div class="main-list-icon-container"><img class="main-list-icon" src="resources/clock.png"/></div>
-                        	最近播放
-                        	<p class="song-number">200</p>
-                        </div>
+					</div>
+					<div class="mui-content-padded" style="margin: 10px;">
+						<div class="mui-card like-title">
+							<div class="mui-card-content">
+								<div class="mui-card-content-inner">
+									<p>歌单 3
+									<a><span class="mui-icon mui-icon-arrowright"></span></a>
+									</p>
+								</div>
+							</div>
+						</div>
+						<div class="mui-slider-item mui-control-content mui-active">
+							<div id="scroll1" class="mui-scroll-wrapper">
+								<div class="mui-scroll">
+									<ul class="mui-table-view search-history-list">
+										<li class="mui-table-view-cell">
+											<div class="mui-media-body">
+												<img class="mui-media-object mui-pull-left" src="resources/photo.jpg">
+												<h1 class="song-name">歌单名1</h1>
+												<a><span class="mui-icon mui-icon-arrowright"></span></a>
+												<p class="mui-ellipsis">3首 0次播放</p>
+											</div>
+										</li>
+										<li class="mui-table-view-cell">
+											<div class="mui-media-body">
+												<img class="mui-media-object mui-pull-left" src="resources/photo.jpg">
+												<h1 class="song-name">歌单名2</h1>
+												<a><span class="mui-icon mui-icon-arrowright"></span></a>
+												<p class="mui-ellipsis">4首 1次播放</p>
+											</div>
+										</li>
+										<li class="mui-table-view-cell">
+											<div class="mui-media-body">
+												<img class="mui-media-object mui-pull-left" src="resources/photo.jpg">
+												<h1 class="song-name">歌单名3</h1>
+												<a><span class="mui-icon mui-icon-arrowright"></span></a>
+												<p class="mui-ellipsis">5首 2次播放</p>
+											</div>
+										</li>
+										<li class="mui-table-view-cell">
+											<div class="mui-media-body">
+												<img class="mui-media-object mui-pull-left" src="resources/photo.jpg">
+												<h1 class="song-name">歌单名4</h1>
+												<a><span class="mui-icon mui-icon-arrowright"></span></a>
+												<p class="mui-ellipsis">6首 3次播放</p>
+											</div>
+										</li>
+										<li class="mui-table-view-cell">
+											<div class="mui-media-body">
+												<img class="mui-media-object mui-pull-left" src="resources/photo.jpg">
+												<h1 class="song-name">歌单名5</h1>
+												<a><span class="mui-icon mui-icon-arrowright"></span></a>
+												<p class="mui-ellipsis">7首 4次播放</p>
+											</div>
+										</li>
+										<li class="mui-table-view-cell">
+											<div class="mui-media-body">
+												<img class="mui-media-object mui-pull-left" src="resources/photo.jpg">
+												<h1 class="song-name">歌单名6</h1>
+												<a><span class="mui-icon mui-icon-arrowright"></span></a>
+												<p class="mui-ellipsis">8首 5次播放</p>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
-			</div>
-			<div class="mui-card">
-				<div class="mui-card-content">
-					<div class="mui-card-content-inner main-list-menu">
-						<div class="song-lists-menu">
-							<div class="song-lists-select">
-								<a class="self-created" href="SelfCreatedSongLists.html">自建歌单</a> |
-								<a class="collected" href="CollectedSongLists.html">收藏歌单</a>
-							</div>
-							<div class="song-lists-operate">
-								<p class="song-lists-count">2个歌单</p>
-								<a href="ManageSongLists.html"><div class="song-lists-menu-icon manage-lists" /></div></a>
-								<a href="CreateSongLists.html"><div class="song-lists-menu-icon create-lists" /></div></a>
-							</div>
-						</div>
-						<div class="song-lists">
-							<ul class="mui-table-view">
-							    <li class="mui-table-view-cell mui-media">
-							        <a href="SongListItem.html">
-							            <div class="mui-media-body song-list-item">
-							                <img class="mui-media-object mui-pull-left song-list-cover" src="resources/photo.jpg">
-							                <h1>歌单名字</h1>
-							                <img class="mui-media-object mui-pull-right enter-icon" src="resources/enter-list.png">
-							                <p class='mui-ellipsis'>7首</p>
-							            </div>
-							        </a>
-							        <a href="SongListItem.html">
-							            <div class="mui-media-body song-list-item">
-							                <img class="mui-media-object mui-pull-left song-list-cover" src="resources/photo.jpg">
-							                <h1>歌单名字</h1>
-							                <img class="mui-media-object mui-pull-right enter-icon" src="resources/enter-list.png">
-							                <p class='mui-ellipsis'>7首</p>
-							            </div>
-							        </a>
-							        <a href="SongListItem.html">
-							            <div class="mui-media-body song-list-item">
-							                <img class="mui-media-object mui-pull-left song-list-cover" src="resources/photo.jpg">
-							                <h1>歌单名字</h1>
-							                <img class="mui-media-object mui-pull-right enter-icon" src="resources/enter-list.png">
-							                <p class='mui-ellipsis'>7首</p>
-							            </div>
-							        </a>
-							        <a href="SongListItem.html">
-							            <div class="mui-media-body song-list-item">
-							                <img class="mui-media-object mui-pull-left song-list-cover" src="resources/photo.jpg">
-							                <h1>歌单名字</h1>
-							                <img class="mui-media-object mui-pull-right enter-icon" src="resources/enter-list.png">
-							                <p class='mui-ellipsis'>7首</p>
-							            </div>
-							        </a>
-							        <a href="SongListItem.html">
-							            <div class="mui-media-body song-list-item">
-							                <img class="mui-media-object mui-pull-left song-list-cover" src="resources/photo.jpg">
-							                <h1>歌单名字</h1>
-							                <img class="mui-media-object mui-pull-right enter-icon" src="resources/enter-list.png">
-							                <p class='mui-ellipsis'>7首</p>
-							            </div>
-							        </a>
-							    </li>
-							</ul>
-						</div>
-					</div>	
-				</div>
-			</div>
-          </div>
-        </div>  
-        <div class="mui-off-canvas-backdrop"></div>
-      </div>
-    </div>
-    <script src="js/mui.js" type="text/javascript" charset="utf-8"></script>
-	<script src="js/mui.min.js"></script>
-	<script>
-		mui.init({
-			swipeBack: false
-		});
-		(function($) {
-			$('.mui-scroll-wrapper').scroll({
-				indicators: true //是否显示滚动条
-			});
-			var sliderSegmentedControl = document.getElementById('sliderSegmentedControl');
-			$('.mui-input-group').on('change', 'input', function() {
-				if (this.checked) {
-					sliderSegmentedControl.className = 'mui-slider-indicator mui-segmented-control mui-segmented-control-inverted mui-segmented-control-' + this.value;
-					//force repaint
-					sliderProgressBar.setAttribute('style', sliderProgressBar.getAttribute('style'));
-				}
-			});
-		})(mui);
-	</script>
-</body>
+				
+				<!-- off-canvas backdrop -->
+			<div class="mui-off-canvas-backdrop"></div>
+		</div>
+	</div>
+	</body>
 </html>

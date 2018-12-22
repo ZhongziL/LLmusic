@@ -1,0 +1,73 @@
+{
+	"index.html": {
+		"resources": [
+			"resources/toc.png",
+			"resources/heart.png",
+			"resources/music.png",
+			"resources/mus-queue.png",
+			"resources/play.png",
+			"resources/photo.jpg"
+		],
+		"refer": [
+			"pages/signUp.html",
+			"pages/signIn.html"
+		]
+	},
+	"pages/signUp.html": {
+		"refer": [
+			"index.html",
+			"pages/signIn.html"
+		]
+	},
+	"pages/signIn.html": {
+		"refer": [
+			"pages/signUp.html",
+			"index.html"
+		]
+	},
+	"front_end/index.html": {
+		"refer": [
+			"front_end/pages/search.html",
+			"front_end/pages/personalCenter.html",
+			"front_end/pages/songList.html",
+			"front_end/pages/player.html",
+			"front_end/pages/signUp.html",
+			"front_end/pages/signIn.html"
+		]
+	},
+	"front_end/pages/search.html": {
+		"refer": [
+			"front_end/index.html"
+		]
+	},
+	"front_end/pages/personalCenter.html": {
+		"refer": [
+			"front_end/index.html",
+			"front_end/pages/followingList.html",
+			"front_end/pages/followerList.html",
+			"front_end/pages/player.html"
+		]
+	},
+	"front_end/pages/songList.html": {
+		"refer": [
+			"front_end/index.html"
+		]
+	},
+	"front_end/pages/followingList.html": {
+		"refer": [
+			"front_end/pages/personalCenter.html"
+		]
+	},
+	"front_end/pages/signUp.html": {
+		"refer": [
+			"front_end/pages/signIn.html",
+			"front_end/index.html"
+		]
+	},
+	"front_end/pages/signIn.html": {
+		"refer": [
+			"front_end/pages/signUp.html",
+			"front_end/index.html"
+		]
+	}
+}

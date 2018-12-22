@@ -1,50 +1,31 @@
-body {
+#offCanvasWrapper {
 	font-family: "微软雅黑";
 }
 
-.mui-icon-bars {
-	color: white;
-	opacity: 100%;
+.mui-off-canvas-left {
+	color: #fff;
 }
 
-.mui-icon-bars:active {
-	color: white;
-	opacity: 100%;
+.title {
+	margin: 35px 15px 10px;
 }
 
-.mui-title {
+.mui-inner-wrap a {
 	color: white;
 }
 
-.bar-nav {
+.mui-inner-wrap .bar-nav {
 	background-color: darkcyan;
 }
 
-.nav-link {
-	font-size: 125%;
+.mui-inner-wrap .bar-nav .nav-link {
+	font-size: 120%;
+	color: white;
 	margin-left: 5%;
 }
 
-.mine {
+.mui-inner-wrap .bar-nav .mine {
 	font-size: 140%;
-}
-
-.search-box {
-	background-color: darkcyan;
-	text-align: center;
-	padding-bottom: 6%;
-	margin-top: -1px;
-}
-
-.nav-search {
-	background-color: rgb(30, 100, 100);
-	color: white;
-	width: 96%;
-	border: hidden;
-	font-size: 100%;
-	margin-left: 2%;
-	padding: 1%;
-	border-radius: 2px;
 }
 
 .playing-song {
@@ -95,15 +76,29 @@ body {
 	margin-right: 7%;
 }
 
-.search-icon {
+.search-box {
+	background-color: darkcyan;
+	text-align: center;
+	padding-bottom: 6%;
+	margin-top: -1px;
+}
+
+.nav-search {
+	background-color: rgb(30, 100, 100);
 	color: white;
+	width: 96%;
+	border: hidden;
+	font-size: 100%;
+	margin-left: 2%;
+	padding: 1%;
+	border-radius: 2px;
 }
 
 .search-icon:active {
 	color: white;
 }
 
-.personal-card {
+.mui-content .personal-card {
 	margin-top: -3%;
 }
 
@@ -149,79 +144,8 @@ body {
 	margin: 0;
 }
 
-.song-lists-select {
-	text-align: center;
-	font-size: 120%;
-}
-
-.song-lists-select a {
-	margin: 0 5%;
-}
-
-.song-lists-select a:active {
-	color: black;
-}
-
-.self-created {
-	color: black;
-}
-
-.collected {
-	color: gray;
-}
-
-.song-lists-menu .song-lists-operate {
-	margin: 5% 2% 0% 2%;
-	overflow: hidden;
-}
-
-.song-lists-operate p {
-	width: 50%;
-	float: left;
-	margin-left: 2%;
-	font-size: 125%;
-	color: black;
-}
-
-.song-lists-menu-icon {
-	width: 10%;
-	height: 3.8vh;
-	float: right;
-	background-size: 85%;
-	background-repeat: no-repeat;
-}
-
-.song-lists {
-	overflow-y: scroll;
-}
-
-.create-lists {
-	background-image: url('../resources/add.png');
-}
-
-.manage-lists {
-	background-image: url('../resources/toc.png');
-}
-
-.song-list-item .song-list-cover {
-	float: left;
-}
-
-.song-list-item h1 {
-	width: 50%;
-	font-size: 100%;
-	margin: 1% 0;
-	float: left;
-}
-
-.song-list-item p {
-	width: 50%;
-	margin: 0;
-	float: left;
-}
-
-.song-list-item .enter-icon {
-	width: 20%;
-	float: right;
-	margin-right: -4%;
+.song-list {
+	width: 400px;
+	height: 550px;
+	border: 1px solid black;
 }

@@ -242,12 +242,12 @@ body {
 }
 
 .my-like {
-	font-size: 135%;
+	font-size: 120%;
 	width: 50%;
 	float: left;
 	margin: 1%;
-	margin-left: 3%;
 	text-align: left;
+	padding-left: 3%;
 }
 
 .my-like-num {
@@ -256,6 +256,6 @@ body {
 	font-weight: 100;
 	float: left;
 	margin: 2%;
-	margin-left: 3%;
+	padding-left: 3%;
 	text-align: left;
 }
