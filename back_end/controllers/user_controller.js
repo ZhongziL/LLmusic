@@ -3,11 +3,11 @@ var crypto = require('crypto');
 var mongoose = require('mongoose');
 var User = mongoose.model('User');
 var multiparty = require('multiparty');
-var formidable = require('formidable');
-var sms = require('./ihuyi.js');
-var message = new sms();
-var txt_front = "您的验证码是：";
-var txt_back = "。请不要把验证码泄露给其他人。";
+// var formidable = require('formidable');
+// var sms = require('./ihuyi.js');
+// var message = new sms();
+// var txt_front = "您的验证码是：";
+// var txt_back = "。请不要把验证码泄露给其他人。";
 
 function hashPW(password) {
 	return crypto.createHash('sha256').update(password)
@@ -16,42 +16,47 @@ function hashPW(password) {
 
 exports.login = function(req, res){
 	if(req.session.user) {
+		console.log(req);
+		console.log('already login');
 		res.status(404);
 		res.end();
 	} else {
-	var username = req.body.username;
-	var password = hashPW(req.body.password);
+		var username = req.body.username;
+		var password = hashPW(req.body.password);
 
-	var data = {
-		username: username
-	};
-	data = JSON.stringify(data);
+		console.log(req);
+		var data = {
+			username: username
+		};
+		data = JSON.stringify(data);
 
-	User.findOne({username: username})
-		.exec(function(err, user) {
-			if(user) {
-				if(user.password_hash == password) {
-					req.session.user = user;
-					req.session.msg = 'success';
-					console.log(username + " login");
-					res.status(200).json(data);
-					res.end();
+		User.findOne({username: username})
+			.exec(function(err, user) {
+				if(user) {
+					if(user.password_hash === password) {
+						req.session.user = user;
+						req.session.msg = 'success';
+						console.log(username + " login");
+						res.status(200).json(data);
+						res.end();
+					} else {
+						req.session.msg = 'password error';
+						console.log("password error");
+						res.status(404);
+						res.end();
+					}
 				} else {
-					req.session.msg = 'password error';
+					req.session.msg = 'no user';
 					res.status(404);
 					res.end();
 				}
-			} else {
-				req.session.msg = 'no user';
-				res.status(404);
-				res.end();
-			}
-	});
+			});
 	}
 };
 
 exports.logout = function(req, res) {
 	if(req.session.user){
+		console.log(req);
 		var username = req.session.user.username;
 		req.session.destroy(function(){
 			console.log(username + " logout");
@@ -59,10 +64,12 @@ exports.logout = function(req, res) {
 			res.end();
 		});
 	} else {
+		console.log(req);
+		console.log("no user");
 		res.status(404);
 		res.end();
 	}
-}
+};
 
 exports.register = function(req, res){
 	if(req.session.user) {
@@ -70,44 +77,48 @@ exports.register = function(req, res){
 		res.status(404).json({msg:"you have already logined"});
 		res.end();
 	} else {
-	var code = req.session.code;
-	var username = req.body.username;
-	var password = hashPW(req.body.password);
-	//console.log(username, password);
-	//console.log(req);
-	//console.log(code + " " + req.body.check_word);
+		// var code = req.session.code;
+		// var username = req.body.username;
+		var username = req.body.username;
 
-	var data = {
-		username: username
-	};
-	data = JSON.stringify(data);
-	//console.log(data);
-	//res.sendStatus(404);
-	//res.send(data);
+		console.log(req);
+		var password = hashPW(req.body.password);
+		//console.log(req);
+		//console.log(code + " " + req.body.check_word);
 
-	if(code == req.body.check_word && code != '') {
-		var user = new User({username: req.body.username});
-		user.set('password_hash', hashPW(req.body.password));
-		user.save(function(err) {
-			if(err) {
-				console.log(err);
-				//req.session.error = 'error';
-				res.status(404);
-				res.end();
-			} else {
-				//console.log("you");
-				req.session.user = user;
-				req.session.msg = 'success';
-				res.status(200).json(data);
-				res.end();
-			}
+		var data = {
+			username: username
+		};
+		data = JSON.stringify(data);
+		//console.log(data);
+		//res.sendStatus(404);
+		//res.send(data);
+
+		User.findOne({username: username})
+			.exec(function(err, user){
+				if(user) {
+					req.session.msg = 'username is already exist';
+					res.status(404);
+					res.end();
+					//return;
+				} else {
+					var new_user = new User({username: username, password_hash: password});
+					new_user.save(function(err) {
+						if(err) {
+							console.log(err);
+							//req.session.error = 'error';
+							res.status(404);
+							res.end();
+						} else {
+							//console.log("you");
+							req.session.user = new_user;
+							req.session.msg = 'success';
+							res.status(200).json(data);
+							res.end();
+						}
+					});
+				}
 		});
-		//res.status(200);
-	} else {
-		console.log('验证码错误');
-		res.status(404).json({msg: "验证码错误"});
-		res.end();
-	}
 	}
 
 	/*if(req.body.username == '18819253726') {
@@ -148,7 +159,7 @@ exports.check_tel = function(req, res){
 				//return;
 			}			
 	});
-}
+};
 
 exports.upload = function(req, res) { //请使用$.ajax 不要使用$.post, 需要用到contentType,processData字段
 	if(req.session.user) {
@@ -172,7 +183,7 @@ exports.upload = function(req, res) { //请使用$.ajax 不要使用$.post, 需�
 	    	avatar_now = req.session.user.avatar_url;
 	  		console.log("old url= " + avatar_now);
 
-	    	if(avatar_now != "") {
+	    	if(avatar_now !== "") {
 	    		fs.unlink(avatar_now, function(err) {
 	    			if(err) {
 	    				console.log(err);
@@ -218,7 +229,7 @@ exports.get_avatar = function(req, res) {
 		res.status(404).json({msg:"please login first"});
 		res.end();
 	}
-}
+};
 
 exports.preview_pic = function(req, res) {
 	if(req.session.user) {
@@ -245,4 +256,4 @@ exports.preview_pic = function(req, res) {
 		res.status(404).json({msg:"please login first"});
 		res.end();
 	}
-}
+};

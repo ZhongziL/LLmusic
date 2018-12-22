@@ -6,6 +6,7 @@ var MusicSchema = new Schema({
 	singer_name: {type: String},
 	// timestamp: {type: Date},
 	song_words: {type: String},
+    song_url: {type: String, unique: true},
     comments: [{type: Schema.ObjectId, ref:'Comment', default: null}]
 }, {collection:'Music'});
 
