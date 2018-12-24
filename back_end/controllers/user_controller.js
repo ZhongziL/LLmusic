@@ -106,7 +106,7 @@ exports.register = function(req, res){
 					new_user.save(function(err) {
 						if(err) {
 							console.log(err);
-							//req.session.error = 'error';
+							req.session.msg = 'error';
 							res.status(404);
 							res.end();
 						} else {

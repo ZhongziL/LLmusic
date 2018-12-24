@@ -4,6 +4,7 @@ window.onload = function() {
 	});
 	
 	mui('.mui-content').on('click', '.mui-btn', function() {
+		// TODO : get value from input box
 		var username = 'Liu';
 		var password = '123456';
 

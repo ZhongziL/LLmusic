@@ -4,8 +4,12 @@ window.onload = function() {
 	});
 	
 	mui('.mui-content').on('click', '.mui-btn', function() {
-		var username = 'Liu';
+		// TODO : get value from input box
+		var username = 'Liang';
 		var password = '123456';
+		var repeatPassword = '123456';
+
+		// TODO: check if password and repeatPassword are the same
 
 		var post_url = 'http://172.18.160.110:5000/register';
 		$.post(post_url,
@@ -14,10 +18,11 @@ window.onload = function() {
 				password: password,
 			},
 			function (data, textStatus) {
-				if (textStatus === "success") { // 登录或注册成功
+				if (textStatus === "success") {
+					// TODO: get back the data and save cookies
 					// document.cookie = data.split(";")[0];
 					alert(textStatus);
-				} else {    // 登录失败
+				} else {
 					alert(textStatus);
 				}
 			}

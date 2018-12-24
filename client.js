@@ -1,7 +1,7 @@
 var request = require('request');
 
 var data = {
-	username: 'liu',
+	username: 'Liu',
 	password: '123456'
 };
 
@@ -25,7 +25,7 @@ function httprequest(url,data) {
 }
 
 var post_url = "http://localhost:5000/register";
-// httprequest(post_url,data);
+httprequest(post_url,data);
 
 function loginrequest(url,data) {
     request({
@@ -60,9 +60,9 @@ function logoutrequest(url, data) {
 }
 
 var login_url = "http://localhost:5000/login";
-loginrequest(login_url, data);
-
-loginrequest(login_url, data);
+// loginrequest(login_url, data);
+//
+// loginrequest(login_url, data);
 
 var logout = "http://localhost:5000/logout";
 // logoutrequest(logout, data);
