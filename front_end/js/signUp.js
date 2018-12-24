@@ -12,7 +12,7 @@ window.onload = function() {
 		// TODO: check if password and repeatPassword are the same
 
 		var post_url = 'http://172.18.160.110:5000/register';
-		$.post(post_url,
+		mui.post(post_url,
 			{ // 数据
 				username: username,
 				password: password,
@@ -25,7 +25,7 @@ window.onload = function() {
 				} else {
 					alert(textStatus);
 				}
-			}
+			}, 'json'
 		);
 	});
 };

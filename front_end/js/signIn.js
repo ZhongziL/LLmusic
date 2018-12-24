@@ -9,7 +9,7 @@ window.onload = function() {
 		var password = '123456';
 
 		var post_url = 'http://172.18.160.110:5000/login';
-		$.post(post_url,
+		mui.post(post_url,
 			{ // 数据
 				username: username,
 				password: password,
@@ -21,7 +21,7 @@ window.onload = function() {
 				} else {    // 登录失败
 					alert(textStatus);
 				}
-			}
+			}, 'json'
 		);
 	});
 };
