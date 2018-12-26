@@ -12,11 +12,24 @@ var conn = mongoose.connect('mongodb://localhost:27017/test');
 //console.log(conn.connections[0].collections);
 
 var app = express();
+
+app.all('*', function(req, res, next) {
+	res.header('Access-Control-Allow-Credentials', true);
+    res.header("Access-Control-Allow-Origin", req.headers.origin);
+    res.header("Access-Control-Allow-Headers", "X-Requested-With");
+    res.header("Access-Control-Allow-Methods","PUT,POST,GET,DELETE,OPTIONS");
+    res.header("X-Powered-By",' 3.2.1');
+    res.header("Content-Type", "application/json;charset=utf-8");
+    next();
+});
+
 app.use(bodyParser());
 //app.use(bodyParser.text());  //req.body
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser('ZhongziL')); 	//req.cookie
+// app.set('trust proxy', 1);
 app.use(session({
+	resave: false,
 	secret: 'ZhongziL',
 	cookies: {maxAge: 60*60*1000}, 	//1h
 	store: new mongoStore({

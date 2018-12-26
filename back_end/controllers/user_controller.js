@@ -18,17 +18,19 @@ exports.login = function(req, res){
 	if(req.session.user) {
 		console.log(req);
 		console.log('already login');
-		res.status(404);
+		res.status(404).json("already login");
 		res.end();
 	} else {
+		console.log(req);
 		var username = req.body.username;
 		var password = hashPW(req.body.password);
+		// var username = req.query.username;
+		// var password = hashPW(req.query.password);
 
-		console.log(req);
 		var data = {
-			username: username
+			"username": username
 		};
-		data = JSON.stringify(data);
+		// data = JSON.stringify(data);
 
 		User.findOne({username: username})
 			.exec(function(err, user) {
@@ -36,18 +38,20 @@ exports.login = function(req, res){
 					if(user.password_hash === password) {
 						req.session.user = user;
 						req.session.msg = 'success';
+						// req.session.save();
 						console.log(username + " login");
+						console.log(data);
 						res.status(200).json(data);
 						res.end();
 					} else {
 						req.session.msg = 'password error';
 						console.log("password error");
-						res.status(404);
+						res.status(404).json("password error");
 						res.end();
 					}
 				} else {
 					req.session.msg = 'no user';
-					res.status(404);
+					res.status(404).json("no user");
 					res.end();
 				}
 			});
@@ -73,7 +77,7 @@ exports.logout = function(req, res) {
 
 exports.register = function(req, res){
 	if(req.session.user) {
-		console.log("user exist");
+		console.log("logined");
 		res.status(404).json({msg:"you have already logined"});
 		res.end();
 	} else {
@@ -89,7 +93,7 @@ exports.register = function(req, res){
 		var data = {
 			username: username
 		};
-		data = JSON.stringify(data);
+		// data = JSON.stringify(data);
 		//console.log(data);
 		//res.sendStatus(404);
 		//res.send(data);
@@ -97,6 +101,7 @@ exports.register = function(req, res){
 		User.findOne({username: username})
 			.exec(function(err, user){
 				if(user) {
+					console.log('username is already exist');
 					req.session.msg = 'username is already exist';
 					res.status(404);
 					res.end();

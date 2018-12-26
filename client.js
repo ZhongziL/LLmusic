@@ -59,7 +59,7 @@ function logoutrequest(url, data) {
     });
 }
 
-var login_url = "http://localhost:5000/login";
+var login_url = "http://172.18.160.110:5000/login";
 // loginrequest(login_url, data);
 //
 // loginrequest(login_url, data);
