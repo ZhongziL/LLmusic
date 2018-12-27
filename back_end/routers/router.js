@@ -3,6 +3,8 @@ var express = require('express');
 module.exports = function(app) {
 	var user = require('../controllers/user_controller.js');
 	var music = require('../controllers/music_controller.js');
+	var song = require('../controllers/follow_controller.js');
+	var search = require('../controllers/search_controller.js');
 	// var film = require('../controllers/film_controller.js');
 	// var comment = require('../controllers/comment_controller.js');
 	// var sms = require('../controllers/ihuyi.js');
@@ -77,6 +79,13 @@ module.exports = function(app) {
 	app.post('/removeSong', music.removeSong);
 
 	app.post('/changeListName', music.changeListName);
+
+	app.post('/collectList', music.collectList);
+
+	app.post('/loveSong', song.loveSong);
+
+	app.post('/searchSong', search.search_list);
+
 	//
 	// app.post('/upload', user.upload);
 	// //app.post('/preview_pic', user.preview_pic);

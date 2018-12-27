@@ -25,7 +25,7 @@ function httprequest(url,data) {
 }
 
 var post_url = "http://localhost:5000/register";
-httprequest(post_url,data);
+// httprequest(post_url,data);
 
 function loginrequest(url,data) {
     request({
@@ -66,3 +66,32 @@ var login_url = "http://172.18.160.110:5000/login";
 
 var logout = "http://localhost:5000/logout";
 // logoutrequest(logout, data);
+
+
+var url = "http://localhost:5000/searchSong";
+var search_data = {
+    search_keyword : "周杰伦",
+    page: 1,
+    pagesize: 2
+};
+
+function searchrequest(url, data) {
+    request({
+        url: url,
+        method: "POST",
+        json: true,
+        headers: {
+            "content-type": "application/json",
+        },
+        body: data
+    }, function(error, response, body) {
+        // console.log("???");
+        if (!error && response.statusCode === 200) {
+            console.log(body); // 请求成功的处理逻辑
+        } else {
+            console.log(error);
+        }
+    });
+}
+
+searchrequest(url, search_data);

@@ -10,6 +10,7 @@ var UserSchema = new Schema({
 	avatar_url: {type:String, default: ""},		//to add a picture url here
 
 	music_lists: [{type: Schema.ObjectId, ref:'MusicList', default: null}],
+	collect_lists: [{type: Schema.ObjectId, ref:'MusicList', default: null}],
 
 	focus_users: [{type: Schema.ObjectId, ref:'User', default: null}],
 	fans: [{type: Schema.ObjectId, ref:'User', default: null}],
