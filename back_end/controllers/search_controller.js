@@ -93,6 +93,9 @@ function geturl(song, callback) {
         },
     }, function(error, response, body) {
         if (!error && response.statusCode === 200) {
+            //歌词
+            // console.log(body);
+            
             img_url = body.data.img;
             mp3 = body.data.play_url;
             callback(null, body);
