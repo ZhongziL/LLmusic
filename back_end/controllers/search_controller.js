@@ -16,7 +16,7 @@ exports.search_list = function (req, res) {
     getName(url, function (err, data) {
         if (err) {
             console.log(err);
-            res.status(404);
+            res.status(200).json(err);
             res.end();
         }
         // console.log(url);
@@ -95,7 +95,6 @@ function geturl(song, callback) {
         if (!error && response.statusCode === 200) {
             //歌词
             // console.log(body);
-            
             img_url = body.data.img;
             mp3 = body.data.play_url;
             callback(null, body);

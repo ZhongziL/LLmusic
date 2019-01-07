@@ -15,21 +15,65 @@ function hashPW(password) {
 }
 
 exports.login = function(req, res){
+	var username = req.body.username;
+	var password = hashPW(req.body.password);
+
+	var data = {
+			"username": username
+		};
+
 	if(req.session.user) {
-		console.log(req);
-		console.log('already login');
-		res.status(404).json("already login");
-		res.end();
+		// console.log(req);
+		console.log(username, req.body.password);
+
+		// data = JSON.stringify(data);
+		// req.session.destroy(function(){
+		// 	console.log(username + " logout");
+		// 	res.status(200).json(username + " logout");
+		// 	res.end();
+		// });
+		User.findOne({username: username})
+			.exec(function(err, user) {
+				if(user) {
+					if(user.password_hash === password) {
+						req.session.user = user;
+						req.session.msg = 'success';
+						// req.session.save();
+						console.log(username + " login");
+						console.log(data);
+						res.status(200).json(data);
+						res.end();
+					} else {
+						req.session.user = null;
+						req.session.msg = 'password error';
+						console.log("password error");
+						res.status(200).json("password error");
+						res.end();
+					}
+				} else {
+					req.session.user = null;
+					req.session.msg = 'no user';
+					console.log('no user');
+					res.status(200).json("no user");
+					res.end();
+				}
+			});
+
+		// console.log('already login');
+		// res.status(200).json("already login");
+		// res.end();
 	} else {
-		console.log(req);
-		var username = req.body.username;
-		var password = hashPW(req.body.password);
+		// console.log(req);
+		// username = req.body.username;
+		// password = hashPW(req.body.password);
 		// var username = req.query.username;
 		// var password = hashPW(req.query.password);
 
-		var data = {
-			"username": username
-		};
+		console.log(username, req.body.password);
+
+		// data = {
+		// 	"username": username
+		// };
 		// data = JSON.stringify(data);
 
 		User.findOne({username: username})
@@ -46,12 +90,13 @@ exports.login = function(req, res){
 					} else {
 						req.session.msg = 'password error';
 						console.log("password error");
-						res.status(404).json("password error");
+						res.status(200).json("password error");
 						res.end();
 					}
 				} else {
 					req.session.msg = 'no user';
-					res.status(404).json("no user");
+					console.log('no user');
+					res.status(200).json("no user");
 					res.end();
 				}
 			});
@@ -60,17 +105,17 @@ exports.login = function(req, res){
 
 exports.logout = function(req, res) {
 	if(req.session.user){
-		console.log(req);
+		// console.log(req);
 		var username = req.session.user.username;
 		req.session.destroy(function(){
 			console.log(username + " logout");
-			res.status(200);
+			res.status(200).json(username + " logout");
 			res.end();
 		});
 	} else {
-		console.log(req);
+		// console.log(req);
 		console.log("no user");
-		res.status(404);
+		res.status(200).json("no user");
 		res.end();
 	}
 };
@@ -78,14 +123,14 @@ exports.logout = function(req, res) {
 exports.register = function(req, res){
 	if(req.session.user) {
 		console.log("logined");
-		res.status(404).json({msg:"you have already logined"});
+		res.status(200).json({msg:"you have already logined"});
 		res.end();
 	} else {
 		// var code = req.session.code;
 		// var username = req.body.username;
 		var username = req.body.username;
 
-		console.log(req);
+		// console.log(req);
 		var password = hashPW(req.body.password);
 		//console.log(req);
 		//console.log(code + " " + req.body.check_word);
@@ -103,7 +148,7 @@ exports.register = function(req, res){
 				if(user) {
 					console.log('username is already exist');
 					req.session.msg = 'username is already exist';
-					res.status(404);
+					res.status(200);
 					res.end();
 					//return;
 				} else {
@@ -112,12 +157,13 @@ exports.register = function(req, res){
 						if(err) {
 							console.log(err);
 							req.session.msg = 'error';
-							res.status(404);
+							res.status(200);
 							res.end();
 						} else {
 							//console.log("you");
 							req.session.user = new_user;
 							req.session.msg = 'success';
+							console.log("new user", username);
 							res.status(200).json(data);
 							res.end();
 						}

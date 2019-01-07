@@ -31,7 +31,7 @@ app.use(cookieParser('ZhongziL')); 	//req.cookie
 app.use(session({
 	resave: false,
 	secret: 'ZhongziL',
-	cookies: {maxAge: 60*60*1000}, 	//1h
+	cookies: {maxAge: 60*60*1000, httpOnly: false}, 	//1h
 	store: new mongoStore({
 		url: 'mongodb://localhost:27017/test',
 		//db: mongoose.connection.db, //connect error
