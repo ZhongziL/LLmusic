@@ -10,128 +10,120 @@
 		<!--标准mui.css-->
 		<link rel="stylesheet" href="../css/mui.min.css">
 		<!--App自定义的css-->
-		<link rel="stylesheet" type="text/css" href="../css/app.css"/>
 		<link rel="stylesheet" href="../css/personalCenter.css">
+
+		<script src="../js/mui.min.js"></script>
+		<script src="../js/jquery-3.3.1.min.js"></script>
+		<script type="text/javascript" src="../js/personalCenter.js"></script>
 	</head>
 
 	<body>
-        <!-- 主页面标题 -->
+		<!-- 主页面标题 -->
 		<header class="mui-bar mui-bar-nav bar-nav">
 			<a class="mui-icon mui-action-back mui-icon-arrowleft mui-pull-left nav-back"></a>
 			<a class="mui-icon mui-icon-more mui-pull-right"></a>
 		</header>
-        <nav class="mui-bar mui-bar-tab playing-song">
-			<div class="playing-song-cover"></div>
-			<h1 class="song-name">歌曲名</h1>
-			<div class="playing-button music-queue"></div>
-			<div class="playing-button playing"></div>
-			<p class='mui-ellipsis singer-name'>歌手名</p>
-    	</nav>
 		<div class="mui-content">
-			<div class="mui-content-padded" style="margin: 0px;">
-				<div class="mui-card song-list-intro">
-					<div class="img-box"><img src="../resources/photo.jpg" /></div>
-					<div class="mui-media-body">
-						<h1>十一月</h1>
+			<div id="user-part" class="mui-card">
+				<div class="user-avatar"></div>
+				<p>十一月</p>
+				<div id="user-info">
+					<div id="focus" class="user-nums">
+						<span>10</span>
+						<span>关注</span>
+					</div>
+					<div id="fans" class="user-nums">
+						<span>20</span>
+						<span>粉丝</span>
 					</div>
 				</div>
-				<div class="mui-card interact-lists" style="margin-top: -5px;">
-					<div class="mui-media-body">
-						<div class="focus interact-num">
-							<p>10</p>
-							<p>关注</p>
-						</div>
-						<div class="fans interact-num">
-							<p>250</p>
-							<p>粉丝</p>
-						</div>
-					</div>
-				</div>
-				<div class="mui-card like-title">
-					<div class="mui-card-content">
-						<div class="mui-card-content-inner">
-							<p>音乐口味：国语、流行
-							<a><span class="mui-icon mui-icon-arrowright"></span></a>
-							</p>
-						</div>
-					</div>
-					<div class="mui-table-view-cell my-like-list">
-						<div class="mui-media-body">
-							<img class="mui-media-object mui-pull-left" src="../resources/photo.jpg">
-							<h1 class="my-like">我喜欢</h1>
-							<a><span class="mui-icon mui-icon-arrowright"></span></a>
-							<p class="my-like-num">3首单曲</p>
-						</div>
-					</div>
-				</div>
-				<div class="mui-card like-title">
-					<div class="mui-card-content">
-						<div class="mui-card-content-inner">
-							<p>歌单 3
-							<a><span class="mui-icon mui-icon-arrowright"></span></a>
-							</p>
-						</div>
-					</div>
-				</div>
-				<div class="mui-slider-item mui-control-content mui-active my-song-lists">
-					<div id="scroll1" class="mui-scroll-wrapper">
-						<div class="mui-scroll">
-							<ul class="mui-table-view search-history-list">
-								<li class="mui-table-view-cell">
-									<div class="mui-media-body">
-										<img class="mui-media-object mui-pull-left" src="../resources/photo.jpg">
-										<h1 class="song-name">歌单名1</h1>
-										<a><span class="mui-icon mui-icon-arrowright"></span></a>
-										<p class="mui-ellipsis">3首 0次播放</p>
+			</div>
+			<div id='song-lists' class="mui-card">
+				<div id='scroll' class="mui-scroll-wrapper">
+					<div class="mui-scroll">
+						<p id="user-flavor">音乐口味：国语、流行<span class="mui-icon mui-icon-arrowright"></span></p>
+						<ul class="mui-table-view">
+							<li class="mui-table-view-cell mui-media">
+								<a class="mui-navigate-right">
+									<img class="mui-media-object mui-pull-left" src="../resources/photo.jpg">
+									<div class="mui-media-body"><span>歌单hhhhhhhhhhhdfgdgfdgfdgfdfgdgfdgfdgfdfgd名1</span>
+										<p class='mui-ellipsis'>3首 0次播放</p>
 									</div>
-								</li>
-								<li class="mui-table-view-cell">
-									<div class="mui-media-body">
-										<img class="mui-media-object mui-pull-left" src="../resources/photo.jpg">
-										<h1 class="song-name">歌单名2</h1>
-										<a><span class="mui-icon mui-icon-arrowright"></span></a>
-										<p class="mui-ellipsis">4首 1次播放</p>
+								</a>
+							</li>
+							<li class="mui-table-view-cell mui-media">
+								<a class="mui-navigate-right">
+									<img class="mui-media-object mui-pull-left" src="../resources/photo.jpg">
+									<div class="mui-media-body"><span>歌单hhhhhhhhhhhdfgdgfdgfdgfdfgdgfdgfdgfdfgd名1</span>
+										<p class='mui-ellipsis'>3首 0次播放</p>
 									</div>
-								</li>
-								<li class="mui-table-view-cell">
-									<div class="mui-media-body">
-										<img class="mui-media-object mui-pull-left" src="../resources/photo.jpg">
-										<h1 class="song-name">歌单名3</h1>
-										<a><span class="mui-icon mui-icon-arrowright"></span></a>
-										<p class="mui-ellipsis">5首 2次播放</p>
+								</a>
+							</li>
+							<li class="mui-table-view-cell mui-media">
+								<a class="mui-navigate-right">
+									<img class="mui-media-object mui-pull-left" src="../resources/photo.jpg">
+									<div class="mui-media-body"><span>歌单hhhhhhhhhhhdfgdgfdgfdgfdfgdgfdgfdgfdfgd名1</span>
+										<p class='mui-ellipsis'>3首 0次播放</p>
 									</div>
-								</li>
-								<li class="mui-table-view-cell">
-									<div class="mui-media-body">
-										<img class="mui-media-object mui-pull-left" src="../resources/photo.jpg">
-										<h1 class="song-name">歌单名4</h1>
-										<a><span class="mui-icon mui-icon-arrowright"></span></a>
-										<p class="mui-ellipsis">6首 3次播放</p>
+								</a>
+							</li>
+							<li class="mui-table-view-cell mui-media">
+								<a class="mui-navigate-right">
+									<img class="mui-media-object mui-pull-left" src="../resources/photo.jpg">
+									<div class="mui-media-body"><span>歌单hhhhhhhhhhhdfgdgfdgfdgfdfgdgfdgfdgfdfgd名1</span>
+										<p class='mui-ellipsis'>3首 0次播放</p>
 									</div>
-								</li>
-								<li class="mui-table-view-cell">
-									<div class="mui-media-body">
-										<img class="mui-media-object mui-pull-left" src="../resources/photo.jpg">
-										<h1 class="song-name">歌单名5</h1>
-										<a><span class="mui-icon mui-icon-arrowright"></span></a>
-										<p class="mui-ellipsis">7首 4次播放</p>
-									</div>
-								</li>
-								<li class="mui-table-view-cell">
-									<div class="mui-media-body">
-										<img class="mui-media-object mui-pull-left" src="../resources/photo.jpg">
-										<h1 class="song-name">歌单名6</h1>
-										<a><span class="mui-icon mui-icon-arrowright"></span></a>
-										<p class="mui-ellipsis">8首 5次播放</p>
-									</div>
-								</li>
-							</ul>
+								</a>
+							</li>
+						</ul>
+						<div id="user-lists-title">
+							<p>歌单 3</p><span class="mui-icon mui-icon-arrowright"></span>
 						</div>
+						<ul class="mui-table-view">
+							<li class="mui-table-view-cell mui-media">
+								<a class="mui-navigate-right">
+									<img class="mui-media-object mui-pull-left" src="../resources/photo.jpg">
+									<div class="mui-media-body"><span>歌单hhhhhhhhhhhdfgdgfdgfdgfdfgdgfdgfdgfdfgd名1</span>
+										<p class='mui-ellipsis'>3首 0次播放</p>
+									</div>
+								</a>
+							</li>
+							<li class="mui-table-view-cell mui-media">
+								<a class="mui-navigate-right">
+									<img class="mui-media-object mui-pull-left" src="../resources/photo.jpg">
+									<div class="mui-media-body"><span>歌单hhhhhhhhhhhdfgdgfdgfdgfdfgdgfdgfdgfdfgd名1</span>
+										<p class='mui-ellipsis'>3首 0次播放</p>
+									</div>
+								</a>
+							</li>
+							<li class="mui-table-view-cell mui-media">
+								<a class="mui-navigate-right">
+									<img class="mui-media-object mui-pull-left" src="../resources/photo.jpg">
+									<div class="mui-media-body"><span>歌单hhhhhhhhhhhdfgdgfdgfdgfdfgdgfdgfdgfdfgd名1</span>
+										<p class='mui-ellipsis'>3首 0次播放</p>
+									</div>
+								</a>
+							</li>
+							<li class="mui-table-view-cell mui-media">
+								<a class="mui-navigate-right">
+									<img class="mui-media-object mui-pull-left" src="../resources/photo.jpg">
+									<div class="mui-media-body"><span>歌单hhhhhhhhhhhdfgdgfdgfdgfdfgdgfdgfdgfdfgd名1</span>
+										<p class='mui-ellipsis'>3首 0次播放</p>
+									</div>
+								</a>
+							</li>
+							<li class="mui-table-view-cell mui-media">
+								<a class="mui-navigate-right">
+									<img class="mui-media-object mui-pull-left" src="../resources/photo.jpg">
+									<div class="mui-media-body"><span>歌单hhhhhhhhhhhdfgdgfdgfdgfdfgdgfdgfdgfdfgd名1</span>
+										<p class='mui-ellipsis'>3首 0次播放</p>
+									</div>
+								</a>
+							</li>
+						</ul>
 					</div>
 				</div>
 			</div>
 		</div>
 	</body>
-	<script src="../js/mui.min.js"></script>
-	<script type="text/javascript" src="../js/personalCenter.js"></script>
 </html>

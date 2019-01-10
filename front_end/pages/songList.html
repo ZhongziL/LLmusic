@@ -10,94 +10,115 @@
 		<!--标准mui.css-->
 		<link rel="stylesheet" href="../css/mui.min.css">
 		<!--App自定义的css-->
-		<link rel="stylesheet" type="text/css" href="../css/app.css"/>
 		<link rel="stylesheet" href="../css/SongList.css">
+		
+		<script src="../js/mui.min.js"></script>
+		<script src="../js/songList.js"></script>
 	</head>
 
 	<body>
-        <!-- 主页面标题 -->
+		<!-- 主页面标题 -->
 		<header class="mui-bar mui-bar-nav bar-nav">
 			<a class="mui-icon mui-action-back mui-icon-arrowleft mui-pull-left nav-back"></a>
 			<h1 class="mui-title">歌单</h1>
-			<a class="mui-icon mui-icon-more mui-pull-right"></a>
 		</header>
-        <nav class="mui-bar mui-bar-tab playing-song">
-			<div class="playing-song-cover"></div>
-			<h1 class="song-name">歌曲名</h1>
-			<div class="playing-button music-queue"></div>
-			<div class="playing-button playing"></div>
-			<p class='mui-ellipsis singer-name'>歌手名</p>
-    	</nav>
 		<div class="mui-content">
-			<div class="mui-content-padded" style="margin: 5px;">
+			<div class="mui-content-padded">
 				<div class="mui-card song-list-intro">
-					<div class="img-box"><img src="../resources/photo.jpg" /></div>
-					<div class="mui-media-body">
-						<h1>歌单名</h1>
-						<p>十一月</p>
+					<div class="img-box"></div>
+					<div class="mui-media-body song-list-info">
+						<h1>歌单超机八长长长的名</h1>
+						<p>用户超机八长长长长长长长长长长长长长长长的名</p>
 						<p>6首 250次播放</p>
 					</div>
 				</div>
-				<div class="mui-card song-list-control">
-					<div class="mui-card-content">
-						<div class="mui-card-content-inner">
-							<a><span class="mui-icon play-all"></span></a>
-							<p>全部播放(6)</p>
-							<a><span class="mui-icon control-bars"></span></a>
-						</div>
-					</div>
+				<div class="song-list-control">
+					<span class="play-all">全部播放(6)</span>
+					<span class="control-bars"></span>
 				</div>
-				<div class="mui-slider-item mui-control-content mui-active">
-					<div id="scroll1" class="mui-scroll-wrapper">
+				<div id="song-list" class="mui-slider-item mui-control-content mui-active">
+					<div class="mui-scroll-wrapper">
 						<div class="mui-scroll">
-							<ul class="mui-table-view search-history-list">
-								<li class="mui-table-view-cell">
-									<div class="mui-media-body">
-										<h1 class="song-num">1</h1>
-										<h1 class="song-name">歌曲名</h1>
-										<a id="icon-more"><span class="mui-icon mui-icon-more"></span></a>
-										<p class="mui-ellipsis">歌手名</p>
+							<ul class="mui-table-view">
+								<li class="mui-table-view-cell mui-media">
+									<span class="mui-media-object mui-pull-left list-cell-num">1</span>
+									<div class="mui-media-body list-cell-info">
+										<p class='mui-ellipsis'>歌assssssssssssssssssssssssssssssssssssssssssss名1</p>
+										<p class='mui-ellipsis'>0次播ssssssssssssssssssssssssssssssssssssssssss放</p>
 									</div>
+									<span class="mui-icon mui-icon-more list-cell-more"></span>
 								</li>
-								<li class="mui-table-view-cell">
-									<div class="mui-media-body">
-										<h1 class="song-num">2</h1>
-										<h1 class="song-name">歌曲名</h1>
-										<a id="icon-more"><span class="mui-icon mui-icon-more"></span></a>
-										<p class="mui-ellipsis">歌手名</p>
+								<li class="mui-table-view-cell mui-media">
+									<span class="mui-media-object mui-pull-left list-cell-num">1</span>
+									<div class="mui-media-body list-cell-info">
+										<p class='mui-ellipsis'>歌assssssssssssssssssssssssssssssssssssssssssss名1</p>
+										<p class='mui-ellipsis'>0次播ssssssssssssssssssssssssssssssssssssssssss放</p>
 									</div>
+									<span class="mui-icon mui-icon-more list-cell-more"></span>
 								</li>
-								<li class="mui-table-view-cell">
-									<div class="mui-media-body">
-										<h1 class="song-num">3</h1>
-										<h1 class="song-name">歌曲名</h1>
-										<a id="icon-more"><span class="mui-icon mui-icon-more"></span></a>
-										<p class="mui-ellipsis">歌手名</p>
+								<li class="mui-table-view-cell mui-media">
+									<span class="mui-media-object mui-pull-left list-cell-num">1</span>
+									<div class="mui-media-body list-cell-info">
+										<p class='mui-ellipsis'>歌assssssssssssssssssssssssssssssssssssssssssss名1</p>
+										<p class='mui-ellipsis'>0次播ssssssssssssssssssssssssssssssssssssssssss放</p>
 									</div>
+									<span class="mui-icon mui-icon-more list-cell-more"></span>
 								</li>
-								<li class="mui-table-view-cell">
-									<div class="mui-media-body">
-										<h1 class="song-num">4</h1>
-										<h1 class="song-name">歌曲名</h1>
-										<a id="icon-more"><span class="mui-icon mui-icon-more"></span></a>
-										<p class="mui-ellipsis">歌手名</p>
+								<li class="mui-table-view-cell mui-media">
+									<span class="mui-media-object mui-pull-left list-cell-num">1</span>
+									<div class="mui-media-body list-cell-info">
+										<p class='mui-ellipsis'>歌assssssssssssssssssssssssssssssssssssssssssss名1</p>
+										<p class='mui-ellipsis'>0次播ssssssssssssssssssssssssssssssssssssssssss放</p>
 									</div>
+									<span class="mui-icon mui-icon-more list-cell-more"></span>
 								</li>
-								<li class="mui-table-view-cell">
-									<div class="mui-media-body">
-										<h1 class="song-num">5</h1>
-										<h1 class="song-name">歌曲名</h1>
-										<a id="icon-more"><span class="mui-icon mui-icon-more"></span></a>
-										<p class="mui-ellipsis">歌手名</p>
+								<li class="mui-table-view-cell mui-media">
+									<span class="mui-media-object mui-pull-left list-cell-num">1</span>
+									<div class="mui-media-body list-cell-info">
+										<p class='mui-ellipsis'>歌assssssssssssssssssssssssssssssssssssssssssss名1</p>
+										<p class='mui-ellipsis'>0次播ssssssssssssssssssssssssssssssssssssssssss放</p>
 									</div>
+									<span class="mui-icon mui-icon-more list-cell-more"></span>
 								</li>
-								<li class="mui-table-view-cell">
-									<div class="mui-media-body">
-										<h1 class="song-num">6</h1>
-										<h1 class="song-name">歌曲名</h1>
-										<a id="icon-more"><span class="mui-icon mui-icon-more"></span></a>
-										<p class="mui-ellipsis">歌手名</p>
+								<li class="mui-table-view-cell mui-media">
+									<span class="mui-media-object mui-pull-left list-cell-num">1</span>
+									<div class="mui-media-body list-cell-info">
+										<p class='mui-ellipsis'>歌assssssssssssssssssssssssssssssssssssssssssss名1</p>
+										<p class='mui-ellipsis'>0次播ssssssssssssssssssssssssssssssssssssssssss放</p>
 									</div>
+									<span class="mui-icon mui-icon-more list-cell-more"></span>
+								</li>
+								<li class="mui-table-view-cell mui-media">
+									<span class="mui-media-object mui-pull-left list-cell-num">1</span>
+									<div class="mui-media-body list-cell-info">
+										<p class='mui-ellipsis'>歌assssssssssssssssssssssssssssssssssssssssssss名1</p>
+										<p class='mui-ellipsis'>1次播ssssssssssssssssssssssssssssssssssssssssss放</p>
+									</div>
+									<span class="mui-icon mui-icon-more list-cell-more"></span>
+								</li>
+								<li class="mui-table-view-cell mui-media">
+									<span class="mui-media-object mui-pull-left list-cell-num">1</span>
+									<div class="mui-media-body list-cell-info">
+										<p class='mui-ellipsis'>歌assssssssssssssssssssssssssssssssssssssssssss名1</p>
+										<p class='mui-ellipsis'>1次播ssssssssssssssssssssssssssssssssssssssssss放</p>
+									</div>
+									<span class="mui-icon mui-icon-more list-cell-more"></span>
+								</li>
+								<li class="mui-table-view-cell mui-media">
+									<span class="mui-media-object mui-pull-left list-cell-num">1</span>
+									<div class="mui-media-body list-cell-info">
+										<p class='mui-ellipsis'>歌assssssssssssssssssssssssssssssssssssssssssss名1</p>
+										<p class='mui-ellipsis'>1次播ssssssssssssssssssssssssssssssssssssssssss放</p>
+									</div>
+									<span class="mui-icon mui-icon-more list-cell-more"></span>
+								</li>
+								<li class="mui-table-view-cell mui-media">
+									<span class="mui-media-object mui-pull-left list-cell-num">1</span>
+									<div class="mui-media-body list-cell-info">
+										<p class='mui-ellipsis'>歌assssssssssssssssssssssssssssssssssssssssssss名1</p>
+										<p class='mui-ellipsis'>1次播ssssssssssssssssssssssssssssssssssssssssss放</p>
+									</div>
+									<span class="mui-icon mui-icon-more list-cell-more"></span>
 								</li>
 							</ul>
 						</div>
@@ -106,35 +127,4 @@
 			</div>
 		</div>
 	</body>
-	<script src="../js/mui.min.js"></script>
-	<script>
-		mui.init({
-			swipeBack: false
-		});
-		(function($) {
-			$('.mui-scroll-wrapper').scroll({
-				indicators: true //是否显示滚动条
-			});
-			var sliderSegmentedControl = document.getElementById('sliderSegmentedControl');
-			$('.mui-input-group').on('change', 'input', function() {
-				if (this.checked) {
-					sliderSegmentedControl.className = 'mui-slider-indicator mui-segmented-control mui-segmented-control-inverted mui-segmented-control-' + this.value;
-					//force repaint
-					sliderProgressBar.setAttribute('style', sliderProgressBar.getAttribute('style'));
-				}
-			});
-		})(mui);
-
-		mui('.mui-content').on('tap', '.control-bars', function() {
-			mui.openWindow({url: 'batchOperateSongs.html'});
-		});
-		
-		mui('.mui-table-view').on('tap', '.mui-table-view-cell', function() {
-			mui.openWindow({url: 'player.html'});
-		});
-		
-		mui('body').on('tap', 'nav', function() {
-			mui.openWindow({url: 'player.html'});
-		});
-	</script>
 </html>

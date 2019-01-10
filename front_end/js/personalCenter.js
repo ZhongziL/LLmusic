@@ -1,42 +1,12 @@
 window.onload = function() {
-		mui.init({
-		swipeBack: false
-	});
-	(function($) {
-		$('.mui-scroll-wrapper').scroll({
-			indicators: true //是否显示滚动条
-		});
-		var sliderSegmentedControl = document.getElementById('sliderSegmentedControl');
-		$('.mui-input-group').on('change', 'input', function() {
-			if (this.checked) {
-				sliderSegmentedControl.className = 'mui-slider-indicator mui-segmented-control mui-segmented-control-inverted mui-segmented-control-' + this.value;
-				//force repaint
-				sliderProgressBar.setAttribute('style', sliderProgressBar.getAttribute('style'));
-			}
-		});
-	})(mui);
+	mui.init({ swipeBack: true }); // 启用右滑关闭功能
 	
-	mui('.mui-content').on('tap', '.focus', function() {
-		mui.openWindow({url: 'followingList.html'});
+	parent.pageSet.setPlayNav(true); // 开启播放条
+	
+	$('li').bind('click', (event) => {
+		parent.values = { listName: event.currentTarget.getElementsByTagName('span')[0].textContent };
+		parent.pageChange('pages/personalCenter.html', 'pages/songList.html');
 	});
 	
-	mui('.mui-content').on('tap', '.fans', function() {
-		mui.openWindow({url: 'followerList.html'});
-	});
-	
-	mui('.mui-content').on('tap', '.my-like-list', function() {
-		mui.openWindow({url: 'SongList.html'});
-	});
-	
-	mui('.mui-content').on('tap', '.my-like-list', function() {
-		mui.openWindow({url: 'SongList.html'});
-	});
-	
-	mui('.mui-content').on('tap', '.my-song-lists', function() {
-		mui.openWindow({url: 'SongList.html'});
-	});
-	
-	mui('body').on('tap', '.playing-song', function() {
-		mui.openWindow({url: 'player.html'});
-	});
+	$('.nav-back').bind('click', parent.pageReturn);
 };

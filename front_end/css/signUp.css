@@ -4,28 +4,17 @@ body {
 	background-color: white;
 }
 
-h5 {
-	margin: 5px 7px;
-}
-
-label {
-	color: darkcyan;
-	font-weight: bold;
-}
-
 .mui-bar-nav {
 	box-shadow: none;
 	background-color: white;
 }
 
-.mui-bar-nav a {
-	color: darkcyan;
-}
-
 .mui-bar-nav p {
-	font-size: 100%;
 	color: darkcyan;
-	margin: 3%;
+	font-size: 100%;
+	margin-right: -10px;
+    margin-left: -10px;
+    padding: 10px;
 }
 
 .mui-content {
@@ -33,32 +22,41 @@ label {
 }
 
 .app-title {
-	display: inline-block;
-	margin-left: 20%;
-	margin-top: calc(7.5vw + 7.5vh);
+	display: flex;
+	justify-content:center;
+	height: 100px;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	margin-top: calc(10vw + 10vh);
+	margin-bottom: 5vh;
 }
 
+/* 标题 */
 .app-title img {
-	width: 20%;
-	float: left;
+	width: 100px;
+	height: 100px;
 }
 
-.app-title h1 {
-	font-size: 250%;
+.app-title p {
+	font-size: 40px;
 	font-weight: 100;
 	color: darkcyan;
-	width: 70%;
-	float: left;
+	line-height: 100px;
+	padding: 0;
+	margin: 0;
 }
 
-.mui-input-group {
-	margin-top: calc(10vw + 10vh);
-}
-
+/* 输入区域 */
 .mui-input-group .mui-btn-primary {
 	width: 95%;
 	background-color: darkcyan;
 	border: 1px solid darkcyan;
+
+	height: 33px;
+	background-size: 18px;
+	background-repeat: no-repeat;
+	background-position: center;
 }
 
 .mui-btn-primary:enabled:active,
@@ -72,4 +70,15 @@ label {
 .mui-btn-outlined.mui-btn-primary
 {
     color: darkcyan;
+}
+
+/* 蒙版 */
+.backdrop {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 998;
+    background-color: rgba(0,0,0,.3);
 }

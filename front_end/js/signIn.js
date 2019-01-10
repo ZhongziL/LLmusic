@@ -1,27 +1,71 @@
 window.onload = function() {
-	mui.init({
-		swipeBack: true //启用右滑关闭功能
+	mui.init({ swipeBack: true }); //启用右滑关闭功能
+	
+	parent.pageSet.setPlayNav(false); // 关闭播放条
+
+	// 按钮绑定
+	$('.mui-pull-left').bind('click', (event) => {
+		parent.pageChange('pages/signIn.html', 'pages/index.html');
 	});
 	
-	mui('.mui-content').on('click', '.mui-btn', function() {
-		// TODO : get value from input box
-		var username = 'Liu';
-		var password = '123456';
+	$('.mui-pull-right').bind('click', (event) => {
+		parent.pageChange('pages/signIn.html', 'pages/signUp.html');
+	});
+	
+	var mask = {
+		// 遮罩
+		show: () => {
+			$("body").append("<div class='backdrop'></div>");
+		},
+		close: () => {
+			$(".backdrop").remove();
+		}
+	}
+	$('.mui-btn').bind('click', (event) => {
+		var username = $('[type=text]')[0].value;
+		var password = $('[type=password]')[0].value;
+		if (username == '') {
+			alert('请输入用户名/邮箱/手机号');
+			return;
+		}
+		if (password == '') {
+			alert('请输入密码');
+			return;
+		}
+
+		mask.show();
+		var btn = $('button')[0];
+		btn.style.backgroundImage = "url('../resources/loading.png')";
+		btn.textContent = "";
 
 		var post_url = 'http://172.18.160.110:5000/login';
-		mui.post(post_url,
-			{ // 数据
+		$.ajax({
+			url: post_url,
+			method: 'post',
+			xhrFields: { withCredentials: true },
+			crossDomain: true,
+			data: {
 				username: username,
-				password: password,
+				password: password
 			},
-			function (data, textStatus) {
-				if (textStatus === "success") { // 登录或注册成功
-					// document.cookie = data.split(";")[0];
-					alert(textStatus);
-				} else {    // 登录失败
-					alert(textStatus);
+			error: (req, err, expected) => {
+				alert('服务器或网络错误，请检查网络后重试');
+			},
+			success: (data, text) => {
+				if (data.username) {
+					alert('登录成功');
+					parent.userInfo = data;
+					$.cookie('userinfo', JSON.stringify(data));
+					parent.pageChange('pages/signIn.html', 'pages/index.html');
+				} else if (data == 'no user' || data == 'password error') {
+					alert('用户名或密码错误，请检查后重试')
 				}
-			}, 'json'
-		);
+			},
+			complete: () => {
+				mask.close();
+				btn.style.backgroundImage = "";
+				btn.textContent = "登录";
+			}
+		})
 	});
 };

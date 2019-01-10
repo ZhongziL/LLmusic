@@ -5,13 +5,6 @@ body {
 
 .bar-nav {
 	background-color: darkcyan;
-}
-
-.nav-back {
-	color: white;
-}
-
-.bar-nav a:active {
 	color: white;
 }
 
@@ -19,185 +12,128 @@ body {
 	color: white;
 }
 
-.bar-nav p {
-	color: white;
-	margin: 3%;
-}
-
-.mui-icon-more {
+.nav-back::before {
 	color: white;
 }
 
-.playing-song {
-	height: 10%;
-	box-shadow: 0px 0 0px rgba(0, 0, 0, .5), 0px 0 0px rgba(0, 0, 0, .5);
-}
 
-.playing-song-cover {
-	width: calc(5vw + 5vh);
-	height: calc(5vw + 5vh);
-	margin: 3%;
-	border-radius: 50%;
-	background-image: url('../resources/photo.jpg');
-	background-size: 100%;
-	background-repeat: no-repeat;
-	float: left;
-}
-
-.playing-song h1 {
-	width: 40%;
-	margin-top: calc(1.8vw + 1.8vh);
-	font-size: calc(1.5vw + 1.5vh);
-	float: left;
-}
-
-.playing-song p {
-	width: 40%;
-	font-size: calc(1.25vw + 1.25vh);
-	float: left;
-	padding: 0;
-}
-
-.playing-button {
-	width: 5vh;
-	height: 5vh;
-	margin: 5% 2%;
-	border-radius: 50%;
-	background-size: 100%;
-	background-repeat: no-repeat;
-	float: right;
-}
-
-.playing {
-	background-image: url('../resources/play.png');
-}
-
-.music-queue {
-	background-image: url('../resources/mus-queue.png');
-	margin-right: 7%;
-}
-
-.mui-card {
-	margin: 0;
-	margin-bottom: 1px;
-	box-shadow: none;
-}
-
+/* 歌单信息 */
 .song-list-intro {
-	margin-bottom: -1px;
-	overflow: hidden;
+	display: flex;
+	height: 150px;
+    border-radius: 0;
+	margin: 0;
 }
 
 .song-list-intro .img-box {
-	width: 30%;
-	float: left;
+	width: 150px;
+	height: 150px;
+	background-image: url('../resources/photo.jpg');
+	background-size: cover;
+	background-position: center;
+}
+.song-list-info {
+	display: block;
+	margin: 10px 10px;
+	width: calc(100% - 170px);
+}
+
+.song-list-info h1 {
+	font-size: 24px;
+	margin: 0 0 5px 0;
 	overflow: hidden;
-	margin: 3%;
+	white-space: nowrap;
+	text-overflow: ellipsis;
 }
 
-.song-list-intro .img-box img {
+.song-list-info p {
+	font-size: 14px;
+	margin: 0;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+/* 列表控制条 */
+.song-list-control {
+	height: 50px;
 	width: 100%;
+	position: relative;
+	background-color: white;
+	padding: 0 10px;
+	margin-bottom: 1px;
 }
 
-.song-list-intro h1 {
-	width: 60%;
-	font-size: 165%;
-	float: left;
-	margin-top: 3%;
+.song-list-control::after {
+	height: 1px;
+	width: 100%;
+	background-color: gray;
 }
 
-.song-list-intro p {
-	width: 60%;
-	font-size: 120%;
-	float: left;
-	color: black;
+.song-list-control span {
+	margin: 0;
+	height: 50px;
+	background-repeat: no-repeat;
 }
 
 .song-list-control .play-all {
-	float: left;
-	margin: 0;
-	width: 25px;
-	height: 25px;
 	background-image: url(../resources/play.png);
-	background-repeat: no-repeat;
-	background-size: 100%;
-}
-
-.song-list-control p {
-	float: left;
-	color: black;
-	font-size: 130%;
-	margin-top: 2px;
-	margin-left: 3%;
-	font-weight: bold;
+	background-size: 25px;
+	background-position: 0 center;
+	position: absolute;
+	left: 10px;
+	top: 0px;
+	line-height: 50px;
+	text-indent: 30px;
 }
 
 .song-list-control .control-bars {
-	float: right;
-	margin: 0;
 	width: 20px;
-	height: 20px;
 	background-image: url(../resources/menu-darkcyan.svg);
-	background-repeat: no-repeat;
-	background-size: 100%;
+	background-position: center;
+	background-size: 20px;
+	position: absolute;
+	right: 10px;
+	top: 0px;
 }
 
-.mui-control-content {
-	min-height: 415px;
-}
-.mui-control-content .mui-loading {
-	margin-top: 150px;
-}
-
-.song-control-bar img {
+.song-list-control p {
+	height: 50px;
 	width: 100%;
-}
-
-
-.search-history-list {
-	margin-bottom: 5%;
-}
-
-.sort-icon {
-	color: gray;
-	float: right;
-}
-
-.mui-table-view-cell {
-	padding-left: 6%;
-}
-
-.mui-table-view-cell .song-num {
-	float: left;
-	font-size: 100%;
-	margin-top: 5%;
-	margin-right: 5%;
-}
-
-.mui-table-view-cell .song-name {
-	width: 50%;
-	font-size: 100%;
-	float: left;
-	margin: 1%;
-}
-
-.mui-table-view-cell a {
-	float: right;
-	color: darkgrey;
-}
-
-.mui-table-view-cell p {
-	width: 50%;
-	font-size: 80%;
-	float: left;
-	margin: 1%;
-}
-
-.mui-table-view-cell span {
-	margin-top: 48%;
+	margin: 0 10px;
+	font-size: 20px;
+	ling-height: 50px;
 	color: black;
 }
 
-.mui-table-view-cell img {
-	margin-top: 0.5%;
+/* 列表主体 */
+#song-list {
+	height: calc(100vh - 254px);
+}
+
+#song-list li {
+	display: flex;
+	padding: 10px 15px;
+}
+
+#song-list .list-cell-num {
+	text-align: center;
+	width: 30px;
+	margin: 0;
+	padding: 0;
+	font-size: 14px;
+	color: gray;
+}
+
+.list-cell-info {
+	width: 100%;
+}
+
+.list-cell-more {
+	padding-left: 10px;
+	position: relative;
+	width: 30px;
+	height: 42px;
+	line-height: 36px;
+	color: gray;
 }
