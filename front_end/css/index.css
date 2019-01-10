@@ -11,6 +11,38 @@ body {
 	height: 100%;
 }
 
+/* 侧滑菜单 */
+.aside-list {
+	font-size: 18px;
+}
+
+#logout-control {
+	display: none;
+	width: 100%;
+	padding: 20px 0;
+}
+
+#logout-control > div {
+	margin: 15px auto;
+	color: white;
+	font-size: 20px;
+	text-align: center;
+}
+
+#logout-button {
+	width: 100px;
+	height: 39px;
+	margin: 15px auto;
+	display: block;
+	font-size: 18px;
+	color: white;
+	border-color: darkcyan;
+	background-color: darkcyan;
+	background-size: 18px;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
 /* 选项卡 */
 #bar-nav {
 	color: white;
@@ -40,7 +72,7 @@ body {
 /* 主体部分 */
 iframe {
 	width: 100%;
-	margin-top: 44px;
-	height: calc(100% - 44px);
+	height: 100%;
+	padding: 44px 0 100px 0;
 	border: 0;
 }

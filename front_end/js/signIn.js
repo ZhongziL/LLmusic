@@ -1,15 +1,13 @@
 window.onload = function() {
 	mui.init({ swipeBack: true }); //启用右滑关闭功能
-	
-	parent.pageSet.setPlayNav(false); // 关闭播放条
 
 	// 按钮绑定
 	$('.mui-pull-left').bind('click', (event) => {
-		parent.pageChange('pages/signIn.html', 'pages/index.html');
+		parent.PageManager.reBack();
 	});
 	
 	$('.mui-pull-right').bind('click', (event) => {
-		parent.pageChange('pages/signIn.html', 'pages/signUp.html');
+		parent.PageManager.open('pages/signUp.html');
 	});
 	
 	var mask = {
@@ -56,7 +54,7 @@ window.onload = function() {
 					alert('登录成功');
 					parent.userInfo = data;
 					$.cookie('userinfo', JSON.stringify(data));
-					parent.pageChange('pages/signIn.html', 'pages/index.html');
+					parent.PageManager.open('pages/index.html');
 				} else if (data == 'no user' || data == 'password error') {
 					alert('用户名或密码错误，请检查后重试')
 				}
