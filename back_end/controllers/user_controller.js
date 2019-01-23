@@ -37,6 +37,7 @@ exports.login = function(req, res){
 				if(user) {
 					if(user.password_hash === password) {
 						req.session.user = user;
+						res.cookie('LLmusic', {"username": username}, {maxAge: 60*60*3000, httpOnly: false});
 						req.session.msg = 'success';
 						// req.session.save();
 						console.log(username + " login");
@@ -81,6 +82,7 @@ exports.login = function(req, res){
 				if(user) {
 					if(user.password_hash === password) {
 						req.session.user = user;
+						res.cookie('LLmusic', {"username": username}, {maxAge: 60*60*3000, httpOnly: false});
 						req.session.msg = 'success';
 						// req.session.save();
 						console.log(username + " login");
@@ -109,6 +111,7 @@ exports.logout = function(req, res) {
 		var username = req.session.user.username;
 		req.session.destroy(function(){
 			console.log(username + " logout");
+			res.clearCookie(username);
 			res.status(200).json(username + " logout");
 			res.end();
 		});
@@ -148,7 +151,7 @@ exports.register = function(req, res){
 				if(user) {
 					console.log('username is already exist');
 					req.session.msg = 'username is already exist';
-					res.status(200);
+					res.status(200).json("username is already exist");
 					res.end();
 					//return;
 				} else {
@@ -157,11 +160,12 @@ exports.register = function(req, res){
 						if(err) {
 							console.log(err);
 							req.session.msg = 'error';
-							res.status(200);
+							res.status(200).json('error');
 							res.end();
 						} else {
 							//console.log("you");
 							req.session.user = new_user;
+							res.cookie('LLmusic', {"username": username}, {maxAge: 60*60*3000, httpOnly: false});
 							req.session.msg = 'success';
 							console.log("new user", username);
 							res.status(200).json(data);

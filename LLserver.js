@@ -7,6 +7,9 @@ var mongoStore = require('connect-mongo')(session);
 var mongoose = require('mongoose');
 
 require('./back_end/models/user_model.js');
+require('./back_end/models/music_list_model');
+require('./back_end/models/music_model');
+require('./back_end/models/comment_model');
 
 var conn = mongoose.connect('mongodb://localhost:27017/test');
 //console.log(conn.connections[0].collections);
@@ -31,7 +34,7 @@ app.use(cookieParser('ZhongziL')); 	//req.cookie
 app.use(session({
 	resave: false,
 	secret: 'ZhongziL',
-	cookies: {maxAge: 60*60*1000, httpOnly: false}, 	//1h
+	cookies: {maxAge: 60*60*3000, httpOnly: false}, 	//1h
 	store: new mongoStore({
 		url: 'mongodb://localhost:27017/test',
 		//db: mongoose.connection.db, //connect error

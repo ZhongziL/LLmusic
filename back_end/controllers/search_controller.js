@@ -43,6 +43,8 @@ function getName(url, callback) {
             var results = {songs: []};
 
             (function iterator(i) {
+                // console.log("ok");
+                // console.log(lists[i]);
                 var song_name = lists[i].OriSongName;
                 var singer_name = lists[i].SingerName;
                 var fileHash = lists[i].FileHash;
@@ -62,6 +64,7 @@ function getName(url, callback) {
 
                     song.img = body.data.img;
                     song.mp3 = body.data.play_url;
+                    song.lyrics = body.data.lyrics;
 
                     results.songs.push(song);
 
@@ -94,9 +97,9 @@ function geturl(song, callback) {
     }, function(error, response, body) {
         if (!error && response.statusCode === 200) {
             //歌词
-            // console.log(body);
             img_url = body.data.img;
             mp3 = body.data.play_url;
+            lyrics = body.data.lyrics;
             callback(null, body);
         } else {
             callback(error);

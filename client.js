@@ -72,7 +72,7 @@ var url = "http://localhost:5000/searchSong";
 var search_data = {
     search_keyword : "周杰伦",
     page: 1,
-    pagesize: 2
+    pagesize: 1
 };
 
 function searchrequest(url, data) {
@@ -88,6 +88,36 @@ function searchrequest(url, data) {
         // console.log("???");
         if (!error && response.statusCode === 200) {
             console.log(body); // 请求成功的处理逻辑
+            var songs = body.songs;
+            for (song in songs) {
+                // console.log(song);
+                var songd = {
+                    song_hash : songs[song].fileHash,
+                    song_name : songs[song].song_name,
+                    singer: songs[song].singer_name,
+                    song_url: songs[song].mp3,
+                    song_words: songs[song].lyrics,
+                    song_img: songs[song].img,
+                    list_id: "5c47ffbb4b89830efc0f1b87"
+                };
+
+                console.log(songd);
+                request({
+                    url: "http://localhost:5000/addMusic",
+                    method: "POST",
+                    json: true,
+                    headers: {
+                        "content-type": "application/json",
+                    },
+                    body: songd
+                }, function (err, res, bodys) {
+                    if (!err && res.statusCode === 200) {
+                        console.log(bodys);
+                    } else {
+                        console.log(err);
+                    }
+                });
+            }
         } else {
             console.log(error);
         }
@@ -95,3 +125,25 @@ function searchrequest(url, data) {
 }
 
 searchrequest(url, search_data);
+var data1 = {
+    username: "Liu",
+    list_id: "5c22fa7662a9da74c8ac15b3"
+};
+function removeListrequest(url, data) {
+    request({
+        url: url,
+        method: "POST",
+        json: true,
+        headers: {
+            "content-type": "application/json",
+        },
+        body: data
+    }, function(error, response, body) {
+        if (!error && response.statusCode === 200) {
+            console.log(body) // 请求成功的处理逻辑
+        }
+    });
+}
+
+var url1 = "http://localhost:5000/removeUserList";
+// removeListrequest(url1, data1);

@@ -76,6 +76,8 @@ module.exports = function(app) {
 
 	app.post('/removeList', music.removeList);
 
+	app.post('/removeUserList', music.removeUserList);
+
 	app.post('/removeSong', music.removeSong);
 
 	app.post('/changeListName', music.changeListName);
@@ -85,6 +87,12 @@ module.exports = function(app) {
 	app.post('/loveSong', song.loveSong);
 
 	app.post('/searchSong', search.search_list);
+
+	app.post('/getFavouriteSongList', music.getFavouriteSongList);
+
+	app.post('/addMusic', music.addMusic);
+
+	// app.post('/addFavouriteMusic', music.addFavouriteMusic);
 
 	//
 	// app.post('/upload', user.upload);
