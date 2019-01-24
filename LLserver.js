@@ -10,6 +10,7 @@ require('./back_end/models/user_model.js');
 require('./back_end/models/music_list_model');
 require('./back_end/models/music_model');
 require('./back_end/models/comment_model');
+require('./back_end/models/avatar_model');
 
 var conn = mongoose.connect('mongodb://localhost:27017/test');
 //console.log(conn.connections[0].collections);
@@ -32,7 +33,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser('ZhongziL')); 	//req.cookie
 // app.set('trust proxy', 1);
 app.use(session({
-	resave: false,
+	resave: true,
 	secret: 'ZhongziL',
 	cookies: {maxAge: 60*60*3000, httpOnly: false}, 	//1h
 	store: new mongoStore({

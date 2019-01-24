@@ -1,4 +1,5 @@
 var request = require('request');
+var fs = require('fs');
 
 var data = {
 	username: 'Liu',
@@ -124,7 +125,7 @@ function searchrequest(url, data) {
     });
 }
 
-searchrequest(url, search_data);
+// searchrequest(url, search_data);
 var data1 = {
     username: "Liu",
     list_id: "5c22fa7662a9da74c8ac15b3"
@@ -147,3 +148,37 @@ function removeListrequest(url, data) {
 
 var url1 = "http://localhost:5000/removeUserList";
 // removeListrequest(url1, data1);
+
+var file = "./pictures/6.jpg";
+var uploadurl = "http://localhost:5000/add_avatar";
+
+function base64_decode(base64str, file) {
+    var bitmap = new Buffer(base64str, 'base64');
+    fs.writeFileSync(file, bitmap);
+}
+
+function base64_encoder(file) {
+    var bitmap = fs.readFileSync(file);
+    var str = new Buffer(bitmap).toString('base64');
+    var d = {
+        avatar_number: 6,
+        avatar_picture: str
+    };
+    request({
+        url: uploadurl,
+        method: "POST",
+        json: true,
+        headers: {
+            "content-type": "application/json",
+        },
+        body: d
+    }, function(error, response, body) {
+        if (!error && response.statusCode === 200) {
+            console.log(body) // 请求成功的处理逻辑
+        } else {
+            console.log(error);
+        }
+    });
+}
+
+// base64_encoder(file);

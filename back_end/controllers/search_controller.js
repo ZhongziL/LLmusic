@@ -5,6 +5,8 @@ exports.search_list = function (req, res) {
     var search_keyword = req.body.search_keyword;
     var page = req.body.page;
     var pagesize = req.body.pagesize;
+    if (page === 'undefined') { page = 1; }
+    if (pagesize === 'undefined') {pagesize = 1;}
     console.log(search_keyword, page, pagesize);
 
     var url = "http://songsearch.kugou.com/song_search_v2?keyword=" + search_keyword + "&page=" + page + "&pagesize=" + pagesize +

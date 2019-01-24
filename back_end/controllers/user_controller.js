@@ -3,6 +3,7 @@ var crypto = require('crypto');
 var mongoose = require('mongoose');
 var User = mongoose.model('User');
 var multiparty = require('multiparty');
+var Avatar = mongoose.model('Avatar');
 // var formidable = require('formidable');
 // var sms = require('./ihuyi.js');
 // var message = new sms();
@@ -45,15 +46,15 @@ exports.login = function(req, res){
 						res.status(200).json(data);
 						res.end();
 					} else {
-						req.session.user = null;
-						req.session.msg = 'password error';
+						// req.session.user = null;
+						// req.session.msg = 'password error';
 						console.log("password error");
 						res.status(200).json("password error");
 						res.end();
 					}
 				} else {
-					req.session.user = null;
-					req.session.msg = 'no user';
+					// req.session.user = null;
+					// req.session.msg = 'no user';
 					console.log('no user');
 					res.status(200).json("no user");
 					res.end();
@@ -90,13 +91,13 @@ exports.login = function(req, res){
 						res.status(200).json(data);
 						res.end();
 					} else {
-						req.session.msg = 'password error';
+						// req.session.msg = 'password error';
 						console.log("password error");
 						res.status(200).json("password error");
 						res.end();
 					}
 				} else {
-					req.session.msg = 'no user';
+					// req.session.msg = 'no user';
 					console.log('no user');
 					res.status(200).json("no user");
 					res.end();
@@ -111,7 +112,7 @@ exports.logout = function(req, res) {
 		var username = req.session.user.username;
 		req.session.destroy(function(){
 			console.log(username + " logout");
-			res.clearCookie(username);
+			// res.clearCookie(username);
 			res.status(200).json(username + " logout");
 			res.end();
 		});
@@ -150,7 +151,7 @@ exports.register = function(req, res){
 			.exec(function(err, user){
 				if(user) {
 					console.log('username is already exist');
-					req.session.msg = 'username is already exist';
+					// req.session.msg = 'username is already exist';
 					res.status(200).json("username is already exist");
 					res.end();
 					//return;
@@ -159,7 +160,7 @@ exports.register = function(req, res){
 					new_user.save(function(err) {
 						if(err) {
 							console.log(err);
-							req.session.msg = 'error';
+							// req.session.msg = 'error';
 							res.status(200).json('error');
 							res.end();
 						} else {
@@ -276,14 +277,116 @@ exports.upload = function(req, res) { //请使用$.ajax 不要使用$.post, 需�
 	}
 };
 
-exports.get_avatar = function(req, res) {
+exports.get_user_avatar = function(req, res) {
 	if(req.session.user) {
-		res.status(200).json({avatar_url: req.session.user.avatar_url});
-		res.end();
+		var username = req.body.username;
+
+		User.findOne({username: username})
+			.exec(function(err, user){
+				if(user) {
+					var avatar_num = user.avatar_number;
+					Avatar.findOne({avatar_num: avatar_num})
+						.exec(function (err1, avatar) {
+							if(avatar) {
+								var data = {
+									picture: avatar.avatar_value,
+								};
+								res.status(200).json(data);
+								res.end();
+							} else {
+								res.status(200).json(err1);
+							}
+						})
+				} else {
+					res.status(200).json("no user");
+					res.end();
+				}
+		});
 	} else {
-		res.status(404).json({msg:"please login first"});
+		res.status(200).json("please login first");
 		res.end();
 	}
+};
+
+exports.get_all_avatar = function(req, res) {
+	if(req.session.user) {
+		var list = [0, 1, 2, 3, 4, 5, 6];
+		var pictures = {pictures: []};
+		(function iterator(i) {
+			Avatar.findOne({avatar_num: list[i]})
+				.exec(function (err, avatar) {
+					if (err) {
+						res.status(200).json(err);
+						res.end();
+					} else {
+						var name = {
+							avatar_num: avatar.avatar_num,
+							avatar_picture: avatar.avatar_value,
+						};
+						pictures.pictures.push(name);
+
+						if (i + 1 === list.length) {
+							res.status(200).json(pictures);
+							res.end();
+						} else {
+							iterator(i + 1);
+						}
+					}
+				});
+		})(0);
+	} else {
+		res.status(200).json("please login first");
+		res.end();
+	}
+};
+
+exports.change_avatar = function(req, res) {
+	if(req.session.user) {
+		var username = req.body.username;
+		var number = req.body.number;
+		if (number === 'undefined') {
+			number = 0;
+		}
+
+		User.findOne({username: username})
+			.exec(function(err, user){
+				if(user) {
+					user.set('avatar_number', number);
+					user.save(function (err) {
+						if(err) {
+							res.status(200).json(err);
+							res.end();
+						} else {
+							res.status(200).json("ok");
+							res.end();
+						}
+					})
+				} else {
+					res.status(200).json("no user");
+					res.end();
+				}
+		});
+	} else {
+		res.status(200).json("please login first");
+		res.end();
+	}
+};
+
+exports.add_avatar = function(req, res) {
+	var number = req.body.avatar_number;
+	var picture = req.body.avatar_picture;
+	// console.log(number, picture);
+
+	var avatar = new Avatar({avatar_num: number, avatar_value: picture});
+	avatar.save(function (err) {
+		if(err) {
+			res.status(200).json(err);
+			res.end();
+		} else {
+			res.status(200).json("ok");
+			res.end();
+		}
+	})
 };
 
 exports.preview_pic = function(req, res) {

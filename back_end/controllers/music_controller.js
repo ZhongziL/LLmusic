@@ -374,7 +374,7 @@ exports.addMusicToList = function (req, res) {
     if(req.session.user) {
         var list_id = ObjectID(req.body.list_id);
         var song_hash = req.body.song_hash;
-        var song_url = req.body.song_url;
+        var song_url = req.body.mp3;
         var singer = req.body.singer;
         var song_name = req.body.song_name;
         var song_lyrics = req.body.song_word;
@@ -562,10 +562,16 @@ exports.changeListName = function (req, res) {
     if(req.session.user) {
         var list_id = ObjectID(req.body.list_id);
         var list_name = req.body.list_name;
+        var description = req.body.description;
 
         MusicList.findOne({_id : list_id}).exec(function (err, musiclist) {
             if (musiclist) {
-                musiclist.set('list_name', list_name);
+                if (list_name !== 'undefined') {
+                    musiclist.set('list_name', list_name);
+                }
+                if (description !== 'undefined') {
+                    musiclist.set('description', description);
+                }
                 musiclist.save(function(err) {
                     if (err) {
                         res.status(200).json(err);
@@ -620,10 +626,12 @@ exports.collectList = function (req, res) {
 exports.addFavouriteMusic = function (req, res) {
     if(req.session.user) {
         var song_hash = req.body.song_hash;
-        var song_url = req.body.song_url;
+        var song_url = req.body.mp3;
         var singer = req.body.singer;
         var song_name = req.body.song_name;
         var username = req.body.username;
+        var song_lyrics = req.body.song_word;
+        var song_img = req.body.img;
 
         // var song_words = req.body.song_word;
 
@@ -636,6 +644,9 @@ exports.addFavouriteMusic = function (req, res) {
                 song.set('song_url', song_url);
                 song.set('singer_name', singer);
                 song.set('song_name', song_name);
+                song.set('song_words', song_lyrics);
+                song.set('song_img', song_img);
+
                 // song.set('song_words', song_words);
                 song.save(function(err) {
                     if(err) {

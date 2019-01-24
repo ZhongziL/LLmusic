@@ -98,7 +98,18 @@ module.exports = function(app) {
 	// app.post('/upload', user.upload);
 	// //app.post('/preview_pic', user.preview_pic);
 	//
-	// app.get('/get_avatar', user.get_avatar);
+	app.post('/get_user_avatar', user.get_user_avatar);
+	app.get('/get_all_avatar', user.get_all_avatar);
+	app.post('/add_avatar', user.add_avatar);
+	app.post('/change_avatar', user.change_avatar);
+
+
+	app.post('/searchUser', song.searchUser);
+	app.post('/focusUser', song.focusUser);
+	app.post('/getUserFocus', song.getUserFocus);
+	app.post('/getUserFans', song.getUserFans);
+	app.post('/isFocused', song.IsFocused);
+	app.post('/unFocus', song.unFocus);
 	//
 	// //app.get('/add', film.addfilm);
 	// app.get('/getFilmList', film.getFilmList);
