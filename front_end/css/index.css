@@ -1,227 +1,88 @@
+html {
+	height: 100%;
+}
+
 body {
 	font-family: "微软雅黑";
+	font-size: 0;
+	padding: 0;
+	margin: 0;
+	width: 100%;
+	height: 100%;
 }
 
-.mui-icon-bars {
+/* 侧滑菜单 */
+.aside-list {
+	font-size: 18px;
+}
+
+#user-photo {
+    width: 60px;
+    height: 60px;
+    background-image: url('../resources/llmusic.svg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 50%;
+}
+
+#logout-control {
+	display: none;
+	width: 100%;
+	padding: 20px 0;
+}
+
+#logout-control > div {
+	margin: 15px auto;
 	color: white;
-	opacity: 100%;
+	font-size: 20px;
+	text-align: center;
 }
 
-.mui-icon-bars:active {
+#logout-button {
+	width: 100px;
+	height: 39px;
+	margin: 15px auto;
+	display: block;
+	font-size: 18px;
 	color: white;
-	opacity: 100%;
-}
-
-.mui-title {
-	color: white;
-}
-
-.bar-nav {
+	border-color: darkcyan;
 	background-color: darkcyan;
+	background-size: 18px;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+/* 选项卡 */
+#bar-nav {
+	color: white;
+	opacity: 100%;
+	background-color: darkcyan;
+	box-shadow: none;
+}
+
+#bar-nav > * {
+	color: white;
+}
+
+#bar-nav > *:active {
+	color: white;
 }
 
 .nav-link {
-	font-size: 125%;
-	margin-left: 5%;
+	font-size: 20px;
+	margin: 0 10px;
 }
 
-.mine {
-	font-size: 140%;
+.nav-link-active {
+	margin: 0 20px;
+	font-size: 24px;
 }
 
-.search-box {
-	background-color: darkcyan;
-	text-align: center;
-	padding-bottom: 6%;
-	margin-top: -1px;
-}
-
-.nav-search {
-	background-color: rgb(30, 100, 100);
-	color: white;
-	width: 96%;
-	border: hidden;
-	font-size: 100%;
-	margin-left: 2%;
-	padding: 1%;
-	border-radius: 2px;
-}
-
-.playing-song {
-	height: 10%;
-}
-
-.playing-song-cover {
-	width: calc(5vw + 5vh);
-	height: calc(5vw + 5vh);
-	margin: 3%;
-	border-radius: 50%;
-	background-image: url('../resources/photo.jpg');
-	background-size: 100%;
-	background-repeat: no-repeat;
-	float: left;
-}
-
-.playing-song h1 {
-	width: 40%;
-	margin-top: calc(1.8vw + 1.8vh);
-	font-size: calc(1.5vw + 1.5vh);
-	float: left;
-}
-
-.playing-song p {
-	width: 40%;
-	font-size: calc(1.25vw + 1.25vh);
-	float: left;
-	padding: 0;
-}
-
-.playing-button {
-	width: 5vh;
-	height: 5vh;
-	margin: 5% 2%;
-	border-radius: 50%;
-	background-size: 100%;
-	background-repeat: no-repeat;
-	float: right;
-}
-
-.playing {
-	background-image: url(../resources/play.png);
-}
-
-.music-queue {
-	background-image: url(../resources/mus-queue.png);
-	margin-right: 7%;
-}
-
-.search-icon {
-	color: white;
-}
-
-.search-icon:active {
-	color: white;
-}
-
-.personal-card {
-	margin-top: -3%;
-}
-
-.personal-card-info {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-
-.user-photo {
-	width: 5vh;
-	height: 5vh;
-	background-image: url('../resources/photo.jpg');
-	background-size: 100%;
-	border-radius: 50%;
-}
-
-.user-name {
-	color: black;
-	font-size: 125%;
-	margin-left:10%;
-	margin-bottom: 0;
-}
-
-.main-list-menu {
+/* 主体部分 */
+iframe {
 	width: 100%;
-	overflow: hidden;
-}
-
-.main-list {
-	width: 33.3%;
-	float: left;
-	text-align: center;
-	margin: 0 auto;
-	font-size: 110%;
-}
-
-.main-list-icon {
-	width: 30%;
-}
-
-.song-number {
-	margin: 0;
-}
-
-.song-lists-select {
-	text-align: center;
-	font-size: 120%;
-}
-
-.song-lists-select a {
-	margin: 0 5%;
-}
-
-.song-lists-select a:active {
-	color: black;
-}
-
-.self-created {
-	color: black;
-}
-
-.collected {
-	color: gray;
-}
-
-.song-lists-menu .song-lists-operate {
-	margin: 5% 2% 0% 2%;
-	overflow: hidden;
-}
-
-.song-lists-operate p {
-	width: 50%;
-	float: left;
-	margin-left: 2%;
-	font-size: 125%;
-	color: black;
-}
-
-.song-lists-menu-icon {
-	width: 10%;
-	height: 3.8vh;
-	float: right;
-	background-size: 85%;
-	background-repeat: no-repeat;
-}
-
-.song-lists {
-	overflow-y: scroll;
-}
-
-.create-lists {
-	background-image: url('../resources/add.png');
-}
-
-.manage-lists {
-	background-image: url('../resources/toc.png');
-}
-
-.song-list-item .song-list-cover {
-	float: left;
-}
-
-.song-list-item h1 {
-	width: 50%;
-	font-size: 100%;
-	margin: 1% 0;
-	float: left;
-}
-
-.song-list-item p {
-	width: 50%;
-	margin: 0;
-	float: left;
-}
-
-.song-list-item .enter-icon {
-	width: 20%;
-	float: right;
-	margin-right: -4%;
+	height: 100%;
+	padding: 44px 0 100px 0;
+	border: 0;
 }

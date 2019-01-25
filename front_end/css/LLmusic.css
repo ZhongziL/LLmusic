@@ -1,0 +1,121 @@
+body {
+    font-size: 0;
+    font-family: "微软雅黑";
+    width: 100vw;
+    height: 100vh;
+    min-width: 250px;
+    min-height: 250px;
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+#main {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.tools-toast {
+    position: absolute;
+    top: 0;
+    botttom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, .3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tools-toast p {
+    max-width: 80%;
+    transition: opacity .3s;
+    z-index: 9999;
+    background-color: white;
+    color: black;
+    font-size: 18px;
+    border-radius: 8px;
+    padding: 10px 25px;
+    word-break: break-all;
+}
+
+#tools-prompt {
+    position: absolute;
+    top: 0;
+    botttom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, .3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+
+#tools-prompt>div {
+    background: white;
+    width: 70%;
+    border-radius: 13px;
+}
+
+#tools-prompt p {
+    text-align: center;
+    margin: 13px;
+    color: black;
+    font-size: 18px;
+}
+
+#tools-prompt input {
+    margin: 0 13px 13px 13px;
+    width: calc(100% - 26px);
+    height: 26px;
+    padding: 0 5px;
+    font-size: 14px;
+    border: 1px solid rgba(0,0,0,.3);
+    border-radius: 0;
+}
+
+#tools-prompt-btn {
+    position: relative;
+}
+
+#tools-prompt-btn:after {
+    content: '';
+    width: 1px;
+    height: 100%;
+    position: absolute;
+    left: 50%;
+    top: 0;
+    background: rgb(204, 204, 204);
+}
+
+#tools-prompt-btn button {
+    width: 50%;
+    margin: 0;
+    border-radius: 0;
+    border-width: 0;
+    color: #007aff;
+    height: 44px;
+    font-size: 17px;
+}
+
+#tools-prompt-btn button:active {
+    background: white;
+}
+
+#tools-prompt-btn button:first-child {
+    border-bottom-left-radius: 13px;
+    border-top-width: 1px;
+}
+
+#tools-prompt-btn button:last-child {
+    border-bottom-right-radius: 13px;
+    border-top-width: 1px;
+}

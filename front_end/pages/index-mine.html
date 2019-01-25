@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Personal Center</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <!--标准mui.css-->
+        <link rel="stylesheet" href="../css/mui.min.css">
+        <!--App自定义的css-->
+        <link rel="stylesheet" href="../css/index-mine.css" />
+
+        <script src="../js/mui.min.js"></script>
+        <script src='../js/jquery-3.3.1.min.js'></script>
+        <script src="../js/index-mine.js"></script>
+    </head>
+
+    <body>
+        <div id="search-box">
+            <div>
+                <span class="mui-icon mui-icon-search search-icon"></span>
+                <span>搜索</span>
+            </div>
+        </div>
+        <div id="personal-card" class="mui-card mui-content-padded">
+            <div id="user-photo"></div>
+            <p id="user-name">未登录</p>
+        </div>
+        <div class="mui-card main-list-card mui-content-padded">
+            <div class="mui-card-content">
+                <div class="mui-card-content-inner main-list-menu">
+                    <!--
+                    <div class="main-list" id="music-local">
+                        <div class="main-list-icon-container"><img class="main-list-icon" src="../resources/music.png" /></div>
+                        <span>本地音乐</span>
+                        <p class="song-number"></p>
+                    </div>
+                    -->
+                    <div class="main-list" id="favourite">
+                        <div class="main-list-icon-container"><img class="main-list-icon" src="../resources/heart.png" /></div>
+                        <span>我喜欢</span>
+                        <p class="song-number"></p>
+                    </div>
+                    <div class="main-list" id="history">
+                        <div class="main-list-icon-container"><img class="main-list-icon" src="../resources/clock.png" /></div>
+                        <span>最近播放</span>
+                        <p class="song-number"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="list-title">
+            <p><span class="listClass-active">自建歌单</span>|<span>收藏歌单</span></p>
+        </div>
+        <div id="scroll-lists" class="mui-scroll-wrapper">
+            <div class="mui-scroll">
+                <ul class="mui-table-view">
+                    <div class="mui-loading">
+                        <div class="mui-spinner">
+                        </div>
+                    </div>
+                </ul>
+                <button id="create-list">新建歌单</button>
+            </div>
+        </div>
+    </body>
+</html>
