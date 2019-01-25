@@ -663,16 +663,17 @@ exports.changeListName = function (req, res) {
     if(req.session.user) {
         var list_id = ObjectID(req.body.list_id);
         var list_name = req.body.list_name;
-        var description = req.body.description;
+        // var description = req.body.description;
 
         MusicList.findOne({_id : list_id}).exec(function (err, musiclist) {
             if (musiclist) {
-                if (list_name !== 'undefined') {
-                    musiclist.set('list_name', list_name);
-                }
-                if (description !== 'undefined') {
-                    musiclist.set('description', description);
-                }
+                // if (list_name !== 'undefined') {
+                //     musiclist.set('list_name', list_name);
+                // }
+                // if (description !== 'undefined') {
+                //     musiclist.set('description', description);
+                // }
+                musiclist.set('list_name', list_name);
                 musiclist.save(function(err) {
                     if (err) {
                         res.status(200).json(err);
