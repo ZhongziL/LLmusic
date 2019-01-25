@@ -1,0 +1,48 @@
+html {
+    height: 100%;
+}
+
+body {
+    font-family: "微软雅黑";
+    overflow: hidden;
+    height: 100%;
+}
+
+.mui-content {
+    height: 100%;
+}
+
+.bar-nav {
+    background-color: darkcyan;
+}
+
+.nav-back {
+    color: white;
+}
+
+.mui-title {
+    color: white;
+}
+
+.mui-bar-nav {
+    box-shadow: none;
+}
+
+.bar-nav a:active {
+    color: white;
+}
+
+.bar-nav p {
+    color: white;
+    margin: 3%;
+}
+
+.mui-icon-more {
+    color: white;
+}
+
+/* 列表 */
+
+#main {
+    top: 44px;
+}

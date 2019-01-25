@@ -1,60 +1,63 @@
 <!DOCTYPE html>
 <html>
 
-	<head>
-		<meta charset="utf-8">
-		<title>Player</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
-		<meta name="apple-mobile-web-app-capable" content="yes">
-		<meta name="apple-mobile-web-app-status-bar-style" content="black">
-		<!--标准mui.css-->
-		<link rel="stylesheet" href="../css/mui.min.css">
-		<!--App自定义的css-->
-		<link rel="stylesheet" type="text/css" href="../css/player.css"/>
-	</head>
+    <head>
+        <meta charset="utf-8">
+        <title>Player</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <!--标准mui.css-->
+        <link rel="stylesheet" href="../css/mui.min.css">
+        <!--App自定义的css-->
+        <link rel="stylesheet" type="text/css" href="../css/player.css" />
+        <script src="../js/mui.min.js"></script>
+        <script src="../js/jquery-3.3.1.min.js"></script>
+        <script src="../js/player.js"></script>
+    </head>
 
-	<body>
-		<header class="mui-bar mui-bar-nav">
-			<a class="mui-action-back mui-icon mui-icon-arrowdown mui-pull-left"></a>
-			<h1 class="mui-title">歌名</h1>
-			<a class="mui-icon mui-icon-more mui-pull-right"></a>
-		</header>
-		<div id="tabbar" class="mui-content">
-				<div id="singer">— 歌手名 —</div>
-				<div id="cover"></div>
-				<div class="remic">
-					<p>假设这里有一句歌词</p>
-					<p>但是我觉得这里显示的歌词行数需要是动态的</p>
-					<p>以便适应不同的屏幕高度</p>
-					<p>比如这个很长的屏幕</p>
-					<p>就需要显示很多行歌词</p>
-					<p>否则就会很空</p>
-				</div>
-				<div id="progress-bar">
-					<span id="start-time">00:00</span>
-					<div id="progress"><div id="sub-progress"></div></div>
-					<span id="end-time">00:00</span>
-				</div>
-				<div class="play-control">
-					<div class="playing-button play-mode"></div>
-					<div class="playing-button prev-song"></div>
-					<div class="playing-button playing"></div>
-				    <div class="playing-button next-song"></div>
-					<div class="playing-button music-queue"></div>
-				</div>
-		</div>
-		<nav class="mui-bar mui-bar-tab">
-			<a class="mui-tab-item mui-active" href="#tabbar">
-				<span class="mui-icon mui-icon-star"></span>
-			</a>
-			<a class="mui-tab-item" href="#tabbar-with-contact">
-				<span class="mui-icon mui-icon-upload"></span>
-			</a>
-			<a class="mui-tab-item" href="#tabbar-with-map">
-				<span class="mui-icon mui-icon-chatbubble"><span class="mui-badge">250</span></span>
-			</a>
-		</nav>
-	</body>
-	<script src="../js/mui.min.js"></script>
-	<script src="../js/player.js"></script>
+    <body>
+        <header class="mui-bar mui-bar-nav">
+            <a class="nav-back mui-icon mui-icon-arrowdown mui-pull-left"></a>
+            <h1 class="mui-title">歌名</h1>
+            <!-- <a class="mui-icon mui-icon-more mui-pull-right"></a> -->
+        </header>
+        <div id="tabbar" class="mui-content">
+            <div id="singer">— 歌手名 —</div>
+            <div id="cover"></div>
+            <div class="lyric">
+                <ul></ul>
+            </div>
+            <div id="progress-bar">
+                <span id="start-time">00:00</span>
+                <div id="progress">
+                    <div id="sub-progress"></div>
+                </div>
+                <span id="end-time">00:00</span>
+            </div>
+            <div class="play-control">
+                <div class="playing-button play-mode"></div>
+                <div class="playing-button prev-song"></div>
+                <div class="playing-button playing"></div>
+                <div class="playing-button next-song"></div>
+                <div class="playing-button music-queue"></div>
+            </div>
+        </div>
+        <!-- <nav class="mui-bar mui-bar-tab">
+            <a class="mui-tab-item mui-active" href="#tabbar">
+                <span class="mui-icon mui-icon-star"></span>
+            </a>
+            <a class="mui-tab-item" href="#tabbar-with-contact">
+                <span class="mui-icon mui-icon-upload"></span>
+            </a>
+            <a class="mui-tab-item" href="#tabbar-with-map">
+                <span class="mui-icon mui-icon-chatbubble"><span class="mui-badge">250</span></span>
+            </a>
+        </nav> -->
+        
+        <div id="play-queue" class="mui-popover mui-popover-bottom mui-popover-action ">
+            <ul class="mui-table-view"></ul>
+            <button>清空播放列表</button>
+        </div>
+    </body>
 </html>

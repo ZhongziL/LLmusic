@@ -25,7 +25,7 @@ body {
 	line-height: 30px;
 	text-align: center;
 	margin: 0 10px;
-	border-radius: 2px;
+	border-radius: 5px;
 }
 
 #search-box span {
@@ -45,7 +45,7 @@ body {
 #user-photo {
 	width: 50px;
 	height: 50px;
-	background-image: url('../resources/photo.jpg');
+	background-image: url('../resources/llmusic.svg');
 	background-size: 100%;
 	border-radius: 50%;
 }
@@ -67,12 +67,7 @@ body {
 	border-radius: 0;
 	border-bottom: solid rgb(187, 187, 187) 1px;
 	background-color: white;
-}
-
-#list-title div {
-	padding: 0;
-	height: 50px;
-	line-height: 50px;
+    position: relative;
 }
 
 #list-title p {
@@ -106,6 +101,15 @@ body {
 	content: ' <';
 }
 
+#create-list {
+    height: 40px;
+    width: 40%;
+    margin: 10px 30%;
+    font-size: 14px;
+    background: transparent;
+    border-radius: 5px;
+}
+
 /* 列表-主体 */
 #scroll-lists {
 	top: 300px;
@@ -134,6 +138,7 @@ body {
 
 .main-list-menu {
 	display: flex;
+    justify-content: center;
 	height: 10px;
 	padding: 10px;
 	height: 100%;
@@ -156,4 +161,8 @@ body {
 
 .song-number {
 	margin: 0;
+}
+
+.mui-loading {
+    padding: 10px;
 }

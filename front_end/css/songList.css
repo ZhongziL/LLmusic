@@ -1,139 +1,163 @@
+html,
 body {
-	font-family: "微软雅黑";
-	overflow: hidden;
+    font-family: "微软雅黑";
+    overflow: hidden;
+    height: 100%;
 }
 
 .bar-nav {
-	background-color: darkcyan;
-	color: white;
+    background-color: darkcyan;
+    color: white;
 }
 
 .bar-nav h1 {
-	color: white;
+    color: white;
 }
 
 .nav-back::before {
-	color: white;
+    color: white;
 }
 
 
 /* 歌单信息 */
 .song-list-intro {
-	display: flex;
-	height: 150px;
+    display: flex;
+    height: 150px;
     border-radius: 0;
-	margin: 0;
+    margin: 0;
 }
 
 .song-list-intro .img-box {
-	width: 150px;
-	height: 150px;
-	background-image: url('../resources/photo.jpg');
-	background-size: cover;
-	background-position: center;
+    width: 150px;
+    height: 150px;
+    background-image: url(../resources/llmusic.svg);
+    background-size: cover;
+    background-position: center;
 }
+
 .song-list-info {
-	display: block;
-	margin: 10px 10px;
-	width: calc(100% - 170px);
+    display: block;
+    margin: 10px 10px;
+    width: calc(100% - 170px);
 }
 
 .song-list-info h1 {
-	font-size: 24px;
-	margin: 0 0 5px 0;
-	overflow: hidden;
-	white-space: nowrap;
-	text-overflow: ellipsis;
+    font-size: 24px;
+    margin: 0 0 5px 0;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 .song-list-info p {
-	font-size: 14px;
-	margin: 0;
-	overflow: hidden;
-	white-space: nowrap;
-	text-overflow: ellipsis;
+    font-size: 14px;
+    margin: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 /* 列表控制条 */
 .song-list-control {
-	height: 50px;
-	width: 100%;
-	position: relative;
-	background-color: white;
-	padding: 0 10px;
-	margin-bottom: 1px;
+    height: 50px;
+    width: 100%;
+    position: relative;
+    background-color: white;
+    padding: 0 10px;
+    margin-bottom: 1px;
 }
 
 .song-list-control::after {
-	height: 1px;
-	width: 100%;
-	background-color: gray;
+    height: 1px;
+    width: 100%;
+    background-color: gray;
 }
 
 .song-list-control span {
-	margin: 0;
-	height: 50px;
-	background-repeat: no-repeat;
+    margin: 0;
+    height: 50px;
+    background-repeat: no-repeat;
 }
 
 .song-list-control .play-all {
-	background-image: url(../resources/play.png);
-	background-size: 25px;
-	background-position: 0 center;
-	position: absolute;
-	left: 10px;
-	top: 0px;
-	line-height: 50px;
-	text-indent: 30px;
+    background-image: url(../resources/play.png);
+    background-size: 25px;
+    background-position: 0 center;
+    position: absolute;
+    left: 10px;
+    top: 0px;
+    line-height: 50px;
+    text-indent: 30px;
 }
 
 .song-list-control .control-bars {
-	width: 20px;
-	background-image: url(../resources/menu-darkcyan.svg);
-	background-position: center;
-	background-size: 20px;
-	position: absolute;
-	right: 10px;
-	top: 0px;
+    width: 20px;
+    background-image: url(../resources/menu-darkcyan.svg);
+    background-position: center;
+    background-size: 20px;
+    position: absolute;
+    right: 10px;
+    top: 0px;
 }
 
 .song-list-control p {
-	height: 50px;
-	width: 100%;
-	margin: 0 10px;
-	font-size: 20px;
-	ling-height: 50px;
-	color: black;
+    height: 50px;
+    width: 100%;
+    margin: 0 10px;
+    font-size: 20px;
+    ling-height: 50px;
+    color: black;
 }
 
 /* 列表主体 */
+.mui-loading {
+    padding: 10px;
+}
+
+#main {
+    height: 100%;
+    padding: 44px 0 100px 0;
+}
+
+#main>.mui-content-padded {
+    height: 100%;
+    margin: 0;
+    padding: 10px;
+}
+
 #song-list {
-	height: calc(100vh - 254px);
+    height: calc(100% - 190px);
 }
 
 #song-list li {
-	display: flex;
-	padding: 10px 15px;
+    display: flex;
+    padding: 10px 15px;
 }
 
 #song-list .list-cell-num {
-	text-align: center;
-	width: 30px;
-	margin: 0;
-	padding: 0;
-	font-size: 14px;
-	color: gray;
+    text-align: center;
+    width: 30px;
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+    color: gray;
 }
 
 .list-cell-info {
-	width: 100%;
+    width: 100%;
 }
 
 .list-cell-more {
-	padding-left: 10px;
-	position: relative;
-	width: 30px;
-	height: 42px;
-	line-height: 36px;
-	color: gray;
+    padding-left: 10px;
+    position: relative;
+    width: 30px;
+    height: 42px;
+    line-height: 36px;
+    color: gray;
+}
+
+/* 条目菜单 */
+#item-menu li, #list-menu li {
+    color: darkcyan;
+    text-align: left;
 }

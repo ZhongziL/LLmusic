@@ -1,20 +1,16 @@
+html {
+    height: 100%;
+}
+
 body {
 	font-family: "微软雅黑";
 	overflow: hidden;
+    height: 100%;
 }
 
+/* 返回 */
 .bar-nav {
 	background-color: darkcyan;
-}
-
-.bar-nav .search-input {
-	width: 80%;
-	position: absolute;
-	margin: 0.5% 10%;
-}
-
-.search-input input {
-	background-color: white;
 }
 
 .nav-back {
@@ -25,123 +21,191 @@ body {
 	color: white;
 }
 
-.mui-title {
-	width: 100%;
-	color: white;
-	font-size: 125%;
-	margin-top: 3.5%;
-	padding-right: 5%;
-	text-align: center;
+/* 搜索输入框 */
+#search-input {
+    height: 44px;
+	width: 80%;
+	position: absolute;
+    left: 10%;
+    top: 0;
 }
 
-.playing-song {
-	height: 10%;
-	box-shadow: 0px 0 0px rgba(0, 0, 0, .5), 0px 0 0px rgba(0, 0, 0, .5);
+#search-input input {
+    height: 30px;
+	background-color: white;
+    margin: 7px 0;
 }
 
-.playing-song-cover {
-	width: calc(5vw + 5vh);
-	height: calc(5vw + 5vh);
-	margin: 3%;
-	border-radius: 50%;
-	background-image: url('../resources/photo.jpg');
-	background-size: 100%;
-	background-repeat: no-repeat;
-	float: left;
+/* 热搜和历史 */
+#search-tips {
+    height: calc(100% - 104px);
 }
 
-.playing-song h1 {
-	width: 40%;
-	margin-top: calc(1.8vw + 1.8vh);
-	font-size: calc(1.5vw + 1.5vh);
-	float: left;
+.sub-module {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
 }
 
-.playing-song p {
-	width: 40%;
-	font-size: calc(1.25vw + 1.25vh);
-	float: left;
-	padding: 0;
+.sub-title {
+    margin: 10px;
+    color: rgb(204, 204, 204);
+    font-size: 16px;
 }
 
-.playing-button {
-	width: 5vh;
-	height: 5vh;
-	margin: 5% 2%;
-	border-radius: 50%;
-	background-size: 100%;
-	background-repeat: no-repeat;
-	float: right;
+.hot-search-lists {
+    width: 100%;
+    height: 63px;
+    padding: 10px;
+    margin: 0;
+    overflow: hidden;
 }
 
-.playing {
-	background-image: url('../resources/play.png');
+.hot-search-lists li {
+    display: inline-block;
+    text-align: center;
+    padding: 10px;
+    margin-bottom: 10px;
+    list-style: none;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 10px;
 }
 
-.music-queue {
-	background-image: url('../resources/mus-queue.png');
-	margin-right: 7%;
+.hot-search-lists li:first-child {
+    color: darkcyan;
 }
 
-.search-submodule {
-	padding: 5%;
+#clear-history {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 41px;
+    border: none;
+    padding: 10px;
 }
 
-.search-subtitle {
-	width: 100%;
-	display: inline-block;
+#clear-history:active {
+    background: transparent;
 }
 
-.search-subtitle p {
-	font-size: 100%;
+#search-history {
+    height: 100%;
 }
 
-.hot-search-item {
-	display: inline-block;
-	padding: 2%;
-	border-radius: 1em;
-	margin: 0 1% 2% 0;
-	border: 1px solid black;
+#history-scroll {
+    height: calc(100% - 41px);
+    top: 41px;
 }
 
-.hot-search-item:nth-child(1) {
-	border-color: darkcyan;
-	color: darkcyan;
+#history-scroll ul {
+    background: transparent;
 }
 
-.search-history {
-	width: 100%;
-	padding-bottom: 0;
-	display: inline-block;
+#history-scroll a {
+    margin: 0;
+    padding: 0;
+    margin-right: 30px;
 }
 
-.search-history p {
-	float: left;
-}
-
-.clear-history {
-	border: none;
-	color: darkcyan;
-	float: right;
-	font-size: 100%;
-	padding: 0;
-}
-
-.mui-control-content {
-	min-height: 345px;
-}
-.mui-control-content .mui-loading {
-	margin-top: 50px;
-}
-
-.search-history-list {
-	margin-bottom: 5%;
+#history-scroll a:active {
+    background: transparent;
 }
 
 .delete-icon {
-	float: right;
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: 10px;
 }
 
-.mui-table-view-cell {
-	padding-left: 6%;
+/* 搜索结果 */
+#search-result {
+    height: 100%;
+}
+
+#slider-control {
+    padding: 0;
+}
+
+#slider .mui-active {
+    color: darkcyan;
+}
+
+#slider-bar {
+    background: darkcyan;
+    bottom: -1px;
+}
+
+#slider {
+    height: 100%;
+}
+
+#slider .mui-slider-group {
+    height: calc(100% - 40px);
+}
+
+.mui-loading {
+    margin: 10px;
+}
+
+.song-item h1 {
+    color: black;
+    font-size: 18px;
+    margin-right: 30px;
+}
+
+.song-item p {
+    margin-right: 30px;
+}
+
+.song-item span {
+    position: absolute;
+    right: 10px;
+    top: calc(50% - 12px);
+    color: darkcyan;
+}
+
+#song-item-menu li {
+    text-align: left;
+    color: darkcyan;
+}
+
+.no-user {
+    width: 100%;
+    font-size: 18px;
+    text-align: center;
+    padding: 10px 0;
+}
+
+#user-result {
+    position: relative;
+    background: white;
+    padding: 10px;
+}
+
+#user-result p {
+    margin: 0;
+}
+
+#user-item-name {
+    font-size: 18px;
+    color: darkcyan;
+}
+
+#user-item-info {
+    font-size: 14px;
+}
+
+#user-follow {
+    position: absolute;
+    top: 15px;
+    right: 10px;
+    color: darkcyan;
+    border-color: darkcyan;
+}
+
+#user-follow:enabled:active {
+    color: white;
+    background: darkcyan;
 }

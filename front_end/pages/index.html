@@ -14,6 +14,7 @@
 
 		<script src="../js/mui.min.js"></script>
 		<script src='../js/jquery-3.3.1.min.js'></script>
+        <script src="../js/jquery_cookie.js"></script>
 		<script src="../js/index.js"></script>
 	</head>
 
@@ -27,11 +28,12 @@
 						<ul class="mui-table-view mui-table-view-chevron mui-table-view-inverted aside-list">
 							<li class="mui-table-view-cell sign-in"><a class="mui-navigate-right">登录</a></li>
 							<li class="mui-table-view-cell sign-up"><a class="mui-navigate-right">注册</a></li>
+                            <play-nav />
 						</ul>
 					</div>
 					<div id="logout-control">
-						<div class='user-photo'></div>
-						<div class='user-name'>十一月</div>
+						<div id='user-photo'></div>
+						<div id='user-name'></div>
 						<button id="logout-button">登出</button>
 					</div>
 				</div>
@@ -42,15 +44,17 @@
 					<a class="mui-icon mui-action-menu mui-icon-bars mui-pull-left"></a>
 					<h1 class="mui-title">
 						<div>
-							<a class="nav-link mine nav-link-active">我的</a>
-							<a class="nav-link music-museum">音乐馆</a>
-							<a class="nav-link found">发现</a>
+							<a class="nav-link mine nav-link-active">LLMUSIC</a>
+							<!-- <a class="nav-link music-museum">音乐馆</a>
+							<a class="nav-link found">发现</a> -->
 						</div>
 					</h1>
 				</header>
 				<frameset>
-					<iframe src="index-mine.html"></iframe>
+					<iframe></iframe>
 				</frameset>
+				<!-- off-canvas backdrop -->
+				<div class="mui-off-canvas-backdrop"></div>
 				<nav id="play-nav" class="mui-bar mui-bar-tab">
 					<div id="play-nav-cover"></div>
 					<div id="play-nav-info">
@@ -60,10 +64,11 @@
 					<div class="play-nav-button" id="play-nav-button-play"></div>
 					<div class="play-nav-button" id="play-nav-button-queue"></div>
 				</nav>
-				<!-- off-canvas backdrop -->
-				<div class="mui-off-canvas-backdrop"></div>
 			</div>
 		</div>
-		<!-- 主页面标题 -->
+		<div id="play-nav-queue" class="mui-popover mui-popover-bottom mui-popover-action">
+			<ul class="mui-table-view"></ul>
+            <button>清空播放列表</button>
+		</div>
 	</body>
 </html>

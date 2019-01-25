@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+        <link href="../css/mui.css" rel="stylesheet" />
+        <link href="../css/chooseAvatar.css" rel="stylesheet" />
+
+        <script src="../js/mui.js"></script>
+        <script src="../js/jquery-3.3.1.min.js"></script>
+        <script src="../js/chooseAvatar.js"></script>
+    </head>
+
+    <body>
+        <!-- 主页面标题 -->
+        <header class="mui-bar mui-bar-nav bar-nav">
+            <a class="mui-icon mui-action-back mui-icon-arrowleft mui-pull-left nav-back"></a>
+            <h1 class="mui-title">请选择头像</h1>
+        </header>
+        <div class="mui-content">
+            <div id='avatar-list' class="mui-scroll-wrapper">
+                <div class="mui-scroll">
+                    <ul>
+                        <div class="mui-loading">
+                            <div class="mui-spinner">
+                            </div>
+                        </div>
+                        <li class="avatar avatar-active"></li>
+                    </ul>
+                    <button id="confirm">确定</button>
+                </div>
+            </div>
+        </div>
+    </body>
+
+</html>

@@ -1,146 +1,186 @@
 body {
-	font-family: "微软雅黑";
-	background-color: darkcyan;
-	overflow: hidden;
+    font-family: "微软雅黑";
+    background-color: darkcyan;
+    overflow: hidden;
 }
 
 .mui-bar-tab {
-	box-shadow: none;
+    box-shadow: none;
 }
 
 .mui-icon {
-	color: white;
+    color: white;
 }
 
-.mui-bar, .mui-content {
-	background-color: darkcyan;
+.mui-bar,
+.mui-content {
+    background-color: darkcyan;
 }
 
 .mui-bar-nav {
-	box-shadow: none;
+    box-shadow: none;
 }
 
 .mui-bar-nav a {
-	color: white;
+    color: white;
 }
 
 .mui-bar-nav h1 {
-	color: white;
+    color: white;
 }
 
 .mui-tab-item .mui-badge {
-	background-color: darkcyan;
+    background-color: darkcyan;
 }
 
 #singer {
-	color: white;
-	text-align: center;
-	font-size: 90%;
-	margin: 1%;
+    color: white;
+    text-align: center;
+    font-size: 90%;
+    margin: 1%;
 }
 
 #cover {
-	width: 70vw;
-	height: 70vw;
-	min-height: 50px;
-	max-height: 250px;
-	min-width: 50px;
-	max-width: 250px;
-	margin: 20px auto;
-	border-radius: 50%;
-	background-image: url("../resources/photo.jpg");
-	background-size: cover;
-	background-position: center;
-	animation: rotation 60s linear infinite;
+    width: 70vw;
+    height: 70vw;
+    min-height: 50px;
+    max-height: 250px;
+    min-width: 50px;
+    max-width: 250px;
+    margin: 20px auto;
+    border-radius: 50%;
+    background-image: url("../resources/llmusic.svg");
+    background-size: cover;
+    background-position: center;
+    animation: rotation 60s linear infinite;
 }
 
 @keyframes rotation {
-    from { transform: rotate(0deg); }
-	to { transform: rotate(360deg); }
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
 }
 
-.remic {
-	position: absolute;
-	width: 100%;
-	top: 350px;
-	bottom: 150px;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
+.lyric {
+    position: absolute;
+    width: 100%;
+    top: 355px;
+    bottom: 140px;
+    overflow: hidden;
 }
 
-.remic > p {
-	color: white;
-	text-align: center;
+.lyric ul {
+    position: absolute;
+    top: calc(50% - 30px);
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    transition: transform 1s, padding 1s;
+}
+
+.lyric li {
+    list-style: none;
+    font-size: 14px;
+    color: white;
+    text-align: center;
+    padding: 2px;
+    color: lightgray;
+}
+
+.lyric li.active {
+    font-size: 20px;
+    padding: 10px;
+    color: white;
 }
 
 #progress-bar {
-	position: absolute;
-	bottom:  120px;
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
-	align-items:center;
-	padding: 0 10px;
-	width: 100%;
+    position: absolute;
+    bottom: 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0 10px;
+    width: 100%;
 }
 
 #progress-bar span {
-	font-size: 18px;
-	float: left;
-	color: white;
+    font-size: 18px;
+    float: left;
+    color: white;
 }
 
 #progress {
-	width: 100%;
-	height: 3px;
-	margin: 0 10px;
-	background-color: white;
+    width: 100%;
+    height: 3px;
+    margin: 0 10px;
+    background-color: white;
 }
 
 #sub-progress {
-	width: 10%;
-	height: 3px;
-	background-color: goldenrod;
+    width: 10%;
+    height: 3px;
+    background-color: goldenrod;
 }
 
 .playing-button {
-	width: 50px;
-	height: 50px;
-	margin: 0 calc(10% - 30px);
-	background-size: cover;
-	background-repeat: no-repeat;
-	display: inline-block;
+    width: 40px;
+    height: 40px;
+    margin: 0 calc(10% - 30px);
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: inline-block;
 }
 
 .play-control {
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
-	align-items: center;
-	width: 100%;
-	position: absolute;
-	bottom: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    position: absolute;
+    bottom: 30px;
 }
 
 .play-mode {
-	background-image: url(../resources/repeat.svg);
+    background-image: url(../resources/repeat.svg);
 }
 
 .prev-song {
-	background-image: url(../resources/prev-one.svg);
+    background-image: url(../resources/prev-one.svg);
 }
 
 .playing {
-	background-image: url(../resources/play-white.svg);
-	width: 70px;
-	height: 70px;
+    background-image: url(../resources/play-white.svg);
+    width: 60px;
+    height: 60px;
 }
 
 .next-song {
-	background-image: url(../resources/next-one.svg);
+    background-image: url(../resources/next-one.svg);
 }
 
 .music-queue {
-	background-image: url(../resources/mus-queue-white.svg);
+    background-image: url(../resources/mus-queue-white.svg);
+}
+
+#play-queue li {
+    text-align: left;
+    color: darkcyan;
+}
+
+#play-queue button {
+    margin-left: calc(50% - 55px);
+    margin-bottom: 10px;
+    border-color: darkcyan;
+    color: darkcyan;
+}
+
+#play-queue button:active {
+    background: darkcyan;
+    color: white;
 }

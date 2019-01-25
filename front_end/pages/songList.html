@@ -1,130 +1,90 @@
 <!DOCTYPE html>
 <html>
 
-	<head>
-		<meta charset="utf-8">
-		<title>Song List Details</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
-		<meta name="apple-mobile-web-app-capable" content="yes">
-		<meta name="apple-mobile-web-app-status-bar-style" content="black">
-		<!--标准mui.css-->
-		<link rel="stylesheet" href="../css/mui.min.css">
-		<!--App自定义的css-->
-		<link rel="stylesheet" href="../css/SongList.css">
-		
-		<script src="../js/mui.min.js"></script>
-		<script src="../js/songList.js"></script>
-	</head>
+    <head>
+        <meta charset="utf-8">
+        <title>Song List Details</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <!--标准mui.css-->
+        <link rel="stylesheet" href="../css/mui.min.css">
+        <!--App自定义的css-->
+        <link rel="stylesheet" href="../css/SongList.css">
+        <link rel="stylesheet" href="../css/PlayNav.css">
 
-	<body>
-		<!-- 主页面标题 -->
-		<header class="mui-bar mui-bar-nav bar-nav">
-			<a class="mui-icon mui-action-back mui-icon-arrowleft mui-pull-left nav-back"></a>
-			<h1 class="mui-title">歌单</h1>
-		</header>
-		<div class="mui-content">
-			<div class="mui-content-padded">
-				<div class="mui-card song-list-intro">
-					<div class="img-box"></div>
-					<div class="mui-media-body song-list-info">
-						<h1>歌单超机八长长长的名</h1>
-						<p>用户超机八长长长长长长长长长长长长长长长的名</p>
-						<p>6首 250次播放</p>
-					</div>
-				</div>
-				<div class="song-list-control">
-					<span class="play-all">全部播放(6)</span>
-					<span class="control-bars"></span>
-				</div>
-				<div id="song-list" class="mui-slider-item mui-control-content mui-active">
-					<div class="mui-scroll-wrapper">
-						<div class="mui-scroll">
-							<ul class="mui-table-view">
-								<li class="mui-table-view-cell mui-media">
-									<span class="mui-media-object mui-pull-left list-cell-num">1</span>
-									<div class="mui-media-body list-cell-info">
-										<p class='mui-ellipsis'>歌assssssssssssssssssssssssssssssssssssssssssss名1</p>
-										<p class='mui-ellipsis'>0次播ssssssssssssssssssssssssssssssssssssssssss放</p>
-									</div>
-									<span class="mui-icon mui-icon-more list-cell-more"></span>
-								</li>
-								<li class="mui-table-view-cell mui-media">
-									<span class="mui-media-object mui-pull-left list-cell-num">1</span>
-									<div class="mui-media-body list-cell-info">
-										<p class='mui-ellipsis'>歌assssssssssssssssssssssssssssssssssssssssssss名1</p>
-										<p class='mui-ellipsis'>0次播ssssssssssssssssssssssssssssssssssssssssss放</p>
-									</div>
-									<span class="mui-icon mui-icon-more list-cell-more"></span>
-								</li>
-								<li class="mui-table-view-cell mui-media">
-									<span class="mui-media-object mui-pull-left list-cell-num">1</span>
-									<div class="mui-media-body list-cell-info">
-										<p class='mui-ellipsis'>歌assssssssssssssssssssssssssssssssssssssssssss名1</p>
-										<p class='mui-ellipsis'>0次播ssssssssssssssssssssssssssssssssssssssssss放</p>
-									</div>
-									<span class="mui-icon mui-icon-more list-cell-more"></span>
-								</li>
-								<li class="mui-table-view-cell mui-media">
-									<span class="mui-media-object mui-pull-left list-cell-num">1</span>
-									<div class="mui-media-body list-cell-info">
-										<p class='mui-ellipsis'>歌assssssssssssssssssssssssssssssssssssssssssss名1</p>
-										<p class='mui-ellipsis'>0次播ssssssssssssssssssssssssssssssssssssssssss放</p>
-									</div>
-									<span class="mui-icon mui-icon-more list-cell-more"></span>
-								</li>
-								<li class="mui-table-view-cell mui-media">
-									<span class="mui-media-object mui-pull-left list-cell-num">1</span>
-									<div class="mui-media-body list-cell-info">
-										<p class='mui-ellipsis'>歌assssssssssssssssssssssssssssssssssssssssssss名1</p>
-										<p class='mui-ellipsis'>0次播ssssssssssssssssssssssssssssssssssssssssss放</p>
-									</div>
-									<span class="mui-icon mui-icon-more list-cell-more"></span>
-								</li>
-								<li class="mui-table-view-cell mui-media">
-									<span class="mui-media-object mui-pull-left list-cell-num">1</span>
-									<div class="mui-media-body list-cell-info">
-										<p class='mui-ellipsis'>歌assssssssssssssssssssssssssssssssssssssssssss名1</p>
-										<p class='mui-ellipsis'>0次播ssssssssssssssssssssssssssssssssssssssssss放</p>
-									</div>
-									<span class="mui-icon mui-icon-more list-cell-more"></span>
-								</li>
-								<li class="mui-table-view-cell mui-media">
-									<span class="mui-media-object mui-pull-left list-cell-num">1</span>
-									<div class="mui-media-body list-cell-info">
-										<p class='mui-ellipsis'>歌assssssssssssssssssssssssssssssssssssssssssss名1</p>
-										<p class='mui-ellipsis'>1次播ssssssssssssssssssssssssssssssssssssssssss放</p>
-									</div>
-									<span class="mui-icon mui-icon-more list-cell-more"></span>
-								</li>
-								<li class="mui-table-view-cell mui-media">
-									<span class="mui-media-object mui-pull-left list-cell-num">1</span>
-									<div class="mui-media-body list-cell-info">
-										<p class='mui-ellipsis'>歌assssssssssssssssssssssssssssssssssssssssssss名1</p>
-										<p class='mui-ellipsis'>1次播ssssssssssssssssssssssssssssssssssssssssss放</p>
-									</div>
-									<span class="mui-icon mui-icon-more list-cell-more"></span>
-								</li>
-								<li class="mui-table-view-cell mui-media">
-									<span class="mui-media-object mui-pull-left list-cell-num">1</span>
-									<div class="mui-media-body list-cell-info">
-										<p class='mui-ellipsis'>歌assssssssssssssssssssssssssssssssssssssssssss名1</p>
-										<p class='mui-ellipsis'>1次播ssssssssssssssssssssssssssssssssssssssssss放</p>
-									</div>
-									<span class="mui-icon mui-icon-more list-cell-more"></span>
-								</li>
-								<li class="mui-table-view-cell mui-media">
-									<span class="mui-media-object mui-pull-left list-cell-num">1</span>
-									<div class="mui-media-body list-cell-info">
-										<p class='mui-ellipsis'>歌assssssssssssssssssssssssssssssssssssssssssss名1</p>
-										<p class='mui-ellipsis'>1次播ssssssssssssssssssssssssssssssssssssssssss放</p>
-									</div>
-									<span class="mui-icon mui-icon-more list-cell-more"></span>
-								</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</body>
+        <script src="../js/mui.min.js"></script>
+        <script src='../js/jquery-3.3.1.min.js'></script>
+        <script src="../js/songList.js"></script>
+    </head>
+
+    <body>
+        <!-- 播放条和播放列表 -->
+        <nav id="play-nav" class="mui-bar mui-bar-tab">
+            <div id="play-nav-cover"></div>
+            <div id="play-nav-info">
+                <p class="mui-ellipsis">歌曲名</p>
+                <p class="mui-ellipsis">歌手名</p>
+            </div>
+            <div class="play-nav-button" id="play-nav-button-play"></div>
+            <div class="play-nav-button" id="play-nav-button-queue"></div>
+        </nav>
+        <div id="play-nav-queue" class="mui-popover mui-popover-bottom mui-popover-action ">
+            <ul class="mui-table-view"></ul>
+            <button>清空播放列表</button>
+        </div>
+        <!-- 主页面标题 -->
+        <header class="mui-bar mui-bar-nav bar-nav">
+            <a class="mui-icon mui-action-back mui-icon-arrowleft mui-pull-left nav-back"></a>
+            <h1 class="mui-title">歌单</h1>
+        </header>
+        <div id='main' class="mui-content">
+            <div class="mui-content-padded">
+                <div class="mui-card song-list-intro">
+                    <div class="img-box"></div>
+                    <div class="mui-media-body song-list-info">
+                        <h1></h1>
+                        <p></p>
+                        <p></p>
+                    </div>
+                </div>
+                <div class="song-list-control">
+                    <span class="play-all">全部播放(6)</span>
+                    <span class="control-bars"></span>
+                </div>
+                <div id="song-list" class="mui-slider-item mui-control-content mui-active">
+                    <div class="mui-scroll-wrapper">
+                        <div class="mui-scroll">
+                            <ul class="mui-table-view">
+                                <div class="mui-loading">
+                                    <div class="mui-spinner">
+                                    </div>
+                                </div>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="item-menu" class="mui-popover mui-popover-bottom mui-popover-action ">
+                <ul class="mui-table-view">
+                    <!-- 所有列表都有这些操作 -->
+                    <li class="mui-table-view-cell self-list-opt history-opt favourite-opt other-opt" id="item-menu-add">添加到播放列表</li>
+                    <!-- <li class="mui-table-view-cell item-menu-collect self-list-opt history-opt favourite-opt other-opt">收藏到：<span></span></li> -->
+                    <!-- 自己、历史、喜欢列表，有这些操作 -->
+                    <li class="mui-table-view-cell self-list-opt history-opt favourite-opt" id="item-menu-rm">删除</li>
+                </ul>
+            </div>
+            <div id="list-menu" class="mui-popover mui-popover-bottom mui-popover-action ">
+                <ul class="mui-table-view">
+                    <!-- 自己的列表，有这些操作 -->
+                    <li class="mui-table-view-cell self-list-opt" id="list-menu-set">修改信息</li>
+                    <li class="mui-table-view-cell self-list-opt" id="list-menu-rm">删除</li>
+                    <!-- 历史列表，有这些操作 -->
+                    <li class="mui-table-view-cell history-opt" id="list-menu-clr">清空</li>
+                    <!-- 他人列表，有这些操作 -->
+                    <li class="mui-table-view-cell other-opt" id="list-menu-collect">收藏此列表</li>
+                </ul>
+            </div>
+        </div>
+    </body>
 </html>
