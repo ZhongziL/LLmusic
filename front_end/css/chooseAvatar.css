@@ -1,0 +1,89 @@
+html {
+    height: 100%;
+}
+
+body {
+    font-family: "微软雅黑";
+    overflow: hidden;
+    height: 100%;
+}
+
+.mui-content {
+    height: 100%;
+}
+
+.bar-nav {
+    background-color: darkcyan;
+}
+
+.nav-back {
+    color: white;
+}
+
+.mui-title {
+    color: white;
+}
+
+.mui-bar-nav {
+    box-shadow: none;
+}
+
+.bar-nav a:active {
+    color: white;
+}
+
+.bar-nav p {
+    color: white;
+    margin: 3%;
+}
+
+.mui-icon-more {
+    color: white;
+}
+
+/* 列表 */
+#avatar-list {
+    top: 44px;
+}
+
+#avatar-list ul {
+    padding: 0;
+    margin: 0;
+}
+
+.avatar {
+    display: inline-block;
+    list-style: none;
+    width: 80px;
+    height: 80px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.avatar-active {
+    border-color: red;
+    border-width: 3px;
+    border-style: solid;
+    box-sizing: border-box;
+}
+
+/* 确定按钮 */
+#confirm {
+    position: absolute;
+    bottom: -60px;
+    left: 30%;
+    width: 40%;
+    background-color: white;
+    border-color: darkcyan;
+    color: darkcyan;
+}
+
+#confirm:active {
+    background-color: darkcyan;
+    color: white;
+}
+
+.mui-loading {
+    padding: 10px;
+}

@@ -28,234 +28,131 @@ body {
 	color: white;
 }
 
-.playing-song {
-	height: 10%;
-	box-shadow: 0px 0 0px rgba(0, 0, 0, .5), 0px 0 0px rgba(0, 0, 0, .5);
-}
-
-.playing-song-cover {
-	width: calc(5vw + 5vh);
-	height: calc(5vw + 5vh);
-	margin: 3%;
-	border-radius: 50%;
-	background-image: url('../resources/photo.jpg');
-	background-size: 100%;
-	background-repeat: no-repeat;
-	float: left;
-}
-
-.playing-song h1 {
-	width: 40%;
-	margin-top: calc(1.8vw + 1.8vh);
-	font-size: calc(1.5vw + 1.5vh);
-	float: left;
-}
-
-.playing-song p {
-	width: 40%;
-	font-size: calc(1.25vw + 1.25vh);
-	float: left;
-	padding: 0;
-}
-
-.playing-button {
-	width: 5vh;
-	height: 5vh;
-	margin: 5% 2%;
-	border-radius: 50%;
-	background-size: 100%;
-	background-repeat: no-repeat;
-	float: right;
-}
-
-.playing {
-	background-image: url('../resources/play.png');
-}
-
-.music-queue {
-	background-image: url('../resources/mus-queue.png');
-	margin-right: 7%;
-}
-
-.mui-card {
+/* 用户信息 */
+#user-part {
 	margin: 0;
-	margin-bottom: 1px;
-	box-shadow: none;
-}
-
-.mui-card-content-inner {
-	padding: 3px;
-}
-
-.song-list-intro {
-	overflow: hidden;
-	margin-top: -1px;
-	background-color: darkcyan;
 	border-radius: 0;
-}
-
-.song-list-intro .img-box {
-	float: left;
-	overflow: hidden;
-	margin: 3%;
-	text-align: center;
-}
-
-.song-list-intro .img-box img {
-	width: 30%;
-	border-radius: 50%;
-}
-
-.song-list-intro h1 {
-	font-size: 135%;
-	margin: 3%;
-	color: white;
-	text-align: center;
-}
-
-.interact-lists {
-	margin-top: -1px;
+	padding: 10px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 	background-color: darkcyan;
-	border-radius: 0;
 }
 
-.interact-num {
-	width: 50%;
-	float: left;
-	text-align: center;
-	margin-top: 3%;
-	margin-bottom: 3%;
+.user-avatar {
+	height: 80px;
+	width: 80px;
+	margin-top: 30px;
+	border-radius: 50%;
+	background-image: url(../resources/llmusic.svg);
+	background-position: center;
+	background-size: cover;
 }
 
-.interact-num p {
+#user-part > p {
 	color: white;
-	margin: 0;
+	font-size: 24px;
+	margin-top: 20px;
+	margin-bottom: 50px;
 }
 
-.like-title {
-	text-align: center;
-}
-
-.like-title p {
-	color: black;
-	font-size: 120%;
-	margin-top: 2px;
-	margin-left: 3%;
-	font-weight: bold;
-}
-
-.like-title a {
-	color: darkcyan;
-}
-
-.song-list-control .play-all {
-	float: left;
-	margin: 0;
-	width: 25px;
-	height: 25px;
-	background-image: url(../resources/play.png);
-	background-repeat: no-repeat;
-	background-size: 100%;
-}
-
-.song-list-control p {
-	float: left;
-	color: black;
-	font-size: 130%;
-	margin-top: 2px;
-	margin-left: 3%;
-	font-weight: bold;
-}
-
-.song-list-control .control-bars {
-	float: right;
-	margin: 0;
-	width: 20px;
-	height: 20px;
-	background-image: url(../resources/menu-darkcyan.svg);
-	background-repeat: no-repeat;
-	background-size: 100%;
-}
-
-.mui-control-content {
-	min-height: 415px;
-}
-.mui-control-content .mui-loading {
-	margin-top: 150px;
-}
-
-.song-control-bar img {
+#user-info {
 	width: 100%;
+	display: flex;
+	flex-direction: row;
+	position: relative;
 }
 
-
-.search-history-list {
-	margin-bottom: 5%;
+.user-nums {
+	width: 50%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	font-size: 14px;
+	color: white;
 }
 
-.sort-icon {
+#focus:after {
+	content: ' ';
+	width: 1px;
+	background-color: white;
+	position: absolute;
+	left: 50%;
+	top: 0;
+	bottom: 0;
+}
+
+/* 滚动区域 */
+#song-lists {
+	height: calc(100vh - 263px - 44px);
+	margin: 0;
+}
+
+#user-flavor {
+	margin: 10px 15px;
+	position: relative;
 	color: gray;
-	float: right;
 }
 
-.mui-table-view-cell {
-	padding-left: 6%;
+#user-flavor span {
+	font-size: 18px;
+	color: gray;
 }
 
-.mui-table-view-cell .song-num {
-	float: left;
-	font-size: 100%;
-	margin-top: 5%;
-	margin-right: 5%;
+#user-lists-title {
+	position: relative;
+	width: 100vw;
+	margin: 10px 0;
+	text-align: center;
 }
 
-.mui-table-view-cell .song-name {
-	width: 50%;
-	font-size: 100%;
-	float: left;
-	margin: 1%;
+ul {
+	position: relative;
 }
 
-.mui-table-view-cell a {
-	float: right;
-	color: darkgrey;
+#song-lists ul:after {
+	content: '1';
+	height: 1px;
+	background-color: gray;
+	position: absolute;
+	left: -15px;
+	right: -15px;
+	bottom: 0;
 }
 
-.mui-table-view-cell p {
-	width: 50%;
-	font-size: 80%;
-	float: left;
-	margin: 1%;
+#song-lists ul:before {
+	content: '1';
+	height: 1px;
+	background-color: gray;
+	position: absolute;
+	left: -15px;
+	right: -15px;
+	top: 0px;
 }
 
-.mui-table-view-cell span {
-	margin-top: 48%;
-	color: black;
+#user-lists-title p {
+	color: gray;
 }
 
-.mui-table-view-cell img {
-	margin-top: 0.5%;
+#user-lists-title span {
+	position: absolute;
+	top: 0;
+	right: 10px;
+	font-size: 18px;
+	color: gray;
+	border: solid 1px gray;
+	border-radius: 50%;
 }
 
-.mui-media-object {
-	width: 15%;
+#scroll li div {
+	text-overflow: ellipsis;
+	margin-right: 20px;
 }
 
-.my-like {
-	font-size: 120%;
-	width: 50%;
-	float: left;
-	margin: 1%;
-	text-align: left;
-	padding-left: 3%;
+.mui-loading {
+    padding: 10px 0;
 }
 
-.my-like-num {
-	width: 50%;
-	font-size: 110%;
-	font-weight: 100;
-	float: left;
-	margin: 2%;
-	padding-left: 3%;
-	text-align: left;
+#focus-menu li {
+    color: darkcyan;
 }

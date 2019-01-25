@@ -1,0 +1,96 @@
+/* 播放条的样式 */
+#play-nav {
+	font-size: 0;
+	width: 100%;
+	height: 100px;
+	display: flex;
+    box-shadow: none;
+}
+
+#play-nav-cover {
+	position: absolute;
+	left: 15px;
+	top: 15px;
+	height: 70px;
+	width: 70px;
+	background-image: url('../resources/llmusic.svg');
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	border-radius: 50%;
+}
+
+#play-nav-info {
+	position: absolute;
+	left: 100px;
+	top: 0;
+	bottom: 0;
+	width: calc(100% - 230px);
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+#play-nav-info > p:first-child {
+	margin: 0;
+	width: 100%;
+	height: 24px;
+	line-height: 24px;
+	font-size: 24px;
+	font-weight: bold;
+	color: black;
+}
+
+#play-nav-info > p:last-child {
+	margin: 10px 0 0 0;
+	width: 100%;
+	height: 14px;
+	line-height: 14px;
+	font-size: 14px;
+}
+
+.play-nav-button {
+	position: absolute;
+	top: 25px;
+	margin-right: 10px;
+	width: 50px;
+	height: 50px;
+	background-size: 100%;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+#play-nav-button-play {
+	right: 70px;
+	background-image: url(../resources/play.png);
+}
+
+#play-nav-button-queue {
+	right: 10px;
+	background-image: url(../resources/mus-queue.png);
+}
+
+
+#play-nav-queue li {
+	font-size: 18px;
+	color: darkcyan;
+	text-align: left;
+}
+
+#play-nav-queue li:after {
+	left: 15px;
+	right: 0;
+}
+
+#play-nav-queue button {
+    margin-left: calc(50% - 55px);
+    margin-bottom: 10px;
+    border-color: darkcyan;
+    color: darkcyan;
+}
+
+#play-nav-queue button:active {
+    background: darkcyan;
+    color: white;
+}

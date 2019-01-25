@@ -12,29 +12,31 @@
 		<link rel="stylesheet" href="../css/mui.min.css">
 		<link rel="stylesheet" href="../css/signUp.css">
 		<!--App自定义的css-->
-		<!-- <link rel="stylesheet" type="text/css" href="../css/app.css" /> -->
+		<script src='../js/mui.min.js'></script>
+		<script src="../js/jquery-3.3.1.min.js"></script>
+		<script src='../js/jquery_cookie.js'></script>
         <script src="../js/signIn.js"></script>
 	</head>
 
 	<body>
 		<header class="mui-bar mui-bar-nav">
-			<a class="mui-icon mui-icon-left-nav mui-pull-left" href="../index.html"></a>
-			<a href="signUp.html"><p class="mui-pull-right">注册</p></a>
+			<p class="mui-icon mui-icon-left-nav mui-pull-left"></p>
+			<p class="mui-pull-right">注册</p>
 		</header>
 		<div class="mui-content">
-			<div class="mui-content-padded" style="margin: 5px;">
+			<div class="mui-content-padded">
 				<div class="app-title">
-					<img src="../resources/llmusic.svg" alt="" />
-					<h1>LLMusic</h1>
+					<img src="../resources/llmusic.svg"/>
+					<p>LLMusic</p>
 				</div>
 				<form class="mui-input-group">
 					<div class="mui-input-row">
 						<label>账号</label>
-						<input type="text" placeholder="用户名/邮箱/手机号">
+						<input type="text" placeholder="用户名/邮箱/手机号" autocomplete="off" />
 					</div>
 					<div class="mui-input-row mui-password">
 						<label>密码</label>
-						<input type="password" placeholder="请输入密码">
+						<input type="password" placeholder="请输入密码" autocomplete="off" />
 					</div>
 					<div class="mui-button-row">
 						<button type="button" class="mui-btn mui-btn-primary">确认登录</button>
@@ -42,8 +44,5 @@
 				</form>
 			</div>
 		</div>
-		<script src="../js/mui.min.js"></script>
-		<script src="../js/signIn.js"></script>
 	</body>
-
 </html>
