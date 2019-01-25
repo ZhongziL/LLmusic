@@ -4,10 +4,13 @@ var llmusic = null;
 // 刷新页面上的歌单列表
 function addLists(type) {
     var lists;
-    if (type == "self")
+    if (type == "self") {
+        $("li.self").remove();
         lists = llmusic.AudioManager.musicLists;
-    else
+    } else {
+        $("li.collect").remove();
         lists = llmusic.AudioManager.collectLists;
+    }
     for (var i = 0; i < lists.length; i++) {
         if (!lists[i].cover)
             lists[i].cover = "../resources/music.png"
@@ -33,11 +36,13 @@ function addListener() {
         if (event.currentTarget.className.includes("self"))
             llmusic.PageManager.values = {
                 id: event.currentTarget.id,
+                listName: $(event.currentTarget).find("span")[0].textContent,
                 username: llmusic.UserManager.userInfo.username
             }
         else
             llmusic.PageManager.values = {
                 id: event.currentTarget.id,
+                listName: $(event.currentTarget).find("span")[0].textContent,
                 username: null
             }
         llmusic.PageManager.open('pages/songList.html');
@@ -155,6 +160,7 @@ window.onload = function() {
 
     // 切换列表种类
     $('#list-title span').bind(llmusic.tap, (event) => {
+        mui('.mui-scroll-wrapper').scroll().scrollTo(0,0,100);
         if (!event.currentTarget.className.includes('listClass-active')) {
             var spans = $('#list-title span')
             if (spans[0].className == "listClass-active") {
@@ -209,7 +215,8 @@ window.onload = function() {
                         },
                         success: (data, text) => {
                             if (data.list_id) {
-                                renewLists();
+                                addLists("self");
+                                addListener();
                             } else {
                                 mui.toast('添加失败');
                             }

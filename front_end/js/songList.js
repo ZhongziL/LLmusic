@@ -56,9 +56,12 @@ window.onload = function() {
     // 播放条刷新
     parent.AudioManager.init($('#play-nav')[0], $('#play-nav-queue')[0]);
 
+    console.log(parent.PageManager.values)
+
     // 操作菜单更新
     list = {
         id: parent.PageManager.values.id,
+        name: parent.PageManager.values.listName,
         creater: parent.PageManager.values.username
     }
     // 操作菜单：收藏到其他列表
@@ -216,7 +219,7 @@ window.onload = function() {
     // 列表的菜单
     $("#list-menu-set").bind(parent.tap, () => {
         mui("#list-menu").popover("hide");
-        parent.Tools.prompt("修改歌单名", ['请输入新的歌单名'], ['确定', '取消'], (event) => {
+        parent.Tools.prompt("修改歌单信息", ['请输入新的歌单名'], ['确定', '取消'], (event) => {
             if (event.index == 0) {
                 // 校验输入合法性
                 var tmp = true;
@@ -366,7 +369,6 @@ function _other_list() {
             break;
         }
     }
-    
     
     $(".other-opt").css("display", "block");
     parent.AudioManager.NET.getMusicInList({

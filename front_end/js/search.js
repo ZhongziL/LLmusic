@@ -54,8 +54,11 @@ function renewResultList_song() {
 
     $(".song-item").bind(parent.tap, (event) => {
         event.stopPropagation();
-        mui("#song-item-menu").popover('show');
         $("#song-item-menu ul")[0].setAttribute("id", event.currentTarget.id);
+        if ($("#song-item-menu li").length == 0)
+            mui.toast("您未创建过歌单，无法收藏")
+        else
+            mui("#song-item-menu").popover('show');
     });
 }
 
@@ -100,18 +103,7 @@ window.onload = function() {
     $("#search-result").css("display", "none");
     $("#search-input input").focus();
 
-    $(".search-history-list").empty();
-    parent.AudioManager.NET.insertSearch_history({
-        options: "server"
-    });
-    for (let i = 0; i < parent.AudioManager.search_history.length; i++) {
-        $(".search-history-list").append(
-            '<li class="mui-table-view-cell">' +
-            '    <a>' + parent.AudioManager.search_history[i] + '</a>' +
-            '    <span class="mui-icon mui-icon-closeempty delete-icon"></span>' +
-            '</li>'
-        );
-    }
+    loadHistory();
 
     // 返回按键
     $(".nav-back").bind(parent.tap, () => {
@@ -123,6 +115,12 @@ window.onload = function() {
         if (event.keyCode == KEYCODE_ENTER && $("#search-input input").val() != "") {
             search_song($("#search-input input").val())
             search_user($("#search-input input").val())
+        } else {
+            $("#search-input input")[0].blur();
+            loadHistory();
+            $("#search-tips").css("display", "block");
+            $("#search-result").css("display", "none");
+            mui.toast("搜索词为空")
         }
     });
 
@@ -219,4 +217,19 @@ window.onload = function() {
         $(event.currentTarget.parentNode).remove();
         console.log($(event.currentTarget.parentNode).find("a").textContent)
     });
+}
+
+function loadHistory() {
+    $(".search-history-list").empty();
+    parent.AudioManager.NET.insertSearch_history({
+        options: "server"
+    });
+    for (let i = 0; i < parent.AudioManager.search_history.length; i++) {
+        $(".search-history-list").append(
+            '<li class="mui-table-view-cell">' +
+            '    <a>' + parent.AudioManager.search_history[i] + '</a>' +
+            '    <span class="mui-icon mui-icon-closeempty delete-icon"></span>' +
+            '</li>'
+        );
+    }
 }
