@@ -5,43 +5,74 @@ var MusicList = mongoose.model("MusicList");
 
 exports.loveSong = function(req, res) {
     if(req.session.user){
-        var song_hash = req.body.file_Hash;
-        var song_url = req.body.song_url;
+        var song_hash = req.body.song_hash;
+        var song_url = req.body.mp3;
         var singer = req.body.singer;
         var song_name = req.body.song_name;
 		var username = req.body.username;
+		var img = req.body.img;
+		var lyrics = req.body.song_word;
 
-		var song = new Music({'song_hash' : song_hash});
-		song.set('song_url', song_url);
-        song.set('singer_name', singer);
-        song.set('song_name', song_name);
-        // song.set('song_words', song_words);
-        song.save(function(err) {
-            User.findOne({username: username})
-                .exec(function(err, user) {
-                    if(user) {
-                        var favourite_music = user.favourite_music;
-                        lists.push(song._id);
-                        user.set('favourite_music', favourite_music);
-                        user.save(function (err) {
-                           if(err) {
-                               res.status(200).json(err);
-                               res.end();
-                           } else {
-                               res.status(200).json("ok");
-                               res.end();
-                           }
-                        });
-                    } else {
-                        req.session.msg = 'no user';
-                        res.status(200).json("no user");
+		Music.findOne({song_hash: song_hash}).exec(function (err, music) {
+            if (music) {
+                User.findOne({username: username})
+                    .exec(function(err5, user) {
+                        if(user) {
+                            var favourite_music = user.favourite_music;
+                            favourite_music.push(music._id);
+                            user.set('favourite_music', favourite_music);
+                            user.save(function (err4) {
+                               if(err4) {
+                                   res.status(200).json(err4);
+                                   res.end();
+                               } else {
+                                   res.status(200).json("ok");
+                                   res.end();
+                               }
+                            });
+                        } else {
+                            // req.session.msg = 'no user';
+                            res.status(200).json("no user");
+                            res.end();
+                        }
+                    });
+            } else {
+                var song = new Music({'song_hash' : song_hash});
+                song.set('song_url', song_url);
+                song.set('singer_name', singer);
+                song.set('song_name', song_name);
+                song.set('song_words', lyrics);
+                song.set('song_img', img);
+                // song.set('song_words', song_words);
+                song.save(function(err1) {
+                    if (err1) {
+                        res.status(200).json(err1);
                         res.end();
+                    } else {
+                        User.findOne({username: username})
+                            .exec(function (err2, user) {
+                                if (user) {
+                                    var favourite_music = user.favourite_music;
+                                    favourite_music.push(song._id);
+                                    user.set('favourite_music', favourite_music);
+                                    user.save(function (err3) {
+                                        if (err3) {
+                                            res.status(200).json(err3);
+                                            res.end();
+                                        } else {
+                                            res.status(200).json("ok");
+                                            res.end();
+                                        }
+                                    });
+                                } else {
+                                    // req.session.msg = 'no user';
+                                    res.status(200).json("no user");
+                                    res.end();
+                                }
+                            });
                     }
                 });
-            // if(err) {
-            //     res.status(200).json(err);
-            //     res.end();
-            // }
+            }
         });
     } else {
 		res.status(200).json("no login");

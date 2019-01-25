@@ -128,7 +128,7 @@ function searchrequest(url, data) {
 // searchrequest(url, search_data);
 var data1 = {
     username: "Liu",
-    list_id: "5c22fa7662a9da74c8ac15b3"
+    // list_id: "5c22fa7662a9da74c8ac15b3"
 };
 function removeListrequest(url, data) {
     request({
@@ -146,7 +146,7 @@ function removeListrequest(url, data) {
     });
 }
 
-var url1 = "http://localhost:5000/removeUserList";
+var url1 = "http://localhost:5000/removeLiuFavouriteSong";
 // removeListrequest(url1, data1);
 
 var file = "./pictures/6.jpg";

@@ -65,6 +65,7 @@ module.exports = function(app) {
 	app.get('/logout', user.logout);
 
 	app.get('/getMusicLists', music.getMusicLists);
+	app.get('/getCollectLists', music.getCollectLists);
 
 	app.get('/getMusicInList', music.getMusicsInList);
 
@@ -75,6 +76,7 @@ module.exports = function(app) {
 	app.post('/addMusicToList', music.addMusicToList);
 
 	app.post('/removeList', music.removeList);
+	app.post('/removeCollectList', music.removeCollectList);
 
 	app.post('/removeUserList', music.removeUserList);
 
@@ -91,6 +93,9 @@ module.exports = function(app) {
 	app.post('/getFavouriteSongList', music.getFavouriteSongList);
 
 	app.post('/addMusic', music.addMusic);
+
+	app.post('/removeFavouriteSong', music.removeFavouriteSong);
+	app.post('/removeLiuFavouriteSong', music.removeLiuFavouriteSong);
 
 	// app.post('/addFavouriteMusic', music.addFavouriteMusic);
 

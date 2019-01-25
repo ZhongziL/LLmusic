@@ -67,7 +67,7 @@ exports.getMusicLists = function(req, res) {
                     // res.end();
                 } else {
                     console.log(err);
-                    req.session.msg = 'no user';
+                    // req.session.msg = 'no user';
                     res.status(200).json("no user");
                     res.end();
                 }
@@ -139,7 +139,7 @@ exports.getMusicsInList = function(req, res) {
                     // res.status(200).json(name_list);
                     // res.end();
                 } else {
-                    req.session.msg = 'no musicList';
+                    // req.session.msg = 'no musicList';
                     res.status(200).json("no musicList");
                     res.end();
                 }
@@ -525,6 +525,38 @@ exports.removeList = function (req, res) {
 	}
 };
 
+exports.removeCollectList = function (req, res) {
+    if(req.session.user){
+		var list_id = ObjectID(req.body.list_id);
+        var username = req.body.username;
+
+        User.findOne({username: username}).exec(function (err, user) {
+            if(user) {
+                var lists = user.collect_lists;
+
+                lists.remove(list_id);
+
+                user.set('collect_lists', lists);
+                user.save(function (err) {
+                   if(err) {
+                       res.status(200).json(err);
+                       res.end();
+                   } else {
+                       res.status(200).json("ok");
+                       res.end();
+                   }
+                });
+            } else {
+                res.status(200).json("no user");
+                res.end();
+            }
+        });
+    } else {
+		res.status(200).json("no login");
+		res.end();
+	}
+};
+
 
 exports.removeSong = function (req, res) {
     if(req.session.user) {
@@ -556,6 +588,75 @@ exports.removeSong = function (req, res) {
         res.status(200).json("no login");
         res.end();
     }
+};
+
+exports.removeFavouriteSong = function (req, res) {
+    if(req.session.user) {
+        var username = req.body.username;
+        var song_id = ObjectID(req.body.song_id);
+
+        // var song_words = req.body.song_word;
+
+        User.findOne({username : username}).exec(function (err, user) {
+            if (user) {
+                var songL = user.favourite_music;
+                songL.remove(song_id);
+                user.set('favourite_music', songL);
+                user.save(function(err) {
+                    if (err) {
+                        res.status(200).json(err);
+                        res.end();
+                    } else {
+                        var data = {
+                            msg: "remove",
+                            id: song_id,
+                            username: username,
+                        };
+                        res.status(200).json(data);
+                        res.end();
+                    }
+                });
+            } else {
+                res.status(200).json("no user");
+                res.end();
+            }
+        });
+    } else {
+        res.status(200).json("no login");
+        res.end();
+    }
+};
+
+exports.removeLiuFavouriteSong = function (req, res) {
+    var username = req.body.username;
+    // var song_id = ObjectID(req.body.song_id);
+
+    // var song_words = req.body.song_word;
+
+    User.findOne({username : username}).exec(function (err, user) {
+        if (user) {
+            // var songL = user.favourite_music;
+            // songL.remove(song_id);
+            user.set('favourite_music', []);
+            user.save(function(err) {
+                if (err) {
+                    res.status(200).json(err);
+                    res.end();
+                } else {
+                    // var data = {
+                    //     msg: "remove",
+                    //     id: song_id,
+                    //     username: username,
+                    // };
+                    res.status(200).json("ok");
+                    res.end();
+                }
+            });
+        } else {
+            res.status(200).json("no user");
+            res.end();
+        }
+    });
 };
 
 exports.changeListName = function (req, res) {
@@ -617,6 +718,61 @@ exports.collectList = function (req, res) {
                 res.end();
             }
         });
+    } else {
+		res.status(200).json("no login");
+		res.end();
+	}
+};
+
+exports.getCollectLists = function (req, res) {
+    if(req.session.user){
+		var username = req.query.username;
+
+		console.log(username);
+
+        User.findOne({username: username})
+            .exec(function(err, user) {
+                if(user) {
+                    // console.log("ok");
+                    var musicLists = user.collect_lists;
+                    var name_list = {name_list: []};
+
+                    console.log(musicLists.length);
+                    if (musicLists.length === 0) {
+                        res.status(200).json(name_list);
+                        res.end();
+                    } else {
+
+                        (function iterator(i) {
+                            console.log(i);
+                            MusicList.findOne({_id: musicLists[i]})
+                                .exec(function (err, musiclist) {
+                                    if (err) {
+                                        res.status(200).json(err);
+                                        res.end();
+                                    } else {
+                                        var name = {
+                                            name: musiclist.list_name,
+                                            id: musiclist._id,
+                                            description: musiclist.description
+                                        };
+                                        name_list.name_list.push(name);
+
+                                        if (i + 1 === musicLists.length) {
+                                            res.status(200).json(name_list);
+                                            res.end();
+                                        } else {
+                                            iterator(i + 1);
+                                        }
+                                    }
+                                });
+                        })(0);
+                    }
+                } else {
+                    res.status(200).json("no user");
+                    res.end();
+                }
+            });
     } else {
 		res.status(200).json("no login");
 		res.end();
@@ -688,14 +844,43 @@ exports.getFavouriteSongList = function (req, res) {
 
         User.findOne({username: username}).exec(function (err, user) {
             if(user) {
-                var lists = user.favourite_music;
+                var musics = user.favourite_music;
 
-                var data = {
-                    favourite_music : lists
-                };
+                var name_list = {name_list: []};
 
-                res.status(200).json(data);
-                res.end();
+                if (musics.length === 0) {
+                    res.status(200).json(name_list);
+                    res.end();
+                } else {
+
+                    (function iterator(i) {
+                        Music.findOne({_id: musics[i]})
+                            .exec(function (err, song) {
+                                if (err) {
+                                    res.status(200).json(err);
+                                    res.end();
+                                } else {
+                                    var name = {
+                                        song_hash: song.song_hash,
+                                        song_name: song.song_name,
+                                        singer_name: song.singer_name,
+                                        song_url : song.song_url,
+                                        song_img : song.song_img,
+                                        song_words: song.song_words,
+                                        id: song._id
+                                    };
+                                    name_list.name_list.push(name);
+
+                                    if (i + 1 === musics.length) {
+                                        res.status(200).json(name_list);
+                                        res.end();
+                                    } else {
+                                        iterator(i + 1);
+                                    }
+                                }
+                            });
+                    })(0);
+                }
 
             } else {
                 res.status(200).json("no user");
