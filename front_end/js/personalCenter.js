@@ -18,6 +18,7 @@ function addSelfList() {
     $("#self-lists li").bind(parent.tap, (event) => {
         parent.PageManager.values = {
             id: event.currentTarget.id,
+            listName: $(event.currentTarget).find("span")[0].textContent,
             username: userInfo.username
         }
         parent.PageManager.open('pages/songList.html');
@@ -43,6 +44,7 @@ function addCollcetList() {
     $("#collect-lists li").bind(parent.tap, (event) => {
         parent.PageManager.values = {
             id: event.currentTarget.id,
+            listName: $(event.currentTarget).find("span")[0].textContent,
             username: null
         }
         parent.PageManager.open('pages/songList.html');
